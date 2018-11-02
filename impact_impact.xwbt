@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/michi/workspace/light52/impact.xsl
+OUTFILE=/home/michi/workspace/light52/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/michi/workspace/light52
+LICENSE=iMPACT
+USER_INFO=iMPACT

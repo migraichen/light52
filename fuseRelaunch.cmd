@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/michi/workspace/light52/light52_isim_tb_isim_beh.exe" -prj "/home/michi/workspace/light52/light52_isim_tb_beh.prj" "work.light52_isim_tb" 

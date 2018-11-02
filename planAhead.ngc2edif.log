@@ -1,0 +1,52 @@
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design light52_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to light52_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/irq_level_inputs<2 : 0> on block light52_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/ucode_2nd_half_reg<15 : 0> on block light52_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/alu_class_op_sel_reg<3 : 0> on block light52_top is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus socket_light52_mcu/cpu/irq_vector<5 : 0>
+   on block light52_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus socket_light52_mcu/cpu/ps_ps<6 : 1> on
+   block light52_top is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file light52_top.edif ...
+ngc2edif: Total memory usage is 109544 kilobytes
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design light52_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to light52_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/irq_level_inputs<2 : 0> on block light52_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/ucode_2nd_half_reg<15 : 0> on block light52_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   socket_light52_mcu/cpu/alu_class_op_sel_reg<3 : 0> on block light52_top is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus socket_light52_mcu/cpu/irq_vector<5 : 0>
+   on block light52_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus socket_light52_mcu/cpu/ps_ps<6 : 1> on
+   block light52_top is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file light52_top.edif ...
+ngc2edif: Total memory usage is 109544 kilobytes
+

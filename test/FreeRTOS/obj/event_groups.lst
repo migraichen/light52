@@ -1,0 +1,2105 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.8.0 #10562 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module event_groups
+                                      6 	.optsdcc -mmcs51 --model-large
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _uxTaskResetEventItemValue
+                                     12 	.globl _vTaskRemoveFromUnorderedEventList
+                                     13 	.globl _vTaskPlaceOnUnorderedEventList
+                                     14 	.globl _xTaskResumeAll
+                                     15 	.globl _vTaskSuspendAll
+                                     16 	.globl _vListInitialise
+                                     17 	.globl _vPortFree
+                                     18 	.globl _pvPortMalloc
+                                     19 	.globl _vPortYield
+                                     20 	.globl _P3_7
+                                     21 	.globl _P3_6
+                                     22 	.globl _P3_5
+                                     23 	.globl _P3_4
+                                     24 	.globl _P3_3
+                                     25 	.globl _P3_2
+                                     26 	.globl _P3_1
+                                     27 	.globl _P3_0
+                                     28 	.globl _P2_7
+                                     29 	.globl _P2_6
+                                     30 	.globl _P2_5
+                                     31 	.globl _P2_4
+                                     32 	.globl _P2_3
+                                     33 	.globl _P2_2
+                                     34 	.globl _P2_1
+                                     35 	.globl _P2_0
+                                     36 	.globl _P1_7
+                                     37 	.globl _P1_6
+                                     38 	.globl _P1_5
+                                     39 	.globl _P1_4
+                                     40 	.globl _P1_3
+                                     41 	.globl _P1_2
+                                     42 	.globl _P1_1
+                                     43 	.globl _P1_0
+                                     44 	.globl _P0_7
+                                     45 	.globl _P0_6
+                                     46 	.globl _P0_5
+                                     47 	.globl _P0_4
+                                     48 	.globl _P0_3
+                                     49 	.globl _P0_2
+                                     50 	.globl _P0_1
+                                     51 	.globl _P0_0
+                                     52 	.globl _EIRQ7
+                                     53 	.globl _EIRQ6
+                                     54 	.globl _EIRQ5
+                                     55 	.globl _EIRQ4
+                                     56 	.globl _EIRQ3
+                                     57 	.globl _EIRQ2
+                                     58 	.globl _EIRQ1
+                                     59 	.globl _EIRQ0
+                                     60 	.globl _T0CEN
+                                     61 	.globl _T0ARL
+                                     62 	.globl _T0IRQ
+                                     63 	.globl _RXRDY
+                                     64 	.globl _TXRDY
+                                     65 	.globl _RXIRQ
+                                     66 	.globl _TXIRQ
+                                     67 	.globl _EEX
+                                     68 	.globl _ET0
+                                     69 	.globl _ES
+                                     70 	.globl _EA
+                                     71 	.globl _P3
+                                     72 	.globl _P2
+                                     73 	.globl _P1
+                                     74 	.globl _P0
+                                     75 	.globl _EXTINT
+                                     76 	.globl _T0CH
+                                     77 	.globl _T0CL
+                                     78 	.globl _T0H
+                                     79 	.globl _T0L
+                                     80 	.globl _TCON
+                                     81 	.globl _SBPH
+                                     82 	.globl _SBPL
+                                     83 	.globl _SBUF
+                                     84 	.globl _SCON
+                                     85 	.globl _IE
+                                     86 	.globl _DPL
+                                     87 	.globl _DPH
+                                     88 	.globl _SP
+                                     89 	.globl _PSW
+                                     90 	.globl _B
+                                     91 	.globl _ACC
+                                     92 	.globl _xEventGroupCreate
+                                     93 	.globl _xEventGroupSync
+                                     94 	.globl _xEventGroupWaitBits
+                                     95 	.globl _xEventGroupClearBits
+                                     96 	.globl _xEventGroupGetBitsFromISR
+                                     97 	.globl _xEventGroupSetBits
+                                     98 	.globl _vEventGroupDelete
+                                     99 	.globl _vEventGroupSetBitsCallback
+                                    100 	.globl _vEventGroupClearBitsCallback
+                                    101 ;--------------------------------------------------------
+                                    102 ; special function registers
+                                    103 ;--------------------------------------------------------
+                                    104 	.area RSEG    (ABS,DATA)
+      000000                        105 	.org 0x0000
+                           0000E0   106 G$ACC$0_0$0 == 0x00e0
+                           0000E0   107 _ACC	=	0x00e0
+                           0000F0   108 G$B$0_0$0 == 0x00f0
+                           0000F0   109 _B	=	0x00f0
+                           0000D0   110 G$PSW$0_0$0 == 0x00d0
+                           0000D0   111 _PSW	=	0x00d0
+                           000081   112 G$SP$0_0$0 == 0x0081
+                           000081   113 _SP	=	0x0081
+                           000083   114 G$DPH$0_0$0 == 0x0083
+                           000083   115 _DPH	=	0x0083
+                           000082   116 G$DPL$0_0$0 == 0x0082
+                           000082   117 _DPL	=	0x0082
+                           0000A8   118 G$IE$0_0$0 == 0x00a8
+                           0000A8   119 _IE	=	0x00a8
+                           000098   120 G$SCON$0_0$0 == 0x0098
+                           000098   121 _SCON	=	0x0098
+                           000099   122 G$SBUF$0_0$0 == 0x0099
+                           000099   123 _SBUF	=	0x0099
+                           00009A   124 G$SBPL$0_0$0 == 0x009a
+                           00009A   125 _SBPL	=	0x009a
+                           00009B   126 G$SBPH$0_0$0 == 0x009b
+                           00009B   127 _SBPH	=	0x009b
+                           000088   128 G$TCON$0_0$0 == 0x0088
+                           000088   129 _TCON	=	0x0088
+                           00008C   130 G$T0L$0_0$0 == 0x008c
+                           00008C   131 _T0L	=	0x008c
+                           00008D   132 G$T0H$0_0$0 == 0x008d
+                           00008D   133 _T0H	=	0x008d
+                           00008E   134 G$T0CL$0_0$0 == 0x008e
+                           00008E   135 _T0CL	=	0x008e
+                           00008F   136 G$T0CH$0_0$0 == 0x008f
+                           00008F   137 _T0CH	=	0x008f
+                           0000C0   138 G$EXTINT$0_0$0 == 0x00c0
+                           0000C0   139 _EXTINT	=	0x00c0
+                           000080   140 G$P0$0_0$0 == 0x0080
+                           000080   141 _P0	=	0x0080
+                           000090   142 G$P1$0_0$0 == 0x0090
+                           000090   143 _P1	=	0x0090
+                           0000A0   144 G$P2$0_0$0 == 0x00a0
+                           0000A0   145 _P2	=	0x00a0
+                           0000B0   146 G$P3$0_0$0 == 0x00b0
+                           0000B0   147 _P3	=	0x00b0
+                                    148 ;--------------------------------------------------------
+                                    149 ; special function bits
+                                    150 ;--------------------------------------------------------
+                                    151 	.area RSEG    (ABS,DATA)
+      000000                        152 	.org 0x0000
+                           0000AF   153 G$EA$0_0$0 == 0x00af
+                           0000AF   154 _EA	=	0x00af
+                           0000AC   155 G$ES$0_0$0 == 0x00ac
+                           0000AC   156 _ES	=	0x00ac
+                           0000A9   157 G$ET0$0_0$0 == 0x00a9
+                           0000A9   158 _ET0	=	0x00a9
+                           0000A8   159 G$EEX$0_0$0 == 0x00a8
+                           0000A8   160 _EEX	=	0x00a8
+                           00009C   161 G$TXIRQ$0_0$0 == 0x009c
+                           00009C   162 _TXIRQ	=	0x009c
+                           00009D   163 G$RXIRQ$0_0$0 == 0x009d
+                           00009D   164 _RXIRQ	=	0x009d
+                           00009C   165 G$TXRDY$0_0$0 == 0x009c
+                           00009C   166 _TXRDY	=	0x009c
+                           00009D   167 G$RXRDY$0_0$0 == 0x009d
+                           00009D   168 _RXRDY	=	0x009d
+                           000088   169 G$T0IRQ$0_0$0 == 0x0088
+                           000088   170 _T0IRQ	=	0x0088
+                           00008C   171 G$T0ARL$0_0$0 == 0x008c
+                           00008C   172 _T0ARL	=	0x008c
+                           00008D   173 G$T0CEN$0_0$0 == 0x008d
+                           00008D   174 _T0CEN	=	0x008d
+                           0000C0   175 G$EIRQ0$0_0$0 == 0x00c0
+                           0000C0   176 _EIRQ0	=	0x00c0
+                           0000C1   177 G$EIRQ1$0_0$0 == 0x00c1
+                           0000C1   178 _EIRQ1	=	0x00c1
+                           0000C2   179 G$EIRQ2$0_0$0 == 0x00c2
+                           0000C2   180 _EIRQ2	=	0x00c2
+                           0000C3   181 G$EIRQ3$0_0$0 == 0x00c3
+                           0000C3   182 _EIRQ3	=	0x00c3
+                           0000C4   183 G$EIRQ4$0_0$0 == 0x00c4
+                           0000C4   184 _EIRQ4	=	0x00c4
+                           0000C5   185 G$EIRQ5$0_0$0 == 0x00c5
+                           0000C5   186 _EIRQ5	=	0x00c5
+                           0000C6   187 G$EIRQ6$0_0$0 == 0x00c6
+                           0000C6   188 _EIRQ6	=	0x00c6
+                           0000C7   189 G$EIRQ7$0_0$0 == 0x00c7
+                           0000C7   190 _EIRQ7	=	0x00c7
+                           000080   191 G$P0_0$0_0$0 == 0x0080
+                           000080   192 _P0_0	=	0x0080
+                           000081   193 G$P0_1$0_0$0 == 0x0081
+                           000081   194 _P0_1	=	0x0081
+                           000082   195 G$P0_2$0_0$0 == 0x0082
+                           000082   196 _P0_2	=	0x0082
+                           000083   197 G$P0_3$0_0$0 == 0x0083
+                           000083   198 _P0_3	=	0x0083
+                           000084   199 G$P0_4$0_0$0 == 0x0084
+                           000084   200 _P0_4	=	0x0084
+                           000085   201 G$P0_5$0_0$0 == 0x0085
+                           000085   202 _P0_5	=	0x0085
+                           000086   203 G$P0_6$0_0$0 == 0x0086
+                           000086   204 _P0_6	=	0x0086
+                           000087   205 G$P0_7$0_0$0 == 0x0087
+                           000087   206 _P0_7	=	0x0087
+                           000090   207 G$P1_0$0_0$0 == 0x0090
+                           000090   208 _P1_0	=	0x0090
+                           000091   209 G$P1_1$0_0$0 == 0x0091
+                           000091   210 _P1_1	=	0x0091
+                           000092   211 G$P1_2$0_0$0 == 0x0092
+                           000092   212 _P1_2	=	0x0092
+                           000093   213 G$P1_3$0_0$0 == 0x0093
+                           000093   214 _P1_3	=	0x0093
+                           000094   215 G$P1_4$0_0$0 == 0x0094
+                           000094   216 _P1_4	=	0x0094
+                           000095   217 G$P1_5$0_0$0 == 0x0095
+                           000095   218 _P1_5	=	0x0095
+                           000096   219 G$P1_6$0_0$0 == 0x0096
+                           000096   220 _P1_6	=	0x0096
+                           000097   221 G$P1_7$0_0$0 == 0x0097
+                           000097   222 _P1_7	=	0x0097
+                           0000A0   223 G$P2_0$0_0$0 == 0x00a0
+                           0000A0   224 _P2_0	=	0x00a0
+                           0000A1   225 G$P2_1$0_0$0 == 0x00a1
+                           0000A1   226 _P2_1	=	0x00a1
+                           0000A2   227 G$P2_2$0_0$0 == 0x00a2
+                           0000A2   228 _P2_2	=	0x00a2
+                           0000A3   229 G$P2_3$0_0$0 == 0x00a3
+                           0000A3   230 _P2_3	=	0x00a3
+                           0000A4   231 G$P2_4$0_0$0 == 0x00a4
+                           0000A4   232 _P2_4	=	0x00a4
+                           0000A5   233 G$P2_5$0_0$0 == 0x00a5
+                           0000A5   234 _P2_5	=	0x00a5
+                           0000A6   235 G$P2_6$0_0$0 == 0x00a6
+                           0000A6   236 _P2_6	=	0x00a6
+                           0000A7   237 G$P2_7$0_0$0 == 0x00a7
+                           0000A7   238 _P2_7	=	0x00a7
+                           0000B0   239 G$P3_0$0_0$0 == 0x00b0
+                           0000B0   240 _P3_0	=	0x00b0
+                           0000B1   241 G$P3_1$0_0$0 == 0x00b1
+                           0000B1   242 _P3_1	=	0x00b1
+                           0000B2   243 G$P3_2$0_0$0 == 0x00b2
+                           0000B2   244 _P3_2	=	0x00b2
+                           0000B3   245 G$P3_3$0_0$0 == 0x00b3
+                           0000B3   246 _P3_3	=	0x00b3
+                           0000B4   247 G$P3_4$0_0$0 == 0x00b4
+                           0000B4   248 _P3_4	=	0x00b4
+                           0000B5   249 G$P3_5$0_0$0 == 0x00b5
+                           0000B5   250 _P3_5	=	0x00b5
+                           0000B6   251 G$P3_6$0_0$0 == 0x00b6
+                           0000B6   252 _P3_6	=	0x00b6
+                           0000B7   253 G$P3_7$0_0$0 == 0x00b7
+                           0000B7   254 _P3_7	=	0x00b7
+                                    255 ;--------------------------------------------------------
+                                    256 ; overlayable register banks
+                                    257 ;--------------------------------------------------------
+                                    258 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        259 	.ds 8
+                                    260 ;--------------------------------------------------------
+                                    261 ; internal ram data
+                                    262 ;--------------------------------------------------------
+                                    263 	.area DSEG    (DATA)
+                                    264 ;--------------------------------------------------------
+                                    265 ; overlayable items in internal ram 
+                                    266 ;--------------------------------------------------------
+                                    267 ;--------------------------------------------------------
+                                    268 ; indirectly addressable internal ram data
+                                    269 ;--------------------------------------------------------
+                                    270 	.area ISEG    (DATA)
+                                    271 ;--------------------------------------------------------
+                                    272 ; absolute internal ram data
+                                    273 ;--------------------------------------------------------
+                                    274 	.area IABS    (ABS,DATA)
+                                    275 	.area IABS    (ABS,DATA)
+                                    276 ;--------------------------------------------------------
+                                    277 ; bit data
+                                    278 ;--------------------------------------------------------
+                                    279 	.area BSEG    (BIT)
+                                    280 ;--------------------------------------------------------
+                                    281 ; paged external ram data
+                                    282 ;--------------------------------------------------------
+                                    283 	.area PSEG    (PAG,XDATA)
+                                    284 ;--------------------------------------------------------
+                                    285 ; external ram data
+                                    286 ;--------------------------------------------------------
+                                    287 	.area XSEG    (XDATA)
+                                    288 ;--------------------------------------------------------
+                                    289 ; absolute external ram data
+                                    290 ;--------------------------------------------------------
+                                    291 	.area XABS    (ABS,XDATA)
+                                    292 ;--------------------------------------------------------
+                                    293 ; external initialized ram data
+                                    294 ;--------------------------------------------------------
+                                    295 	.area HOME    (CODE)
+                                    296 	.area GSINIT0 (CODE)
+                                    297 	.area GSINIT1 (CODE)
+                                    298 	.area GSINIT2 (CODE)
+                                    299 	.area GSINIT3 (CODE)
+                                    300 	.area GSINIT4 (CODE)
+                                    301 	.area GSINIT5 (CODE)
+                                    302 	.area GSINIT  (CODE)
+                                    303 	.area GSFINAL (CODE)
+                                    304 	.area CSEG    (CODE)
+                                    305 ;--------------------------------------------------------
+                                    306 ; global & static initialisations
+                                    307 ;--------------------------------------------------------
+                                    308 	.area HOME    (CODE)
+                                    309 	.area GSINIT  (CODE)
+                                    310 	.area GSFINAL (CODE)
+                                    311 	.area GSINIT  (CODE)
+                                    312 ;--------------------------------------------------------
+                                    313 ; Home
+                                    314 ;--------------------------------------------------------
+                                    315 	.area HOME    (CODE)
+                                    316 	.area HOME    (CODE)
+                                    317 ;--------------------------------------------------------
+                                    318 ; code
+                                    319 ;--------------------------------------------------------
+                                    320 	.area CSEG    (CODE)
+                                    321 ;------------------------------------------------------------
+                                    322 ;Allocation info for local variables in function 'xEventGroupCreate'
+                                    323 ;------------------------------------------------------------
+                                    324 ;pxEventBits               Allocated to registers r5 r6 r7 
+                                    325 ;------------------------------------------------------------
+                           000000   326 	G$xEventGroupCreate$0$0 ==.
+                           000000   327 	C$event_groups.c$145$0_0$129 ==.
+                                    328 ;	src/FreeRTOS/event_groups.c:145: EventGroupHandle_t xEventGroupCreate( void )
+                                    329 ;	-----------------------------------------
+                                    330 ;	 function xEventGroupCreate
+                                    331 ;	-----------------------------------------
+      000000                        332 _xEventGroupCreate:
+                           000007   333 	ar7 = 0x07
+                           000006   334 	ar6 = 0x06
+                           000005   335 	ar5 = 0x05
+                           000004   336 	ar4 = 0x04
+                           000003   337 	ar3 = 0x03
+                           000002   338 	ar2 = 0x02
+                           000001   339 	ar1 = 0x01
+                           000000   340 	ar0 = 0x00
+                           000000   341 	C$event_groups.c$162$1_0$129 ==.
+                                    342 ;	src/FreeRTOS/event_groups.c:162: pxEventBits = ( EventGroup_t * ) pvPortMalloc( sizeof( EventGroup_t ) ); /*lint !e9087 !e9079 see comment above. */
+      000000 90 00 0E         [24]  343 	mov	dptr,#0x000e
+      000003 12r00r00         [24]  344 	lcall	_pvPortMalloc
+      000006 AD 82            [24]  345 	mov	r5,dpl
+      000008 AE 83            [24]  346 	mov	r6,dph
+      00000A AF F0            [24]  347 	mov	r7,b
+                           00000C   348 	C$event_groups.c$164$1_0$129 ==.
+                                    349 ;	src/FreeRTOS/event_groups.c:164: if( pxEventBits != NULL )
+      00000C ED               [12]  350 	mov	a,r5
+      00000D 4E               [12]  351 	orl	a,r6
+      00000E 60 2C            [24]  352 	jz	00102$
+                           000010   353 	C$event_groups.c$166$2_0$130 ==.
+                                    354 ;	src/FreeRTOS/event_groups.c:166: pxEventBits->uxEventBits = 0;
+      000010 8D 82            [24]  355 	mov	dpl,r5
+      000012 8E 83            [24]  356 	mov	dph,r6
+      000014 8F F0            [24]  357 	mov	b,r7
+      000016 E4               [12]  358 	clr	a
+      000017 12r00r00         [24]  359 	lcall	__gptrput
+      00001A A3               [24]  360 	inc	dptr
+      00001B 12r00r00         [24]  361 	lcall	__gptrput
+                           00001E   362 	C$event_groups.c$167$2_0$130 ==.
+                                    363 ;	src/FreeRTOS/event_groups.c:167: vListInitialise( &( pxEventBits->xTasksWaitingForBits ) );
+      00001E 74 02            [12]  364 	mov	a,#0x02
+      000020 2D               [12]  365 	add	a,r5
+      000021 FA               [12]  366 	mov	r2,a
+      000022 E4               [12]  367 	clr	a
+      000023 3E               [12]  368 	addc	a,r6
+      000024 FB               [12]  369 	mov	r3,a
+      000025 8F 04            [24]  370 	mov	ar4,r7
+      000027 8A 82            [24]  371 	mov	dpl,r2
+      000029 8B 83            [24]  372 	mov	dph,r3
+      00002B 8C F0            [24]  373 	mov	b,r4
+      00002D C0 07            [24]  374 	push	ar7
+      00002F C0 06            [24]  375 	push	ar6
+      000031 C0 05            [24]  376 	push	ar5
+      000033 12r00r00         [24]  377 	lcall	_vListInitialise
+      000036 D0 05            [24]  378 	pop	ar5
+      000038 D0 06            [24]  379 	pop	ar6
+      00003A D0 07            [24]  380 	pop	ar7
+      00003C                        381 00102$:
+                           00003C   382 	C$event_groups.c$185$1_0$129 ==.
+                                    383 ;	src/FreeRTOS/event_groups.c:185: return pxEventBits;
+      00003C 8D 82            [24]  384 	mov	dpl,r5
+      00003E 8E 83            [24]  385 	mov	dph,r6
+      000040 8F F0            [24]  386 	mov	b,r7
+                           000042   387 	C$event_groups.c$186$1_0$129 ==.
+                                    388 ;	src/FreeRTOS/event_groups.c:186: }
+                           000042   389 	C$event_groups.c$186$1_0$129 ==.
+                           000042   390 	XG$xEventGroupCreate$0$0 ==.
+      000042 22               [24]  391 	ret
+                                    392 ;------------------------------------------------------------
+                                    393 ;Allocation info for local variables in function 'xEventGroupSync'
+                                    394 ;------------------------------------------------------------
+                                    395 ;uxBitsToSet               Allocated to stack - _bp -4
+                                    396 ;uxBitsToWaitFor           Allocated to stack - _bp -6
+                                    397 ;xTicksToWait              Allocated to stack - _bp -8
+                                    398 ;xEventGroup               Allocated to stack - _bp +1
+                                    399 ;uxOriginalBitValue        Allocated to registers r7 r6 
+                                    400 ;uxReturn                  Allocated to stack - _bp +7
+                                    401 ;pxEventBits               Allocated to stack - _bp +4
+                                    402 ;xAlreadyYielded           Allocated to registers r7 
+                                    403 ;xTimeoutOccurred          Allocated to registers 
+                                    404 ;sloc0                     Allocated to stack - _bp +13
+                                    405 ;------------------------------------------------------------
+                           000043   406 	G$xEventGroupSync$0$0 ==.
+                           000043   407 	C$event_groups.c$191$1_0$133 ==.
+                                    408 ;	src/FreeRTOS/event_groups.c:191: EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, const EventBits_t uxBitsToWaitFor, TickType_t xTicksToWait )
+                                    409 ;	-----------------------------------------
+                                    410 ;	 function xEventGroupSync
+                                    411 ;	-----------------------------------------
+      000043                        412 _xEventGroupSync:
+      000043 C0*00            [24]  413 	push	_bp
+      000045 85 81*00         [24]  414 	mov	_bp,sp
+      000048 C0 82            [24]  415 	push	dpl
+      00004A C0 83            [24]  416 	push	dph
+      00004C C0 F0            [24]  417 	push	b
+      00004E E5 81            [12]  418 	mov	a,sp
+      000050 24 05            [12]  419 	add	a,#0x05
+      000052 F5 81            [12]  420 	mov	sp,a
+                           000054   421 	C$event_groups.c$194$2_0$133 ==.
+                                    422 ;	src/FreeRTOS/event_groups.c:194: EventGroup_t *pxEventBits = xEventGroup;
+      000054 A8*00            [24]  423 	mov	r0,_bp
+      000056 08               [12]  424 	inc	r0
+      000057 E5*00            [12]  425 	mov	a,_bp
+      000059 24 04            [12]  426 	add	a,#0x04
+      00005B F9               [12]  427 	mov	r1,a
+      00005C E6               [12]  428 	mov	a,@r0
+      00005D F7               [12]  429 	mov	@r1,a
+      00005E 08               [12]  430 	inc	r0
+      00005F 09               [12]  431 	inc	r1
+      000060 E6               [12]  432 	mov	a,@r0
+      000061 F7               [12]  433 	mov	@r1,a
+      000062 08               [12]  434 	inc	r0
+      000063 09               [12]  435 	inc	r1
+      000064 E6               [12]  436 	mov	a,@r0
+      000065 F7               [12]  437 	mov	@r1,a
+                           000066   438 	C$event_groups.c$206$1_0$133 ==.
+                                    439 ;	src/FreeRTOS/event_groups.c:206: vTaskSuspendAll();
+      000066 12r00r00         [24]  440 	lcall	_vTaskSuspendAll
+                           000069   441 	C$event_groups.c$208$2_0$134 ==.
+                                    442 ;	src/FreeRTOS/event_groups.c:208: uxOriginalBitValue = pxEventBits->uxEventBits;
+      000069 A8*00            [24]  443 	mov	r0,_bp
+      00006B 08               [12]  444 	inc	r0
+      00006C 86 82            [24]  445 	mov	dpl,@r0
+      00006E 08               [12]  446 	inc	r0
+      00006F 86 83            [24]  447 	mov	dph,@r0
+      000071 08               [12]  448 	inc	r0
+      000072 86 F0            [24]  449 	mov	b,@r0
+      000074 12r00r00         [24]  450 	lcall	__gptrget
+      000077 FF               [12]  451 	mov	r7,a
+      000078 A3               [24]  452 	inc	dptr
+      000079 12r00r00         [24]  453 	lcall	__gptrget
+      00007C FE               [12]  454 	mov	r6,a
+                           00007D   455 	C$event_groups.c$210$2_0$134 ==.
+                                    456 ;	src/FreeRTOS/event_groups.c:210: ( void ) xEventGroupSetBits( xEventGroup, uxBitsToSet );
+      00007D C0 07            [24]  457 	push	ar7
+      00007F C0 06            [24]  458 	push	ar6
+      000081 E5*00            [12]  459 	mov	a,_bp
+      000083 24 FC            [12]  460 	add	a,#0xfc
+      000085 F8               [12]  461 	mov	r0,a
+      000086 E6               [12]  462 	mov	a,@r0
+      000087 C0 E0            [24]  463 	push	acc
+      000089 08               [12]  464 	inc	r0
+      00008A E6               [12]  465 	mov	a,@r0
+      00008B C0 E0            [24]  466 	push	acc
+      00008D A8*00            [24]  467 	mov	r0,_bp
+      00008F 08               [12]  468 	inc	r0
+      000090 86 82            [24]  469 	mov	dpl,@r0
+      000092 08               [12]  470 	inc	r0
+      000093 86 83            [24]  471 	mov	dph,@r0
+      000095 08               [12]  472 	inc	r0
+      000096 86 F0            [24]  473 	mov	b,@r0
+      000098 12r04rCF         [24]  474 	lcall	_xEventGroupSetBits
+      00009B 15 81            [12]  475 	dec	sp
+      00009D 15 81            [12]  476 	dec	sp
+      00009F D0 06            [24]  477 	pop	ar6
+      0000A1 D0 07            [24]  478 	pop	ar7
+                           0000A3   479 	C$event_groups.c$212$2_0$134 ==.
+                                    480 ;	src/FreeRTOS/event_groups.c:212: if( ( ( uxOriginalBitValue | uxBitsToSet ) & uxBitsToWaitFor ) == uxBitsToWaitFor )
+      0000A3 E5*00            [12]  481 	mov	a,_bp
+      0000A5 24 FC            [12]  482 	add	a,#0xfc
+      0000A7 F8               [12]  483 	mov	r0,a
+      0000A8 E6               [12]  484 	mov	a,@r0
+      0000A9 4F               [12]  485 	orl	a,r7
+      0000AA FA               [12]  486 	mov	r2,a
+      0000AB 08               [12]  487 	inc	r0
+      0000AC E6               [12]  488 	mov	a,@r0
+      0000AD 4E               [12]  489 	orl	a,r6
+      0000AE FC               [12]  490 	mov	r4,a
+      0000AF E5*00            [12]  491 	mov	a,_bp
+      0000B1 24 FA            [12]  492 	add	a,#0xfa
+      0000B3 F8               [12]  493 	mov	r0,a
+      0000B4 E6               [12]  494 	mov	a,@r0
+      0000B5 52 02            [12]  495 	anl	ar2,a
+      0000B7 08               [12]  496 	inc	r0
+      0000B8 E6               [12]  497 	mov	a,@r0
+      0000B9 52 04            [12]  498 	anl	ar4,a
+      0000BB E5*00            [12]  499 	mov	a,_bp
+      0000BD 24 FA            [12]  500 	add	a,#0xfa
+      0000BF F8               [12]  501 	mov	r0,a
+      0000C0 E6               [12]  502 	mov	a,@r0
+      0000C1 B5 02 07         [24]  503 	cjne	a,ar2,00147$
+      0000C4 08               [12]  504 	inc	r0
+      0000C5 E6               [12]  505 	mov	a,@r0
+      0000C6 B5 04 02         [24]  506 	cjne	a,ar4,00147$
+      0000C9 80 02            [24]  507 	sjmp	00148$
+      0000CB                        508 00147$:
+      0000CB 80 51            [24]  509 	sjmp	00105$
+      0000CD                        510 00148$:
+                           0000CD   511 	C$event_groups.c$215$3_0$135 ==.
+                                    512 ;	src/FreeRTOS/event_groups.c:215: uxReturn = ( uxOriginalBitValue | uxBitsToSet );
+      0000CD E5*00            [12]  513 	mov	a,_bp
+      0000CF 24 FC            [12]  514 	add	a,#0xfc
+      0000D1 F8               [12]  515 	mov	r0,a
+      0000D2 E6               [12]  516 	mov	a,@r0
+      0000D3 4F               [12]  517 	orl	a,r7
+      0000D4 FB               [12]  518 	mov	r3,a
+      0000D5 08               [12]  519 	inc	r0
+      0000D6 E6               [12]  520 	mov	a,@r0
+      0000D7 4E               [12]  521 	orl	a,r6
+      0000D8 FC               [12]  522 	mov	r4,a
+                           0000D9   523 	C$event_groups.c$219$3_0$135 ==.
+                                    524 ;	src/FreeRTOS/event_groups.c:219: pxEventBits->uxEventBits &= ~uxBitsToWaitFor;
+      0000D9 A8*00            [24]  525 	mov	r0,_bp
+      0000DB 08               [12]  526 	inc	r0
+      0000DC 86 82            [24]  527 	mov	dpl,@r0
+      0000DE 08               [12]  528 	inc	r0
+      0000DF 86 83            [24]  529 	mov	dph,@r0
+      0000E1 08               [12]  530 	inc	r0
+      0000E2 86 F0            [24]  531 	mov	b,@r0
+      0000E4 12r00r00         [24]  532 	lcall	__gptrget
+      0000E7 FA               [12]  533 	mov	r2,a
+      0000E8 A3               [24]  534 	inc	dptr
+      0000E9 12r00r00         [24]  535 	lcall	__gptrget
+      0000EC FF               [12]  536 	mov	r7,a
+      0000ED E5*00            [12]  537 	mov	a,_bp
+      0000EF 24 FA            [12]  538 	add	a,#0xfa
+      0000F1 F8               [12]  539 	mov	r0,a
+      0000F2 E6               [12]  540 	mov	a,@r0
+      0000F3 F4               [12]  541 	cpl	a
+      0000F4 FD               [12]  542 	mov	r5,a
+      0000F5 08               [12]  543 	inc	r0
+      0000F6 E6               [12]  544 	mov	a,@r0
+      0000F7 F4               [12]  545 	cpl	a
+      0000F8 FE               [12]  546 	mov	r6,a
+      0000F9 ED               [12]  547 	mov	a,r5
+      0000FA 52 02            [12]  548 	anl	ar2,a
+      0000FC EE               [12]  549 	mov	a,r6
+      0000FD 52 07            [12]  550 	anl	ar7,a
+      0000FF A8*00            [24]  551 	mov	r0,_bp
+      000101 08               [12]  552 	inc	r0
+      000102 86 82            [24]  553 	mov	dpl,@r0
+      000104 08               [12]  554 	inc	r0
+      000105 86 83            [24]  555 	mov	dph,@r0
+      000107 08               [12]  556 	inc	r0
+      000108 86 F0            [24]  557 	mov	b,@r0
+      00010A EA               [12]  558 	mov	a,r2
+      00010B 12r00r00         [24]  559 	lcall	__gptrput
+      00010E A3               [24]  560 	inc	dptr
+      00010F EF               [12]  561 	mov	a,r7
+      000110 12r00r00         [24]  562 	lcall	__gptrput
+                           000113   563 	C$event_groups.c$221$3_0$135 ==.
+                                    564 ;	src/FreeRTOS/event_groups.c:221: xTicksToWait = 0;
+      000113 E5*00            [12]  565 	mov	a,_bp
+      000115 24 F8            [12]  566 	add	a,#0xf8
+      000117 F8               [12]  567 	mov	r0,a
+      000118 E4               [12]  568 	clr	a
+      000119 F6               [12]  569 	mov	@r0,a
+      00011A 08               [12]  570 	inc	r0
+      00011B F6               [12]  571 	mov	@r0,a
+      00011C 80 5D            [24]  572 	sjmp	00106$
+      00011E                        573 00105$:
+                           00011E   574 	C$event_groups.c$225$3_0$136 ==.
+                                    575 ;	src/FreeRTOS/event_groups.c:225: if( xTicksToWait != ( TickType_t ) 0 )
+      00011E E5*00            [12]  576 	mov	a,_bp
+      000120 24 F8            [12]  577 	add	a,#0xf8
+      000122 F8               [12]  578 	mov	r0,a
+      000123 E6               [12]  579 	mov	a,@r0
+      000124 08               [12]  580 	inc	r0
+      000125 46               [12]  581 	orl	a,@r0
+      000126 60 3F            [24]  582 	jz	00102$
+                           000128   583 	C$event_groups.c$232$4_0$137 ==.
+                                    584 ;	src/FreeRTOS/event_groups.c:232: vTaskPlaceOnUnorderedEventList( &( pxEventBits->xTasksWaitingForBits ), ( uxBitsToWaitFor | eventCLEAR_EVENTS_ON_EXIT_BIT | eventWAIT_FOR_ALL_BITS ), xTicksToWait );
+      000128 E5*00            [12]  585 	mov	a,_bp
+      00012A 24 FA            [12]  586 	add	a,#0xfa
+      00012C F8               [12]  587 	mov	r0,a
+      00012D 86 06            [24]  588 	mov	ar6,@r0
+      00012F 74 05            [12]  589 	mov	a,#0x05
+      000131 08               [12]  590 	inc	r0
+      000132 46               [12]  591 	orl	a,@r0
+      000133 FC               [12]  592 	mov	r4,a
+      000134 A8*00            [24]  593 	mov	r0,_bp
+      000136 08               [12]  594 	inc	r0
+      000137 74 02            [12]  595 	mov	a,#0x02
+      000139 26               [12]  596 	add	a,@r0
+      00013A FA               [12]  597 	mov	r2,a
+      00013B E4               [12]  598 	clr	a
+      00013C 08               [12]  599 	inc	r0
+      00013D 36               [12]  600 	addc	a,@r0
+      00013E FD               [12]  601 	mov	r5,a
+      00013F 08               [12]  602 	inc	r0
+      000140 86 07            [24]  603 	mov	ar7,@r0
+      000142 E5*00            [12]  604 	mov	a,_bp
+      000144 24 F8            [12]  605 	add	a,#0xf8
+      000146 F8               [12]  606 	mov	r0,a
+      000147 E6               [12]  607 	mov	a,@r0
+      000148 C0 E0            [24]  608 	push	acc
+      00014A 08               [12]  609 	inc	r0
+      00014B E6               [12]  610 	mov	a,@r0
+      00014C C0 E0            [24]  611 	push	acc
+      00014E C0 06            [24]  612 	push	ar6
+      000150 C0 04            [24]  613 	push	ar4
+      000152 8A 82            [24]  614 	mov	dpl,r2
+      000154 8D 83            [24]  615 	mov	dph,r5
+      000156 8F F0            [24]  616 	mov	b,r7
+      000158 12r00r00         [24]  617 	lcall	_vTaskPlaceOnUnorderedEventList
+      00015B E5 81            [12]  618 	mov	a,sp
+      00015D 24 FC            [12]  619 	add	a,#0xfc
+      00015F F5 81            [12]  620 	mov	sp,a
+                           000161   621 	C$event_groups.c$238$4_0$137 ==.
+                                    622 ;	src/FreeRTOS/event_groups.c:238: uxReturn = 0;
+      000161 7B 00            [12]  623 	mov	r3,#0x00
+      000163 7C 00            [12]  624 	mov	r4,#0x00
+      000165 80 14            [24]  625 	sjmp	00106$
+      000167                        626 00102$:
+                           000167   627 	C$event_groups.c$244$4_0$138 ==.
+                                    628 ;	src/FreeRTOS/event_groups.c:244: uxReturn = pxEventBits->uxEventBits;
+      000167 A8*00            [24]  629 	mov	r0,_bp
+      000169 08               [12]  630 	inc	r0
+      00016A 86 82            [24]  631 	mov	dpl,@r0
+      00016C 08               [12]  632 	inc	r0
+      00016D 86 83            [24]  633 	mov	dph,@r0
+      00016F 08               [12]  634 	inc	r0
+      000170 86 F0            [24]  635 	mov	b,@r0
+      000172 12r00r00         [24]  636 	lcall	__gptrget
+      000175 FB               [12]  637 	mov	r3,a
+      000176 A3               [24]  638 	inc	dptr
+      000177 12r00r00         [24]  639 	lcall	__gptrget
+      00017A FC               [12]  640 	mov	r4,a
+                           00017B   641 	C$event_groups.c$245$2_0$134 ==.
+                                    642 ;	src/FreeRTOS/event_groups.c:245: xTimeoutOccurred = pdTRUE;
+      00017B                        643 00106$:
+                           00017B   644 	C$event_groups.c$249$1_0$133 ==.
+                                    645 ;	src/FreeRTOS/event_groups.c:249: xAlreadyYielded = xTaskResumeAll();
+      00017B C0 04            [24]  646 	push	ar4
+      00017D C0 03            [24]  647 	push	ar3
+      00017F 12r00r00         [24]  648 	lcall	_xTaskResumeAll
+      000182 AF 82            [24]  649 	mov	r7,dpl
+      000184 D0 03            [24]  650 	pop	ar3
+      000186 D0 04            [24]  651 	pop	ar4
+                           000188   652 	C$event_groups.c$251$1_0$133 ==.
+                                    653 ;	src/FreeRTOS/event_groups.c:251: if( xTicksToWait != ( TickType_t ) 0 )
+      000188 E5*00            [12]  654 	mov	a,_bp
+      00018A 24 F8            [12]  655 	add	a,#0xf8
+      00018C F8               [12]  656 	mov	r0,a
+      00018D E6               [12]  657 	mov	a,@r0
+      00018E 08               [12]  658 	inc	r0
+      00018F 46               [12]  659 	orl	a,@r0
+      000190 70 03            [24]  660 	jnz	00150$
+      000192 02r02r3F         [24]  661 	ljmp	00114$
+      000195                        662 00150$:
+                           000195   663 	C$event_groups.c$253$2_0$139 ==.
+                                    664 ;	src/FreeRTOS/event_groups.c:253: if( xAlreadyYielded == pdFALSE )
+      000195 EF               [12]  665 	mov	a,r7
+      000196 70 03            [24]  666 	jnz	00108$
+                           000198   667 	C$event_groups.c$255$3_0$140 ==.
+                                    668 ;	src/FreeRTOS/event_groups.c:255: portYIELD_WITHIN_API();
+      000198 12r00r00         [24]  669 	lcall	_vPortYield
+      00019B                        670 00108$:
+                           00019B   671 	C$event_groups.c$266$2_0$139 ==.
+                                    672 ;	src/FreeRTOS/event_groups.c:266: uxReturn = uxTaskResetEventItemValue();
+      00019B 12r00r00         [24]  673 	lcall	_uxTaskResetEventItemValue
+      00019E AE 82            [24]  674 	mov	r6,dpl
+      0001A0 AF 83            [24]  675 	mov	r7,dph
+      0001A2 E5*00            [12]  676 	mov	a,_bp
+      0001A4 24 07            [12]  677 	add	a,#0x07
+      0001A6 F8               [12]  678 	mov	r0,a
+      0001A7 A6 06            [24]  679 	mov	@r0,ar6
+      0001A9 08               [12]  680 	inc	r0
+      0001AA A6 07            [24]  681 	mov	@r0,ar7
+                           0001AC   682 	C$event_groups.c$268$2_0$139 ==.
+                                    683 ;	src/FreeRTOS/event_groups.c:268: if( ( uxReturn & eventUNBLOCKED_DUE_TO_BIT_SET ) == ( EventBits_t ) 0 )
+      0001AC E5*00            [12]  684 	mov	a,_bp
+      0001AE 24 07            [12]  685 	add	a,#0x07
+      0001B0 F8               [12]  686 	mov	r0,a
+      0001B1 08               [12]  687 	inc	r0
+      0001B2 E6               [12]  688 	mov	a,@r0
+      0001B3 30 E1 03         [24]  689 	jnb	acc.1,00152$
+      0001B6 02r02r36         [24]  690 	ljmp	00112$
+      0001B9                        691 00152$:
+                           0001B9   692 	C$event_groups.c$271$3_0$142 ==.
+                                    693 ;	src/FreeRTOS/event_groups.c:271: taskENTER_CRITICAL();
+      0001B9 C0 E0            [24]  694 	push ACC 
+      0001BB C0 A8            [24]  695 	push IE 
+                                    696 ;	assignBit
+      0001BD C2 AF            [12]  697 	clr	_EA
+                           0001BF   698 	C$event_groups.c$273$4_0$143 ==.
+                                    699 ;	src/FreeRTOS/event_groups.c:273: uxReturn = pxEventBits->uxEventBits;
+      0001BF E5*00            [12]  700 	mov	a,_bp
+      0001C1 24 04            [12]  701 	add	a,#0x04
+      0001C3 F8               [12]  702 	mov	r0,a
+      0001C4 86 82            [24]  703 	mov	dpl,@r0
+      0001C6 08               [12]  704 	inc	r0
+      0001C7 86 83            [24]  705 	mov	dph,@r0
+      0001C9 08               [12]  706 	inc	r0
+      0001CA 86 F0            [24]  707 	mov	b,@r0
+      0001CC 12r00r00         [24]  708 	lcall	__gptrget
+      0001CF FA               [12]  709 	mov	r2,a
+      0001D0 A3               [24]  710 	inc	dptr
+      0001D1 12r00r00         [24]  711 	lcall	__gptrget
+      0001D4 FD               [12]  712 	mov	r5,a
+      0001D5 E5*00            [12]  713 	mov	a,_bp
+      0001D7 24 07            [12]  714 	add	a,#0x07
+      0001D9 F8               [12]  715 	mov	r0,a
+      0001DA A6 02            [24]  716 	mov	@r0,ar2
+      0001DC 08               [12]  717 	inc	r0
+      0001DD A6 05            [24]  718 	mov	@r0,ar5
+                           0001DF   719 	C$event_groups.c$279$4_0$143 ==.
+                                    720 ;	src/FreeRTOS/event_groups.c:279: if( ( uxReturn & uxBitsToWaitFor ) == uxBitsToWaitFor )
+      0001DF E5*00            [12]  721 	mov	a,_bp
+      0001E1 24 07            [12]  722 	add	a,#0x07
+      0001E3 F8               [12]  723 	mov	r0,a
+      0001E4 E5*00            [12]  724 	mov	a,_bp
+      0001E6 24 FA            [12]  725 	add	a,#0xfa
+      0001E8 F9               [12]  726 	mov	r1,a
+      0001E9 E7               [12]  727 	mov	a,@r1
+      0001EA 56               [12]  728 	anl	a,@r0
+      0001EB FE               [12]  729 	mov	r6,a
+      0001EC 09               [12]  730 	inc	r1
+      0001ED E7               [12]  731 	mov	a,@r1
+      0001EE 08               [12]  732 	inc	r0
+      0001EF 56               [12]  733 	anl	a,@r0
+      0001F0 FF               [12]  734 	mov	r7,a
+      0001F1 E5*00            [12]  735 	mov	a,_bp
+      0001F3 24 FA            [12]  736 	add	a,#0xfa
+      0001F5 F8               [12]  737 	mov	r0,a
+      0001F6 E6               [12]  738 	mov	a,@r0
+      0001F7 B5 06 07         [24]  739 	cjne	a,ar6,00153$
+      0001FA 08               [12]  740 	inc	r0
+      0001FB E6               [12]  741 	mov	a,@r0
+      0001FC B5 07 02         [24]  742 	cjne	a,ar7,00153$
+      0001FF 80 02            [24]  743 	sjmp	00154$
+      000201                        744 00153$:
+      000201 80 28            [24]  745 	sjmp	00110$
+      000203                        746 00154$:
+                           000203   747 	C$event_groups.c$281$5_0$144 ==.
+                                    748 ;	src/FreeRTOS/event_groups.c:281: pxEventBits->uxEventBits &= ~uxBitsToWaitFor;
+      000203 E5*00            [12]  749 	mov	a,_bp
+      000205 24 FA            [12]  750 	add	a,#0xfa
+      000207 F8               [12]  751 	mov	r0,a
+      000208 E6               [12]  752 	mov	a,@r0
+      000209 F4               [12]  753 	cpl	a
+      00020A FE               [12]  754 	mov	r6,a
+      00020B 08               [12]  755 	inc	r0
+      00020C E6               [12]  756 	mov	a,@r0
+      00020D F4               [12]  757 	cpl	a
+      00020E FF               [12]  758 	mov	r7,a
+      00020F EE               [12]  759 	mov	a,r6
+      000210 52 02            [12]  760 	anl	ar2,a
+      000212 EF               [12]  761 	mov	a,r7
+      000213 52 05            [12]  762 	anl	ar5,a
+      000215 E5*00            [12]  763 	mov	a,_bp
+      000217 24 04            [12]  764 	add	a,#0x04
+      000219 F8               [12]  765 	mov	r0,a
+      00021A 86 82            [24]  766 	mov	dpl,@r0
+      00021C 08               [12]  767 	inc	r0
+      00021D 86 83            [24]  768 	mov	dph,@r0
+      00021F 08               [12]  769 	inc	r0
+      000220 86 F0            [24]  770 	mov	b,@r0
+      000222 EA               [12]  771 	mov	a,r2
+      000223 12r00r00         [24]  772 	lcall	__gptrput
+      000226 A3               [24]  773 	inc	dptr
+      000227 ED               [12]  774 	mov	a,r5
+      000228 12r00r00         [24]  775 	lcall	__gptrput
+      00022B                        776 00110$:
+                           00022B   777 	C$event_groups.c$288$3_0$142 ==.
+                                    778 ;	src/FreeRTOS/event_groups.c:288: taskEXIT_CRITICAL();
+      00022B D0 E0            [24]  779 	pop ACC 
+      00022D 53 E0 80         [24]  780 	anl	_ACC,#0x80
+      000230 E5 E0            [12]  781 	mov	a,_ACC
+      000232 42 A8            [12]  782 	orl	_IE,a
+      000234 D0 E0            [24]  783 	pop ACC 
+                           000236   784 	C$event_groups.c$290$2_0$139 ==.
+                                    785 ;	src/FreeRTOS/event_groups.c:290: xTimeoutOccurred = pdTRUE;
+      000236                        786 00112$:
+                           000236   787 	C$event_groups.c$299$2_0$139 ==.
+                                    788 ;	src/FreeRTOS/event_groups.c:299: uxReturn &= ~eventEVENT_BITS_CONTROL_BYTES;
+      000236 E5*00            [12]  789 	mov	a,_bp
+      000238 24 07            [12]  790 	add	a,#0x07
+      00023A F8               [12]  791 	mov	r0,a
+      00023B 86 03            [24]  792 	mov	ar3,@r0
+      00023D 7C 00            [12]  793 	mov	r4,#0x00
+      00023F                        794 00114$:
+                           00023F   795 	C$event_groups.c$307$1_0$133 ==.
+                                    796 ;	src/FreeRTOS/event_groups.c:307: return uxReturn;
+      00023F 8B 82            [24]  797 	mov	dpl,r3
+      000241 8C 83            [24]  798 	mov	dph,r4
+                           000243   799 	C$event_groups.c$308$1_0$133 ==.
+                                    800 ;	src/FreeRTOS/event_groups.c:308: }
+      000243 85*00 81         [24]  801 	mov	sp,_bp
+      000246 D0*00            [24]  802 	pop	_bp
+                           000248   803 	C$event_groups.c$308$1_0$133 ==.
+                           000248   804 	XG$xEventGroupSync$0$0 ==.
+      000248 22               [24]  805 	ret
+                                    806 ;------------------------------------------------------------
+                                    807 ;Allocation info for local variables in function 'xEventGroupWaitBits'
+                                    808 ;------------------------------------------------------------
+                                    809 ;uxBitsToWaitFor           Allocated to stack - _bp -4
+                                    810 ;xClearOnExit              Allocated to stack - _bp -5
+                                    811 ;xWaitForAllBits           Allocated to stack - _bp -6
+                                    812 ;xTicksToWait              Allocated to stack - _bp -8
+                                    813 ;xEventGroup               Allocated to stack - _bp +1
+                                    814 ;pxEventBits               Allocated to stack - _bp +4
+                                    815 ;uxReturn                  Allocated to registers r6 r7 
+                                    816 ;uxControlBits             Allocated to registers r7 r6 
+                                    817 ;xWaitConditionMet         Allocated to registers r4 
+                                    818 ;xAlreadyYielded           Allocated to registers r7 
+                                    819 ;xTimeoutOccurred          Allocated to registers 
+                                    820 ;uxCurrentEventBits        Allocated to registers r5 r2 
+                                    821 ;sloc0                     Allocated to stack - _bp +16
+                                    822 ;------------------------------------------------------------
+                           000249   823 	G$xEventGroupWaitBits$0$0 ==.
+                           000249   824 	C$event_groups.c$311$1_0$148 ==.
+                                    825 ;	src/FreeRTOS/event_groups.c:311: EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToWaitFor, const BaseType_t xClearOnExit, const BaseType_t xWaitForAllBits, TickType_t xTicksToWait )
+                                    826 ;	-----------------------------------------
+                                    827 ;	 function xEventGroupWaitBits
+                                    828 ;	-----------------------------------------
+      000249                        829 _xEventGroupWaitBits:
+      000249 C0*00            [24]  830 	push	_bp
+      00024B 85 81*00         [24]  831 	mov	_bp,sp
+      00024E C0 82            [24]  832 	push	dpl
+      000250 C0 83            [24]  833 	push	dph
+      000252 C0 F0            [24]  834 	push	b
+      000254 05 81            [12]  835 	inc	sp
+      000256 05 81            [12]  836 	inc	sp
+      000258 05 81            [12]  837 	inc	sp
+                           00025A   838 	C$event_groups.c$313$2_0$148 ==.
+                                    839 ;	src/FreeRTOS/event_groups.c:313: EventGroup_t *pxEventBits = xEventGroup;
+      00025A A8*00            [24]  840 	mov	r0,_bp
+      00025C 08               [12]  841 	inc	r0
+      00025D E5*00            [12]  842 	mov	a,_bp
+      00025F 24 04            [12]  843 	add	a,#0x04
+      000261 F9               [12]  844 	mov	r1,a
+      000262 E6               [12]  845 	mov	a,@r0
+      000263 F7               [12]  846 	mov	@r1,a
+      000264 08               [12]  847 	inc	r0
+      000265 09               [12]  848 	inc	r1
+      000266 E6               [12]  849 	mov	a,@r0
+      000267 F7               [12]  850 	mov	@r1,a
+      000268 08               [12]  851 	inc	r0
+      000269 09               [12]  852 	inc	r1
+      00026A E6               [12]  853 	mov	a,@r0
+      00026B F7               [12]  854 	mov	@r1,a
+                           00026C   855 	C$event_groups.c$314$2_0$148 ==.
+                                    856 ;	src/FreeRTOS/event_groups.c:314: EventBits_t uxReturn, uxControlBits = 0;
+      00026C 7F 00            [12]  857 	mov	r7,#0x00
+      00026E 7E 00            [12]  858 	mov	r6,#0x00
+                           000270   859 	C$event_groups.c$329$1_0$148 ==.
+                                    860 ;	src/FreeRTOS/event_groups.c:329: vTaskSuspendAll();
+      000270 C0 07            [24]  861 	push	ar7
+      000272 C0 06            [24]  862 	push	ar6
+      000274 12r00r00         [24]  863 	lcall	_vTaskSuspendAll
+                           000277   864 	C$event_groups.c$331$2_0$149 ==.
+                                    865 ;	src/FreeRTOS/event_groups.c:331: const EventBits_t uxCurrentEventBits = pxEventBits->uxEventBits;
+      000277 A8*00            [24]  866 	mov	r0,_bp
+      000279 08               [12]  867 	inc	r0
+      00027A 86 82            [24]  868 	mov	dpl,@r0
+      00027C 08               [12]  869 	inc	r0
+      00027D 86 83            [24]  870 	mov	dph,@r0
+      00027F 08               [12]  871 	inc	r0
+      000280 86 F0            [24]  872 	mov	b,@r0
+      000282 12r00r00         [24]  873 	lcall	__gptrget
+      000285 FD               [12]  874 	mov	r5,a
+      000286 A3               [24]  875 	inc	dptr
+      000287 12r00r00         [24]  876 	lcall	__gptrget
+      00028A FA               [12]  877 	mov	r2,a
+                           00028B   878 	C$event_groups.c$334$2_0$149 ==.
+                                    879 ;	src/FreeRTOS/event_groups.c:334: xWaitConditionMet = prvTestWaitCondition( uxCurrentEventBits, uxBitsToWaitFor, xWaitForAllBits );
+      00028B C0 05            [24]  880 	push	ar5
+      00028D C0 02            [24]  881 	push	ar2
+      00028F E5*00            [12]  882 	mov	a,_bp
+      000291 24 FA            [12]  883 	add	a,#0xfa
+      000293 F8               [12]  884 	mov	r0,a
+      000294 E6               [12]  885 	mov	a,@r0
+      000295 C0 E0            [24]  886 	push	acc
+      000297 E5*00            [12]  887 	mov	a,_bp
+      000299 24 FC            [12]  888 	add	a,#0xfc
+      00029B F8               [12]  889 	mov	r0,a
+      00029C E6               [12]  890 	mov	a,@r0
+      00029D C0 E0            [24]  891 	push	acc
+      00029F 08               [12]  892 	inc	r0
+      0002A0 E6               [12]  893 	mov	a,@r0
+      0002A1 C0 E0            [24]  894 	push	acc
+      0002A3 8D 82            [24]  895 	mov	dpl,r5
+      0002A5 8A 83            [24]  896 	mov	dph,r2
+      0002A7 12r08r39         [24]  897 	lcall	_prvTestWaitCondition
+      0002AA AC 82            [24]  898 	mov	r4,dpl
+      0002AC 15 81            [12]  899 	dec	sp
+      0002AE 15 81            [12]  900 	dec	sp
+      0002B0 15 81            [12]  901 	dec	sp
+      0002B2 D0 02            [24]  902 	pop	ar2
+      0002B4 D0 05            [24]  903 	pop	ar5
+      0002B6 D0 06            [24]  904 	pop	ar6
+      0002B8 D0 07            [24]  905 	pop	ar7
+                           0002BA   906 	C$event_groups.c$336$2_0$149 ==.
+                                    907 ;	src/FreeRTOS/event_groups.c:336: if( xWaitConditionMet != pdFALSE )
+      0002BA EC               [12]  908 	mov	a,r4
+      0002BB 60 5C            [24]  909 	jz	00111$
+                           0002BD   910 	C$event_groups.c$340$3_0$150 ==.
+                                    911 ;	src/FreeRTOS/event_groups.c:340: uxReturn = uxCurrentEventBits;
+      0002BD 8D 03            [24]  912 	mov	ar3,r5
+      0002BF 8A 04            [24]  913 	mov	ar4,r2
+                           0002C1   914 	C$event_groups.c$341$3_0$150 ==.
+                                    915 ;	src/FreeRTOS/event_groups.c:341: xTicksToWait = ( TickType_t ) 0;
+      0002C1 E5*00            [12]  916 	mov	a,_bp
+      0002C3 24 F8            [12]  917 	add	a,#0xf8
+      0002C5 F8               [12]  918 	mov	r0,a
+      0002C6 E4               [12]  919 	clr	a
+      0002C7 F6               [12]  920 	mov	@r0,a
+      0002C8 08               [12]  921 	inc	r0
+      0002C9 F6               [12]  922 	mov	@r0,a
+                           0002CA   923 	C$event_groups.c$344$3_0$150 ==.
+                                    924 ;	src/FreeRTOS/event_groups.c:344: if( xClearOnExit != pdFALSE )
+      0002CA E5*00            [12]  925 	mov	a,_bp
+      0002CC 24 FB            [12]  926 	add	a,#0xfb
+      0002CE F8               [12]  927 	mov	r0,a
+      0002CF E6               [12]  928 	mov	a,@r0
+      0002D0 70 03            [24]  929 	jnz	00176$
+      0002D2 02r03r7F         [24]  930 	ljmp	00112$
+      0002D5                        931 00176$:
+                           0002D5   932 	C$event_groups.c$346$1_0$148 ==.
+                                    933 ;	src/FreeRTOS/event_groups.c:346: pxEventBits->uxEventBits &= ~uxBitsToWaitFor;
+      0002D5 C0 03            [24]  934 	push	ar3
+      0002D7 C0 04            [24]  935 	push	ar4
+      0002D9 A8*00            [24]  936 	mov	r0,_bp
+      0002DB 08               [12]  937 	inc	r0
+      0002DC 86 82            [24]  938 	mov	dpl,@r0
+      0002DE 08               [12]  939 	inc	r0
+      0002DF 86 83            [24]  940 	mov	dph,@r0
+      0002E1 08               [12]  941 	inc	r0
+      0002E2 86 F0            [24]  942 	mov	b,@r0
+      0002E4 12r00r00         [24]  943 	lcall	__gptrget
+      0002E7 FA               [12]  944 	mov	r2,a
+      0002E8 A3               [24]  945 	inc	dptr
+      0002E9 12r00r00         [24]  946 	lcall	__gptrget
+      0002EC FC               [12]  947 	mov	r4,a
+      0002ED E5*00            [12]  948 	mov	a,_bp
+      0002EF 24 FC            [12]  949 	add	a,#0xfc
+      0002F1 F8               [12]  950 	mov	r0,a
+      0002F2 E6               [12]  951 	mov	a,@r0
+      0002F3 F4               [12]  952 	cpl	a
+      0002F4 FB               [12]  953 	mov	r3,a
+      0002F5 08               [12]  954 	inc	r0
+      0002F6 E6               [12]  955 	mov	a,@r0
+      0002F7 F4               [12]  956 	cpl	a
+      0002F8 FF               [12]  957 	mov	r7,a
+      0002F9 EB               [12]  958 	mov	a,r3
+      0002FA 52 02            [12]  959 	anl	ar2,a
+      0002FC EF               [12]  960 	mov	a,r7
+      0002FD 52 04            [12]  961 	anl	ar4,a
+      0002FF A8*00            [24]  962 	mov	r0,_bp
+      000301 08               [12]  963 	inc	r0
+      000302 86 82            [24]  964 	mov	dpl,@r0
+      000304 08               [12]  965 	inc	r0
+      000305 86 83            [24]  966 	mov	dph,@r0
+      000307 08               [12]  967 	inc	r0
+      000308 86 F0            [24]  968 	mov	b,@r0
+      00030A EA               [12]  969 	mov	a,r2
+      00030B 12r00r00         [24]  970 	lcall	__gptrput
+      00030E A3               [24]  971 	inc	dptr
+      00030F EC               [12]  972 	mov	a,r4
+      000310 12r00r00         [24]  973 	lcall	__gptrput
+      000313 D0 04            [24]  974 	pop	ar4
+      000315 D0 03            [24]  975 	pop	ar3
+      000317 80 66            [24]  976 	sjmp	00112$
+      000319                        977 00111$:
+                           000319   978 	C$event_groups.c$353$2_0$149 ==.
+                                    979 ;	src/FreeRTOS/event_groups.c:353: else if( xTicksToWait == ( TickType_t ) 0 )
+      000319 E5*00            [12]  980 	mov	a,_bp
+      00031B 24 F8            [12]  981 	add	a,#0xf8
+      00031D F8               [12]  982 	mov	r0,a
+      00031E E6               [12]  983 	mov	a,@r0
+      00031F 08               [12]  984 	inc	r0
+      000320 46               [12]  985 	orl	a,@r0
+      000321 70 06            [24]  986 	jnz	00108$
+                           000323   987 	C$event_groups.c$357$3_0$153 ==.
+                                    988 ;	src/FreeRTOS/event_groups.c:357: uxReturn = uxCurrentEventBits;
+      000323 8D 03            [24]  989 	mov	ar3,r5
+      000325 8A 04            [24]  990 	mov	ar4,r2
+                           000327   991 	C$event_groups.c$358$2_0$149 ==.
+                                    992 ;	src/FreeRTOS/event_groups.c:358: xTimeoutOccurred = pdTRUE;
+      000327 80 56            [24]  993 	sjmp	00112$
+      000329                        994 00108$:
+                           000329   995 	C$event_groups.c$366$3_0$154 ==.
+                                    996 ;	src/FreeRTOS/event_groups.c:366: if( xClearOnExit != pdFALSE )
+      000329 E5*00            [12]  997 	mov	a,_bp
+      00032B 24 FB            [12]  998 	add	a,#0xfb
+      00032D F8               [12]  999 	mov	r0,a
+      00032E E6               [12] 1000 	mov	a,@r0
+      00032F 60 04            [24] 1001 	jz	00104$
+                           000331  1002 	C$event_groups.c$368$4_0$155 ==.
+                                   1003 ;	src/FreeRTOS/event_groups.c:368: uxControlBits |= eventCLEAR_EVENTS_ON_EXIT_BIT;
+      000331 7F 00            [12] 1004 	mov	r7,#0x00
+      000333 7E 01            [12] 1005 	mov	r6,#0x01
+      000335                       1006 00104$:
+                           000335  1007 	C$event_groups.c$375$3_0$154 ==.
+                                   1008 ;	src/FreeRTOS/event_groups.c:375: if( xWaitForAllBits != pdFALSE )
+      000335 E5*00            [12] 1009 	mov	a,_bp
+      000337 24 FA            [12] 1010 	add	a,#0xfa
+      000339 F8               [12] 1011 	mov	r0,a
+      00033A E6               [12] 1012 	mov	a,@r0
+      00033B 60 03            [24] 1013 	jz	00106$
+                           00033D  1014 	C$event_groups.c$377$4_0$157 ==.
+                                   1015 ;	src/FreeRTOS/event_groups.c:377: uxControlBits |= eventWAIT_FOR_ALL_BITS;
+      00033D 43 06 04         [24] 1016 	orl	ar6,#0x04
+      000340                       1017 00106$:
+                           000340  1018 	C$event_groups.c$387$3_0$154 ==.
+                                   1019 ;	src/FreeRTOS/event_groups.c:387: vTaskPlaceOnUnorderedEventList( &( pxEventBits->xTasksWaitingForBits ), ( uxBitsToWaitFor | uxControlBits ), xTicksToWait );
+      000340 E5*00            [12] 1020 	mov	a,_bp
+      000342 24 FC            [12] 1021 	add	a,#0xfc
+      000344 F8               [12] 1022 	mov	r0,a
+      000345 EF               [12] 1023 	mov	a,r7
+      000346 46               [12] 1024 	orl	a,@r0
+      000347 FC               [12] 1025 	mov	r4,a
+      000348 EE               [12] 1026 	mov	a,r6
+      000349 08               [12] 1027 	inc	r0
+      00034A 46               [12] 1028 	orl	a,@r0
+      00034B FE               [12] 1029 	mov	r6,a
+      00034C E5*00            [12] 1030 	mov	a,_bp
+      00034E 24 04            [12] 1031 	add	a,#0x04
+      000350 F8               [12] 1032 	mov	r0,a
+      000351 74 02            [12] 1033 	mov	a,#0x02
+      000353 26               [12] 1034 	add	a,@r0
+      000354 FA               [12] 1035 	mov	r2,a
+      000355 E4               [12] 1036 	clr	a
+      000356 08               [12] 1037 	inc	r0
+      000357 36               [12] 1038 	addc	a,@r0
+      000358 FD               [12] 1039 	mov	r5,a
+      000359 08               [12] 1040 	inc	r0
+      00035A 86 07            [24] 1041 	mov	ar7,@r0
+      00035C E5*00            [12] 1042 	mov	a,_bp
+      00035E 24 F8            [12] 1043 	add	a,#0xf8
+      000360 F8               [12] 1044 	mov	r0,a
+      000361 E6               [12] 1045 	mov	a,@r0
+      000362 C0 E0            [24] 1046 	push	acc
+      000364 08               [12] 1047 	inc	r0
+      000365 E6               [12] 1048 	mov	a,@r0
+      000366 C0 E0            [24] 1049 	push	acc
+      000368 C0 04            [24] 1050 	push	ar4
+      00036A C0 06            [24] 1051 	push	ar6
+      00036C 8A 82            [24] 1052 	mov	dpl,r2
+      00036E 8D 83            [24] 1053 	mov	dph,r5
+      000370 8F F0            [24] 1054 	mov	b,r7
+      000372 12r00r00         [24] 1055 	lcall	_vTaskPlaceOnUnorderedEventList
+      000375 E5 81            [12] 1056 	mov	a,sp
+      000377 24 FC            [12] 1057 	add	a,#0xfc
+      000379 F5 81            [12] 1058 	mov	sp,a
+                           00037B  1059 	C$event_groups.c$392$3_0$154 ==.
+                                   1060 ;	src/FreeRTOS/event_groups.c:392: uxReturn = 0;
+      00037B 7B 00            [12] 1061 	mov	r3,#0x00
+      00037D 7C 00            [12] 1062 	mov	r4,#0x00
+      00037F                       1063 00112$:
+                           00037F  1064 	C$event_groups.c$397$1_0$148 ==.
+                                   1065 ;	src/FreeRTOS/event_groups.c:397: xAlreadyYielded = xTaskResumeAll();
+      00037F C0 04            [24] 1066 	push	ar4
+      000381 C0 03            [24] 1067 	push	ar3
+      000383 12r00r00         [24] 1068 	lcall	_xTaskResumeAll
+      000386 AF 82            [24] 1069 	mov	r7,dpl
+      000388 D0 03            [24] 1070 	pop	ar3
+      00038A D0 04            [24] 1071 	pop	ar4
+                           00038C  1072 	C$event_groups.c$399$1_0$148 ==.
+                                   1073 ;	src/FreeRTOS/event_groups.c:399: if( xTicksToWait != ( TickType_t ) 0 )
+      00038C E5*00            [12] 1074 	mov	a,_bp
+      00038E 24 F8            [12] 1075 	add	a,#0xf8
+      000390 F8               [12] 1076 	mov	r0,a
+      000391 E6               [12] 1077 	mov	a,@r0
+      000392 08               [12] 1078 	inc	r0
+      000393 46               [12] 1079 	orl	a,@r0
+      000394 70 03            [24] 1080 	jnz	00180$
+      000396 02r04r54         [24] 1081 	ljmp	00122$
+      000399                       1082 00180$:
+                           000399  1083 	C$event_groups.c$401$2_0$159 ==.
+                                   1084 ;	src/FreeRTOS/event_groups.c:401: if( xAlreadyYielded == pdFALSE )
+      000399 EF               [12] 1085 	mov	a,r7
+      00039A 70 03            [24] 1086 	jnz	00114$
+                           00039C  1087 	C$event_groups.c$403$3_0$160 ==.
+                                   1088 ;	src/FreeRTOS/event_groups.c:403: portYIELD_WITHIN_API();
+      00039C 12r00r00         [24] 1089 	lcall	_vPortYield
+      00039F                       1090 00114$:
+                           00039F  1091 	C$event_groups.c$414$2_0$159 ==.
+                                   1092 ;	src/FreeRTOS/event_groups.c:414: uxReturn = uxTaskResetEventItemValue();
+      00039F 12r00r00         [24] 1093 	lcall	_uxTaskResetEventItemValue
+      0003A2 AE 82            [24] 1094 	mov	r6,dpl
+                           0003A4  1095 	C$event_groups.c$416$2_0$159 ==.
+                                   1096 ;	src/FreeRTOS/event_groups.c:416: if( ( uxReturn & eventUNBLOCKED_DUE_TO_BIT_SET ) == ( EventBits_t ) 0 )
+      0003A4 E5 83            [12] 1097 	mov	a,dph
+      0003A6 FF               [12] 1098 	mov	r7,a
+      0003A7 30 E1 03         [24] 1099 	jnb	acc.1,00182$
+      0003AA 02r04r50         [24] 1100 	ljmp	00120$
+      0003AD                       1101 00182$:
+                           0003AD  1102 	C$event_groups.c$418$3_0$162 ==.
+                                   1103 ;	src/FreeRTOS/event_groups.c:418: taskENTER_CRITICAL();
+      0003AD C0 E0            [24] 1104 	push ACC 
+      0003AF C0 A8            [24] 1105 	push IE 
+                                   1106 ;	assignBit
+      0003B1 C2 AF            [12] 1107 	clr	_EA
+                           0003B3  1108 	C$event_groups.c$421$4_0$163 ==.
+                                   1109 ;	src/FreeRTOS/event_groups.c:421: uxReturn = pxEventBits->uxEventBits;
+      0003B3 E5*00            [12] 1110 	mov	a,_bp
+      0003B5 24 04            [12] 1111 	add	a,#0x04
+      0003B7 F8               [12] 1112 	mov	r0,a
+      0003B8 86 82            [24] 1113 	mov	dpl,@r0
+      0003BA 08               [12] 1114 	inc	r0
+      0003BB 86 83            [24] 1115 	mov	dph,@r0
+      0003BD 08               [12] 1116 	inc	r0
+      0003BE 86 F0            [24] 1117 	mov	b,@r0
+      0003C0 12r00r00         [24] 1118 	lcall	__gptrget
+      0003C3 FE               [12] 1119 	mov	r6,a
+      0003C4 A3               [24] 1120 	inc	dptr
+      0003C5 12r00r00         [24] 1121 	lcall	__gptrget
+      0003C8 FF               [12] 1122 	mov	r7,a
+                           0003C9  1123 	C$event_groups.c$425$4_0$163 ==.
+                                   1124 ;	src/FreeRTOS/event_groups.c:425: if( prvTestWaitCondition( uxReturn, uxBitsToWaitFor, xWaitForAllBits ) != pdFALSE )
+      0003C9 C0 07            [24] 1125 	push	ar7
+      0003CB C0 06            [24] 1126 	push	ar6
+      0003CD E5*00            [12] 1127 	mov	a,_bp
+      0003CF 24 FA            [12] 1128 	add	a,#0xfa
+      0003D1 F8               [12] 1129 	mov	r0,a
+      0003D2 E6               [12] 1130 	mov	a,@r0
+      0003D3 C0 E0            [24] 1131 	push	acc
+      0003D5 E5*00            [12] 1132 	mov	a,_bp
+      0003D7 24 FC            [12] 1133 	add	a,#0xfc
+      0003D9 F8               [12] 1134 	mov	r0,a
+      0003DA E6               [12] 1135 	mov	a,@r0
+      0003DB C0 E0            [24] 1136 	push	acc
+      0003DD 08               [12] 1137 	inc	r0
+      0003DE E6               [12] 1138 	mov	a,@r0
+      0003DF C0 E0            [24] 1139 	push	acc
+      0003E1 8E 82            [24] 1140 	mov	dpl,r6
+      0003E3 8F 83            [24] 1141 	mov	dph,r7
+      0003E5 12r08r39         [24] 1142 	lcall	_prvTestWaitCondition
+      0003E8 AD 82            [24] 1143 	mov	r5,dpl
+      0003EA 15 81            [12] 1144 	dec	sp
+      0003EC 15 81            [12] 1145 	dec	sp
+      0003EE 15 81            [12] 1146 	dec	sp
+      0003F0 D0 06            [24] 1147 	pop	ar6
+      0003F2 D0 07            [24] 1148 	pop	ar7
+      0003F4 ED               [12] 1149 	mov	a,r5
+      0003F5 60 4E            [24] 1150 	jz	00118$
+                           0003F7  1151 	C$event_groups.c$427$5_0$164 ==.
+                                   1152 ;	src/FreeRTOS/event_groups.c:427: if( xClearOnExit != pdFALSE )
+      0003F7 E5*00            [12] 1153 	mov	a,_bp
+      0003F9 24 FB            [12] 1154 	add	a,#0xfb
+      0003FB F8               [12] 1155 	mov	r0,a
+      0003FC E6               [12] 1156 	mov	a,@r0
+      0003FD 60 46            [24] 1157 	jz	00118$
+                           0003FF  1158 	C$event_groups.c$429$1_0$148 ==.
+                                   1159 ;	src/FreeRTOS/event_groups.c:429: pxEventBits->uxEventBits &= ~uxBitsToWaitFor;
+      0003FF C0 06            [24] 1160 	push	ar6
+      000401 C0 07            [24] 1161 	push	ar7
+      000403 E5*00            [12] 1162 	mov	a,_bp
+      000405 24 04            [12] 1163 	add	a,#0x04
+      000407 F8               [12] 1164 	mov	r0,a
+      000408 86 82            [24] 1165 	mov	dpl,@r0
+      00040A 08               [12] 1166 	inc	r0
+      00040B 86 83            [24] 1167 	mov	dph,@r0
+      00040D 08               [12] 1168 	inc	r0
+      00040E 86 F0            [24] 1169 	mov	b,@r0
+      000410 12r00r00         [24] 1170 	lcall	__gptrget
+      000413 FA               [12] 1171 	mov	r2,a
+      000414 A3               [24] 1172 	inc	dptr
+      000415 12r00r00         [24] 1173 	lcall	__gptrget
+      000418 FD               [12] 1174 	mov	r5,a
+      000419 E5*00            [12] 1175 	mov	a,_bp
+      00041B 24 FC            [12] 1176 	add	a,#0xfc
+      00041D F8               [12] 1177 	mov	r0,a
+      00041E E6               [12] 1178 	mov	a,@r0
+      00041F F4               [12] 1179 	cpl	a
+      000420 FE               [12] 1180 	mov	r6,a
+      000421 08               [12] 1181 	inc	r0
+      000422 E6               [12] 1182 	mov	a,@r0
+      000423 F4               [12] 1183 	cpl	a
+      000424 FF               [12] 1184 	mov	r7,a
+      000425 EE               [12] 1185 	mov	a,r6
+      000426 52 02            [12] 1186 	anl	ar2,a
+      000428 EF               [12] 1187 	mov	a,r7
+      000429 52 05            [12] 1188 	anl	ar5,a
+      00042B E5*00            [12] 1189 	mov	a,_bp
+      00042D 24 04            [12] 1190 	add	a,#0x04
+      00042F F8               [12] 1191 	mov	r0,a
+      000430 86 82            [24] 1192 	mov	dpl,@r0
+      000432 08               [12] 1193 	inc	r0
+      000433 86 83            [24] 1194 	mov	dph,@r0
+      000435 08               [12] 1195 	inc	r0
+      000436 86 F0            [24] 1196 	mov	b,@r0
+      000438 EA               [12] 1197 	mov	a,r2
+      000439 12r00r00         [24] 1198 	lcall	__gptrput
+      00043C A3               [24] 1199 	inc	dptr
+      00043D ED               [12] 1200 	mov	a,r5
+      00043E 12r00r00         [24] 1201 	lcall	__gptrput
+                           000441  1202 	C$event_groups.c$457$1_0$148 ==.
+                                   1203 ;	src/FreeRTOS/event_groups.c:457: return uxReturn;
+      000441 D0 07            [24] 1204 	pop	ar7
+      000443 D0 06            [24] 1205 	pop	ar6
+                           000445  1206 	C$event_groups.c$429$4_0$163 ==.
+                                   1207 ;	src/FreeRTOS/event_groups.c:429: pxEventBits->uxEventBits &= ~uxBitsToWaitFor;
+      000445                       1208 00118$:
+                           000445  1209 	C$event_groups.c$442$3_0$162 ==.
+                                   1210 ;	src/FreeRTOS/event_groups.c:442: taskEXIT_CRITICAL();
+      000445 D0 E0            [24] 1211 	pop ACC 
+      000447 53 E0 80         [24] 1212 	anl	_ACC,#0x80
+      00044A E5 E0            [12] 1213 	mov	a,_ACC
+      00044C 42 A8            [12] 1214 	orl	_IE,a
+      00044E D0 E0            [24] 1215 	pop ACC 
+      000450                       1216 00120$:
+                           000450  1217 	C$event_groups.c$450$2_0$159 ==.
+                                   1218 ;	src/FreeRTOS/event_groups.c:450: uxReturn &= ~eventEVENT_BITS_CONTROL_BYTES;
+      000450 8E 03            [24] 1219 	mov	ar3,r6
+      000452 7C 00            [12] 1220 	mov	r4,#0x00
+      000454                       1221 00122$:
+                           000454  1222 	C$event_groups.c$457$1_0$148 ==.
+                                   1223 ;	src/FreeRTOS/event_groups.c:457: return uxReturn;
+      000454 8B 82            [24] 1224 	mov	dpl,r3
+      000456 8C 83            [24] 1225 	mov	dph,r4
+                           000458  1226 	C$event_groups.c$458$1_0$148 ==.
+                                   1227 ;	src/FreeRTOS/event_groups.c:458: }
+      000458 85*00 81         [24] 1228 	mov	sp,_bp
+      00045B D0*00            [24] 1229 	pop	_bp
+                           00045D  1230 	C$event_groups.c$458$1_0$148 ==.
+                           00045D  1231 	XG$xEventGroupWaitBits$0$0 ==.
+      00045D 22               [24] 1232 	ret
+                                   1233 ;------------------------------------------------------------
+                                   1234 ;Allocation info for local variables in function 'xEventGroupClearBits'
+                                   1235 ;------------------------------------------------------------
+                                   1236 ;uxBitsToClear             Allocated to stack - _bp -4
+                                   1237 ;xEventGroup               Allocated to stack - _bp +1
+                                   1238 ;pxEventBits               Allocated to registers 
+                                   1239 ;uxReturn                  Allocated to registers r2 r4 
+                                   1240 ;------------------------------------------------------------
+                           00045E  1241 	G$xEventGroupClearBits$0$0 ==.
+                           00045E  1242 	C$event_groups.c$461$1_0$170 ==.
+                                   1243 ;	src/FreeRTOS/event_groups.c:461: EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear )
+                                   1244 ;	-----------------------------------------
+                                   1245 ;	 function xEventGroupClearBits
+                                   1246 ;	-----------------------------------------
+      00045E                       1247 _xEventGroupClearBits:
+      00045E C0*00            [24] 1248 	push	_bp
+      000460 85 81*00         [24] 1249 	mov	_bp,sp
+      000463 C0 82            [24] 1250 	push	dpl
+      000465 C0 83            [24] 1251 	push	dph
+      000467 C0 F0            [24] 1252 	push	b
+                           000469  1253 	C$event_groups.c$471$1_0$170 ==.
+                                   1254 ;	src/FreeRTOS/event_groups.c:471: taskENTER_CRITICAL();
+      000469 C0 E0            [24] 1255 	push ACC 
+      00046B C0 A8            [24] 1256 	push IE 
+                                   1257 ;	assignBit
+      00046D C2 AF            [12] 1258 	clr	_EA
+                           00046F  1259 	C$event_groups.c$477$2_0$171 ==.
+                                   1260 ;	src/FreeRTOS/event_groups.c:477: uxReturn = pxEventBits->uxEventBits;
+      00046F A8*00            [24] 1261 	mov	r0,_bp
+      000471 08               [12] 1262 	inc	r0
+      000472 86 82            [24] 1263 	mov	dpl,@r0
+      000474 08               [12] 1264 	inc	r0
+      000475 86 83            [24] 1265 	mov	dph,@r0
+      000477 08               [12] 1266 	inc	r0
+      000478 86 F0            [24] 1267 	mov	b,@r0
+      00047A 12r00r00         [24] 1268 	lcall	__gptrget
+      00047D FE               [12] 1269 	mov	r6,a
+      00047E A3               [24] 1270 	inc	dptr
+      00047F 12r00r00         [24] 1271 	lcall	__gptrget
+      000482 FD               [12] 1272 	mov	r5,a
+      000483 8E 02            [24] 1273 	mov	ar2,r6
+      000485 8D 04            [24] 1274 	mov	ar4,r5
+                           000487  1275 	C$event_groups.c$480$2_0$171 ==.
+                                   1276 ;	src/FreeRTOS/event_groups.c:480: pxEventBits->uxEventBits &= ~uxBitsToClear;
+      000487 E5*00            [12] 1277 	mov	a,_bp
+      000489 24 FC            [12] 1278 	add	a,#0xfc
+      00048B F8               [12] 1279 	mov	r0,a
+      00048C E6               [12] 1280 	mov	a,@r0
+      00048D F4               [12] 1281 	cpl	a
+      00048E FB               [12] 1282 	mov	r3,a
+      00048F 08               [12] 1283 	inc	r0
+      000490 E6               [12] 1284 	mov	a,@r0
+      000491 F4               [12] 1285 	cpl	a
+      000492 FF               [12] 1286 	mov	r7,a
+      000493 EE               [12] 1287 	mov	a,r6
+      000494 52 03            [12] 1288 	anl	ar3,a
+      000496 ED               [12] 1289 	mov	a,r5
+      000497 52 07            [12] 1290 	anl	ar7,a
+      000499 A8*00            [24] 1291 	mov	r0,_bp
+      00049B 08               [12] 1292 	inc	r0
+      00049C 86 82            [24] 1293 	mov	dpl,@r0
+      00049E 08               [12] 1294 	inc	r0
+      00049F 86 83            [24] 1295 	mov	dph,@r0
+      0004A1 08               [12] 1296 	inc	r0
+      0004A2 86 F0            [24] 1297 	mov	b,@r0
+      0004A4 EB               [12] 1298 	mov	a,r3
+      0004A5 12r00r00         [24] 1299 	lcall	__gptrput
+      0004A8 A3               [24] 1300 	inc	dptr
+      0004A9 EF               [12] 1301 	mov	a,r7
+      0004AA 12r00r00         [24] 1302 	lcall	__gptrput
+                           0004AD  1303 	C$event_groups.c$482$1_0$170 ==.
+                                   1304 ;	src/FreeRTOS/event_groups.c:482: taskEXIT_CRITICAL();
+      0004AD D0 E0            [24] 1305 	pop ACC 
+      0004AF 53 E0 80         [24] 1306 	anl	_ACC,#0x80
+      0004B2 E5 E0            [12] 1307 	mov	a,_ACC
+      0004B4 42 A8            [12] 1308 	orl	_IE,a
+      0004B6 D0 E0            [24] 1309 	pop ACC 
+                           0004B8  1310 	C$event_groups.c$484$1_0$170 ==.
+                                   1311 ;	src/FreeRTOS/event_groups.c:484: return uxReturn;
+      0004B8 8A 82            [24] 1312 	mov	dpl,r2
+      0004BA 8C 83            [24] 1313 	mov	dph,r4
+                           0004BC  1314 	C$event_groups.c$485$1_0$170 ==.
+                                   1315 ;	src/FreeRTOS/event_groups.c:485: }
+      0004BC 85*00 81         [24] 1316 	mov	sp,_bp
+      0004BF D0*00            [24] 1317 	pop	_bp
+                           0004C1  1318 	C$event_groups.c$485$1_0$170 ==.
+                           0004C1  1319 	XG$xEventGroupClearBits$0$0 ==.
+      0004C1 22               [24] 1320 	ret
+                                   1321 ;------------------------------------------------------------
+                                   1322 ;Allocation info for local variables in function 'xEventGroupGetBitsFromISR'
+                                   1323 ;------------------------------------------------------------
+                                   1324 ;xEventGroup               Allocated to registers r5 r6 r7 
+                                   1325 ;uxSavedInterruptStatus    Allocated to registers 
+                                   1326 ;pxEventBits               Allocated to registers 
+                                   1327 ;uxReturn                  Allocated to registers r5 r6 
+                                   1328 ;------------------------------------------------------------
+                           0004C2  1329 	G$xEventGroupGetBitsFromISR$0$0 ==.
+                           0004C2  1330 	C$event_groups.c$503$1_0$173 ==.
+                                   1331 ;	src/FreeRTOS/event_groups.c:503: EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup )
+                                   1332 ;	-----------------------------------------
+                                   1333 ;	 function xEventGroupGetBitsFromISR
+                                   1334 ;	-----------------------------------------
+      0004C2                       1335 _xEventGroupGetBitsFromISR:
+                           0004C2  1336 	C$event_groups.c$511$2_0$174 ==.
+                                   1337 ;	src/FreeRTOS/event_groups.c:511: uxReturn = pxEventBits->uxEventBits;
+      0004C2 12r00r00         [24] 1338 	lcall	__gptrget
+      0004C5 FD               [12] 1339 	mov	r5,a
+      0004C6 A3               [24] 1340 	inc	dptr
+      0004C7 12r00r00         [24] 1341 	lcall	__gptrget
+                           0004CA  1342 	C$event_groups.c$515$1_0$173 ==.
+                                   1343 ;	src/FreeRTOS/event_groups.c:515: return uxReturn;
+                           0004CA  1344 	C$event_groups.c$516$1_0$173 ==.
+                                   1345 ;	src/FreeRTOS/event_groups.c:516: } /*lint !e818 EventGroupHandle_t is a typedef used in other functions to so can't be pointer to const. */
+                           0004CA  1346 	C$event_groups.c$516$1_0$173 ==.
+                           0004CA  1347 	XG$xEventGroupGetBitsFromISR$0$0 ==.
+      0004CA 8D 82            [24] 1348 	mov	dpl,r5
+      0004CC F5 83            [12] 1349 	mov	dph,a
+      0004CE 22               [24] 1350 	ret
+                                   1351 ;------------------------------------------------------------
+                                   1352 ;Allocation info for local variables in function 'xEventGroupSetBits'
+                                   1353 ;------------------------------------------------------------
+                                   1354 ;uxBitsToSet               Allocated to stack - _bp -4
+                                   1355 ;xEventGroup               Allocated to registers r2 r3 r4 
+                                   1356 ;pxListItem                Allocated to stack - _bp +1
+                                   1357 ;pxNext                    Allocated to registers r5 r6 r7 
+                                   1358 ;pxListEnd                 Allocated to stack - _bp +4
+                                   1359 ;pxList                    Allocated to stack - _bp +7
+                                   1360 ;uxBitsToClear             Allocated to stack - _bp +10
+                                   1361 ;uxBitsWaitedFor           Allocated to registers r3 r4 
+                                   1362 ;uxControlBits             Allocated to stack - _bp +12
+                                   1363 ;pxEventBits               Allocated to stack - _bp +14
+                                   1364 ;xMatchFound               Allocated to registers r2 
+                                   1365 ;------------------------------------------------------------
+                           0004CF  1366 	G$xEventGroupSetBits$0$0 ==.
+                           0004CF  1367 	C$event_groups.c$519$1_0$176 ==.
+                                   1368 ;	src/FreeRTOS/event_groups.c:519: EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet )
+                                   1369 ;	-----------------------------------------
+                                   1370 ;	 function xEventGroupSetBits
+                                   1371 ;	-----------------------------------------
+      0004CF                       1372 _xEventGroupSetBits:
+      0004CF C0*00            [24] 1373 	push	_bp
+      0004D1 E5 81            [12] 1374 	mov	a,sp
+      0004D3 F5*00            [12] 1375 	mov	_bp,a
+      0004D5 24 10            [12] 1376 	add	a,#0x10
+      0004D7 F5 81            [12] 1377 	mov	sp,a
+      0004D9 AA 82            [24] 1378 	mov	r2,dpl
+      0004DB AB 83            [24] 1379 	mov	r3,dph
+      0004DD AC F0            [24] 1380 	mov	r4,b
+                           0004DF  1381 	C$event_groups.c$524$2_0$176 ==.
+                                   1382 ;	src/FreeRTOS/event_groups.c:524: EventBits_t uxBitsToClear = 0, uxBitsWaitedFor, uxControlBits;
+      0004DF E5*00            [12] 1383 	mov	a,_bp
+      0004E1 24 0A            [12] 1384 	add	a,#0x0a
+      0004E3 F8               [12] 1385 	mov	r0,a
+      0004E4 E4               [12] 1386 	clr	a
+      0004E5 F6               [12] 1387 	mov	@r0,a
+      0004E6 08               [12] 1388 	inc	r0
+      0004E7 F6               [12] 1389 	mov	@r0,a
+                           0004E8  1390 	C$event_groups.c$525$2_0$176 ==.
+                                   1391 ;	src/FreeRTOS/event_groups.c:525: EventGroup_t *pxEventBits = xEventGroup;
+      0004E8 E5*00            [12] 1392 	mov	a,_bp
+      0004EA 24 0E            [12] 1393 	add	a,#0x0e
+      0004EC F8               [12] 1394 	mov	r0,a
+      0004ED A6 02            [24] 1395 	mov	@r0,ar2
+      0004EF 08               [12] 1396 	inc	r0
+      0004F0 A6 03            [24] 1397 	mov	@r0,ar3
+      0004F2 08               [12] 1398 	inc	r0
+      0004F3 A6 04            [24] 1399 	mov	@r0,ar4
+                           0004F5  1400 	C$event_groups.c$533$1_0$176 ==.
+                                   1401 ;	src/FreeRTOS/event_groups.c:533: pxList = &( pxEventBits->xTasksWaitingForBits );
+      0004F5 E5*00            [12] 1402 	mov	a,_bp
+      0004F7 24 07            [12] 1403 	add	a,#0x07
+      0004F9 F8               [12] 1404 	mov	r0,a
+      0004FA 74 02            [12] 1405 	mov	a,#0x02
+      0004FC 2A               [12] 1406 	add	a,r2
+      0004FD F6               [12] 1407 	mov	@r0,a
+      0004FE E4               [12] 1408 	clr	a
+      0004FF 3B               [12] 1409 	addc	a,r3
+      000500 08               [12] 1410 	inc	r0
+      000501 F6               [12] 1411 	mov	@r0,a
+      000502 08               [12] 1412 	inc	r0
+      000503 A6 04            [24] 1413 	mov	@r0,ar4
+                           000505  1414 	C$event_groups.c$534$1_0$176 ==.
+                                   1415 ;	src/FreeRTOS/event_groups.c:534: pxListEnd = listGET_END_MARKER( pxList ); /*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. */
+      000505 E5*00            [12] 1416 	mov	a,_bp
+      000507 24 07            [12] 1417 	add	a,#0x07
+      000509 F8               [12] 1418 	mov	r0,a
+      00050A 74 04            [12] 1419 	mov	a,#0x04
+      00050C 26               [12] 1420 	add	a,@r0
+      00050D FD               [12] 1421 	mov	r5,a
+      00050E E4               [12] 1422 	clr	a
+      00050F 08               [12] 1423 	inc	r0
+      000510 36               [12] 1424 	addc	a,@r0
+      000511 FE               [12] 1425 	mov	r6,a
+      000512 08               [12] 1426 	inc	r0
+      000513 86 07            [24] 1427 	mov	ar7,@r0
+      000515 E5*00            [12] 1428 	mov	a,_bp
+      000517 24 04            [12] 1429 	add	a,#0x04
+      000519 F8               [12] 1430 	mov	r0,a
+      00051A A6 05            [24] 1431 	mov	@r0,ar5
+      00051C 08               [12] 1432 	inc	r0
+      00051D A6 06            [24] 1433 	mov	@r0,ar6
+      00051F 08               [12] 1434 	inc	r0
+      000520 A6 07            [24] 1435 	mov	@r0,ar7
+                           000522  1436 	C$event_groups.c$535$1_0$176 ==.
+                                   1437 ;	src/FreeRTOS/event_groups.c:535: vTaskSuspendAll();
+      000522 C0 04            [24] 1438 	push	ar4
+      000524 C0 03            [24] 1439 	push	ar3
+      000526 C0 02            [24] 1440 	push	ar2
+      000528 12r00r00         [24] 1441 	lcall	_vTaskSuspendAll
+      00052B D0 02            [24] 1442 	pop	ar2
+      00052D D0 03            [24] 1443 	pop	ar3
+      00052F D0 04            [24] 1444 	pop	ar4
+                           000531  1445 	C$event_groups.c$539$2_0$177 ==.
+                                   1446 ;	src/FreeRTOS/event_groups.c:539: pxListItem = listGET_HEAD_ENTRY( pxList );
+      000531 E5*00            [12] 1447 	mov	a,_bp
+      000533 24 07            [12] 1448 	add	a,#0x07
+      000535 F8               [12] 1449 	mov	r0,a
+      000536 74 06            [12] 1450 	mov	a,#0x06
+      000538 26               [12] 1451 	add	a,@r0
+      000539 FD               [12] 1452 	mov	r5,a
+      00053A E4               [12] 1453 	clr	a
+      00053B 08               [12] 1454 	inc	r0
+      00053C 36               [12] 1455 	addc	a,@r0
+      00053D FE               [12] 1456 	mov	r6,a
+      00053E 08               [12] 1457 	inc	r0
+      00053F 86 07            [24] 1458 	mov	ar7,@r0
+      000541 8D 82            [24] 1459 	mov	dpl,r5
+      000543 8E 83            [24] 1460 	mov	dph,r6
+      000545 8F F0            [24] 1461 	mov	b,r7
+      000547 A8*00            [24] 1462 	mov	r0,_bp
+      000549 08               [12] 1463 	inc	r0
+      00054A 12r00r00         [24] 1464 	lcall	__gptrget
+      00054D F6               [12] 1465 	mov	@r0,a
+      00054E A3               [24] 1466 	inc	dptr
+      00054F 12r00r00         [24] 1467 	lcall	__gptrget
+      000552 08               [12] 1468 	inc	r0
+      000553 F6               [12] 1469 	mov	@r0,a
+      000554 A3               [24] 1470 	inc	dptr
+      000555 12r00r00         [24] 1471 	lcall	__gptrget
+      000558 08               [12] 1472 	inc	r0
+      000559 F6               [12] 1473 	mov	@r0,a
+                           00055A  1474 	C$event_groups.c$542$2_0$177 ==.
+                                   1475 ;	src/FreeRTOS/event_groups.c:542: pxEventBits->uxEventBits |= uxBitsToSet;
+      00055A 8A 82            [24] 1476 	mov	dpl,r2
+      00055C 8B 83            [24] 1477 	mov	dph,r3
+      00055E 8C F0            [24] 1478 	mov	b,r4
+      000560 12r00r00         [24] 1479 	lcall	__gptrget
+      000563 FE               [12] 1480 	mov	r6,a
+      000564 A3               [24] 1481 	inc	dptr
+      000565 12r00r00         [24] 1482 	lcall	__gptrget
+      000568 FF               [12] 1483 	mov	r7,a
+      000569 E5*00            [12] 1484 	mov	a,_bp
+      00056B 24 FC            [12] 1485 	add	a,#0xfc
+      00056D F8               [12] 1486 	mov	r0,a
+      00056E E6               [12] 1487 	mov	a,@r0
+      00056F 42 06            [12] 1488 	orl	ar6,a
+      000571 08               [12] 1489 	inc	r0
+      000572 E6               [12] 1490 	mov	a,@r0
+      000573 42 07            [12] 1491 	orl	ar7,a
+      000575 8A 82            [24] 1492 	mov	dpl,r2
+      000577 8B 83            [24] 1493 	mov	dph,r3
+      000579 8C F0            [24] 1494 	mov	b,r4
+      00057B EE               [12] 1495 	mov	a,r6
+      00057C 12r00r00         [24] 1496 	lcall	__gptrput
+      00057F A3               [24] 1497 	inc	dptr
+      000580 EF               [12] 1498 	mov	a,r7
+      000581 12r00r00         [24] 1499 	lcall	__gptrput
+                           000584  1500 	C$event_groups.c$545$2_0$177 ==.
+                                   1501 ;	src/FreeRTOS/event_groups.c:545: while( pxListItem != pxListEnd )
+      000584                       1502 00112$:
+      000584 A8*00            [24] 1503 	mov	r0,_bp
+      000586 08               [12] 1504 	inc	r0
+      000587 E5*00            [12] 1505 	mov	a,_bp
+      000589 24 04            [12] 1506 	add	a,#0x04
+      00058B F9               [12] 1507 	mov	r1,a
+      00058C E7               [12] 1508 	mov	a,@r1
+      00058D C0 E0            [24] 1509 	push	acc
+      00058F 09               [12] 1510 	inc	r1
+      000590 E7               [12] 1511 	mov	a,@r1
+      000591 C0 E0            [24] 1512 	push	acc
+      000593 09               [12] 1513 	inc	r1
+      000594 E7               [12] 1514 	mov	a,@r1
+      000595 C0 E0            [24] 1515 	push	acc
+      000597 86 82            [24] 1516 	mov	dpl,@r0
+      000599 08               [12] 1517 	inc	r0
+      00059A 86 83            [24] 1518 	mov	dph,@r0
+      00059C 08               [12] 1519 	inc	r0
+      00059D 86 F0            [24] 1520 	mov	b,@r0
+      00059F 12r00r00         [24] 1521 	lcall	___gptr_cmp
+      0005A2 15 81            [12] 1522 	dec	sp
+      0005A4 15 81            [12] 1523 	dec	sp
+      0005A6 15 81            [12] 1524 	dec	sp
+      0005A8 70 03            [24] 1525 	jnz	00152$
+      0005AA 02r06rD5         [24] 1526 	ljmp	00114$
+      0005AD                       1527 00152$:
+                           0005AD  1528 	C$event_groups.c$547$1_0$176 ==.
+                                   1529 ;	src/FreeRTOS/event_groups.c:547: pxNext = listGET_NEXT( pxListItem );
+      0005AD A8*00            [24] 1530 	mov	r0,_bp
+      0005AF 08               [12] 1531 	inc	r0
+      0005B0 74 02            [12] 1532 	mov	a,#0x02
+      0005B2 26               [12] 1533 	add	a,@r0
+      0005B3 FD               [12] 1534 	mov	r5,a
+      0005B4 E4               [12] 1535 	clr	a
+      0005B5 08               [12] 1536 	inc	r0
+      0005B6 36               [12] 1537 	addc	a,@r0
+      0005B7 FE               [12] 1538 	mov	r6,a
+      0005B8 08               [12] 1539 	inc	r0
+      0005B9 86 07            [24] 1540 	mov	ar7,@r0
+      0005BB 8D 82            [24] 1541 	mov	dpl,r5
+      0005BD 8E 83            [24] 1542 	mov	dph,r6
+      0005BF 8F F0            [24] 1543 	mov	b,r7
+      0005C1 12r00r00         [24] 1544 	lcall	__gptrget
+      0005C4 FD               [12] 1545 	mov	r5,a
+      0005C5 A3               [24] 1546 	inc	dptr
+      0005C6 12r00r00         [24] 1547 	lcall	__gptrget
+      0005C9 FE               [12] 1548 	mov	r6,a
+      0005CA A3               [24] 1549 	inc	dptr
+      0005CB 12r00r00         [24] 1550 	lcall	__gptrget
+      0005CE FF               [12] 1551 	mov	r7,a
+                           0005CF  1552 	C$event_groups.c$548$3_0$178 ==.
+                                   1553 ;	src/FreeRTOS/event_groups.c:548: uxBitsWaitedFor = listGET_LIST_ITEM_VALUE( pxListItem );
+      0005CF A8*00            [24] 1554 	mov	r0,_bp
+      0005D1 08               [12] 1555 	inc	r0
+      0005D2 86 82            [24] 1556 	mov	dpl,@r0
+      0005D4 08               [12] 1557 	inc	r0
+      0005D5 86 83            [24] 1558 	mov	dph,@r0
+      0005D7 08               [12] 1559 	inc	r0
+      0005D8 86 F0            [24] 1560 	mov	b,@r0
+      0005DA 12r00r00         [24] 1561 	lcall	__gptrget
+      0005DD FB               [12] 1562 	mov	r3,a
+      0005DE A3               [24] 1563 	inc	dptr
+      0005DF 12r00r00         [24] 1564 	lcall	__gptrget
+      0005E2 FC               [12] 1565 	mov	r4,a
+                           0005E3  1566 	C$event_groups.c$549$3_0$178 ==.
+                                   1567 ;	src/FreeRTOS/event_groups.c:549: xMatchFound = pdFALSE;
+      0005E3 7A 00            [12] 1568 	mov	r2,#0x00
+                           0005E5  1569 	C$event_groups.c$552$3_0$178 ==.
+                                   1570 ;	src/FreeRTOS/event_groups.c:552: uxControlBits = uxBitsWaitedFor & eventEVENT_BITS_CONTROL_BYTES;
+      0005E5 E5*00            [12] 1571 	mov	a,_bp
+      0005E7 24 0C            [12] 1572 	add	a,#0x0c
+      0005E9 F8               [12] 1573 	mov	r0,a
+      0005EA 76 00            [12] 1574 	mov	@r0,#0x00
+      0005EC 08               [12] 1575 	inc	r0
+      0005ED A6 04            [24] 1576 	mov	@r0,ar4
+                           0005EF  1577 	C$event_groups.c$553$3_0$178 ==.
+                                   1578 ;	src/FreeRTOS/event_groups.c:553: uxBitsWaitedFor &= ~eventEVENT_BITS_CONTROL_BYTES;
+      0005EF 7C 00            [12] 1579 	mov	r4,#0x00
+                           0005F1  1580 	C$event_groups.c$555$3_0$178 ==.
+                                   1581 ;	src/FreeRTOS/event_groups.c:555: if( ( uxControlBits & eventWAIT_FOR_ALL_BITS ) == ( EventBits_t ) 0 )
+      0005F1 E5*00            [12] 1582 	mov	a,_bp
+      0005F3 24 0C            [12] 1583 	add	a,#0x0c
+      0005F5 F8               [12] 1584 	mov	r0,a
+      0005F6 08               [12] 1585 	inc	r0
+      0005F7 E6               [12] 1586 	mov	a,@r0
+      0005F8 20 E2 30         [24] 1587 	jb	acc.2,00106$
+                           0005FB  1588 	C$event_groups.c$558$1_0$176 ==.
+                                   1589 ;	src/FreeRTOS/event_groups.c:558: if( ( uxBitsWaitedFor & pxEventBits->uxEventBits ) != ( EventBits_t ) 0 )
+      0005FB C0 05            [24] 1590 	push	ar5
+      0005FD C0 06            [24] 1591 	push	ar6
+      0005FF C0 07            [24] 1592 	push	ar7
+      000601 E5*00            [12] 1593 	mov	a,_bp
+      000603 24 0E            [12] 1594 	add	a,#0x0e
+      000605 F8               [12] 1595 	mov	r0,a
+      000606 86 82            [24] 1596 	mov	dpl,@r0
+      000608 08               [12] 1597 	inc	r0
+      000609 86 83            [24] 1598 	mov	dph,@r0
+      00060B 08               [12] 1599 	inc	r0
+      00060C 86 F0            [24] 1600 	mov	b,@r0
+      00060E 12r00r00         [24] 1601 	lcall	__gptrget
+      000611 FE               [12] 1602 	mov	r6,a
+      000612 A3               [24] 1603 	inc	dptr
+      000613 12r00r00         [24] 1604 	lcall	__gptrget
+      000616 FF               [12] 1605 	mov	r7,a
+      000617 EB               [12] 1606 	mov	a,r3
+      000618 52 06            [12] 1607 	anl	ar6,a
+      00061A EC               [12] 1608 	mov	a,r4
+      00061B 52 07            [12] 1609 	anl	ar7,a
+      00061D EE               [12] 1610 	mov	a,r6
+      00061E 4F               [12] 1611 	orl	a,r7
+      00061F D0 07            [24] 1612 	pop	ar7
+      000621 D0 06            [24] 1613 	pop	ar6
+      000623 D0 05            [24] 1614 	pop	ar5
+      000625 60 40            [24] 1615 	jz	00107$
+                           000627  1616 	C$event_groups.c$560$5_0$180 ==.
+                                   1617 ;	src/FreeRTOS/event_groups.c:560: xMatchFound = pdTRUE;
+      000627 7A 01            [12] 1618 	mov	r2,#0x01
+      000629 80 3C            [24] 1619 	sjmp	00107$
+      00062B                       1620 00106$:
+                           00062B  1621 	C$event_groups.c$567$1_0$176 ==.
+                                   1622 ;	src/FreeRTOS/event_groups.c:567: else if( ( uxBitsWaitedFor & pxEventBits->uxEventBits ) == uxBitsWaitedFor )
+      00062B C0 05            [24] 1623 	push	ar5
+      00062D C0 06            [24] 1624 	push	ar6
+      00062F C0 07            [24] 1625 	push	ar7
+      000631 E5*00            [12] 1626 	mov	a,_bp
+      000633 24 0E            [12] 1627 	add	a,#0x0e
+      000635 F8               [12] 1628 	mov	r0,a
+      000636 86 82            [24] 1629 	mov	dpl,@r0
+      000638 08               [12] 1630 	inc	r0
+      000639 86 83            [24] 1631 	mov	dph,@r0
+      00063B 08               [12] 1632 	inc	r0
+      00063C 86 F0            [24] 1633 	mov	b,@r0
+      00063E 12r00r00         [24] 1634 	lcall	__gptrget
+      000641 FE               [12] 1635 	mov	r6,a
+      000642 A3               [24] 1636 	inc	dptr
+      000643 12r00r00         [24] 1637 	lcall	__gptrget
+      000646 FF               [12] 1638 	mov	r7,a
+      000647 EB               [12] 1639 	mov	a,r3
+      000648 52 06            [12] 1640 	anl	ar6,a
+      00064A EC               [12] 1641 	mov	a,r4
+      00064B 52 07            [12] 1642 	anl	ar7,a
+      00064D EE               [12] 1643 	mov	a,r6
+      00064E B5 03 06         [24] 1644 	cjne	a,ar3,00155$
+      000651 EF               [12] 1645 	mov	a,r7
+      000652 B5 04 02         [24] 1646 	cjne	a,ar4,00155$
+      000655 80 08            [24] 1647 	sjmp	00156$
+      000657                       1648 00155$:
+      000657 D0 07            [24] 1649 	pop	ar7
+      000659 D0 06            [24] 1650 	pop	ar6
+      00065B D0 05            [24] 1651 	pop	ar5
+      00065D 80 08            [24] 1652 	sjmp	00107$
+      00065F                       1653 00156$:
+      00065F D0 07            [24] 1654 	pop	ar7
+      000661 D0 06            [24] 1655 	pop	ar6
+      000663 D0 05            [24] 1656 	pop	ar5
+                           000665  1657 	C$event_groups.c$570$4_0$182 ==.
+                                   1658 ;	src/FreeRTOS/event_groups.c:570: xMatchFound = pdTRUE;
+      000665 7A 01            [12] 1659 	mov	r2,#0x01
+      000667                       1660 00107$:
+                           000667  1661 	C$event_groups.c$577$3_0$178 ==.
+                                   1662 ;	src/FreeRTOS/event_groups.c:577: if( xMatchFound != pdFALSE )
+      000667 EA               [12] 1663 	mov	a,r2
+      000668 60 5D            [24] 1664 	jz	00111$
+                           00066A  1665 	C$event_groups.c$580$4_0$184 ==.
+                                   1666 ;	src/FreeRTOS/event_groups.c:580: if( ( uxControlBits & eventCLEAR_EVENTS_ON_EXIT_BIT ) != ( EventBits_t ) 0 )
+      00066A E5*00            [12] 1667 	mov	a,_bp
+      00066C 24 0C            [12] 1668 	add	a,#0x0c
+      00066E F8               [12] 1669 	mov	r0,a
+      00066F 08               [12] 1670 	inc	r0
+      000670 E6               [12] 1671 	mov	a,@r0
+      000671 30 E0 0C         [24] 1672 	jnb	acc.0,00109$
+                           000674  1673 	C$event_groups.c$582$5_0$185 ==.
+                                   1674 ;	src/FreeRTOS/event_groups.c:582: uxBitsToClear |= uxBitsWaitedFor;
+      000674 E5*00            [12] 1675 	mov	a,_bp
+      000676 24 0A            [12] 1676 	add	a,#0x0a
+      000678 F8               [12] 1677 	mov	r0,a
+      000679 EB               [12] 1678 	mov	a,r3
+      00067A 46               [12] 1679 	orl	a,@r0
+      00067B F6               [12] 1680 	mov	@r0,a
+      00067C EC               [12] 1681 	mov	a,r4
+      00067D 08               [12] 1682 	inc	r0
+      00067E 46               [12] 1683 	orl	a,@r0
+      00067F F6               [12] 1684 	mov	@r0,a
+      000680                       1685 00109$:
+                           000680  1686 	C$event_groups.c$594$1_0$176 ==.
+                                   1687 ;	src/FreeRTOS/event_groups.c:594: vTaskRemoveFromUnorderedEventList( pxListItem, pxEventBits->uxEventBits | eventUNBLOCKED_DUE_TO_BIT_SET );
+      000680 C0 05            [24] 1688 	push	ar5
+      000682 C0 06            [24] 1689 	push	ar6
+      000684 C0 07            [24] 1690 	push	ar7
+      000686 E5*00            [12] 1691 	mov	a,_bp
+      000688 24 0E            [12] 1692 	add	a,#0x0e
+      00068A F8               [12] 1693 	mov	r0,a
+      00068B 86 82            [24] 1694 	mov	dpl,@r0
+      00068D 08               [12] 1695 	inc	r0
+      00068E 86 83            [24] 1696 	mov	dph,@r0
+      000690 08               [12] 1697 	inc	r0
+      000691 86 F0            [24] 1698 	mov	b,@r0
+      000693 12r00r00         [24] 1699 	lcall	__gptrget
+      000696 FE               [12] 1700 	mov	r6,a
+      000697 A3               [24] 1701 	inc	dptr
+      000698 12r00r00         [24] 1702 	lcall	__gptrget
+      00069B FF               [12] 1703 	mov	r7,a
+      00069C 43 07 02         [24] 1704 	orl	ar7,#0x02
+      00069F C0 07            [24] 1705 	push	ar7
+      0006A1 C0 06            [24] 1706 	push	ar6
+      0006A3 C0 05            [24] 1707 	push	ar5
+      0006A5 C0 06            [24] 1708 	push	ar6
+      0006A7 C0 07            [24] 1709 	push	ar7
+      0006A9 A8*00            [24] 1710 	mov	r0,_bp
+      0006AB 08               [12] 1711 	inc	r0
+      0006AC 86 82            [24] 1712 	mov	dpl,@r0
+      0006AE 08               [12] 1713 	inc	r0
+      0006AF 86 83            [24] 1714 	mov	dph,@r0
+      0006B1 08               [12] 1715 	inc	r0
+      0006B2 86 F0            [24] 1716 	mov	b,@r0
+      0006B4 12r00r00         [24] 1717 	lcall	_vTaskRemoveFromUnorderedEventList
+      0006B7 15 81            [12] 1718 	dec	sp
+      0006B9 15 81            [12] 1719 	dec	sp
+      0006BB D0 05            [24] 1720 	pop	ar5
+      0006BD D0 06            [24] 1721 	pop	ar6
+      0006BF D0 07            [24] 1722 	pop	ar7
+                           0006C1  1723 	C$event_groups.c$609$1_0$176 ==.
+                                   1724 ;	src/FreeRTOS/event_groups.c:609: return pxEventBits->uxEventBits;
+      0006C1 D0 07            [24] 1725 	pop	ar7
+      0006C3 D0 06            [24] 1726 	pop	ar6
+      0006C5 D0 05            [24] 1727 	pop	ar5
+                           0006C7  1728 	C$event_groups.c$594$3_0$178 ==.
+                                   1729 ;	src/FreeRTOS/event_groups.c:594: vTaskRemoveFromUnorderedEventList( pxListItem, pxEventBits->uxEventBits | eventUNBLOCKED_DUE_TO_BIT_SET );
+      0006C7                       1730 00111$:
+                           0006C7  1731 	C$event_groups.c$600$3_0$178 ==.
+                                   1732 ;	src/FreeRTOS/event_groups.c:600: pxListItem = pxNext;
+      0006C7 A8*00            [24] 1733 	mov	r0,_bp
+      0006C9 08               [12] 1734 	inc	r0
+      0006CA A6 05            [24] 1735 	mov	@r0,ar5
+      0006CC 08               [12] 1736 	inc	r0
+      0006CD A6 06            [24] 1737 	mov	@r0,ar6
+      0006CF 08               [12] 1738 	inc	r0
+      0006D0 A6 07            [24] 1739 	mov	@r0,ar7
+      0006D2 02r05r84         [24] 1740 	ljmp	00112$
+      0006D5                       1741 00114$:
+                           0006D5  1742 	C$event_groups.c$605$2_0$177 ==.
+                                   1743 ;	src/FreeRTOS/event_groups.c:605: pxEventBits->uxEventBits &= ~uxBitsToClear;
+      0006D5 E5*00            [12] 1744 	mov	a,_bp
+      0006D7 24 0E            [12] 1745 	add	a,#0x0e
+      0006D9 F8               [12] 1746 	mov	r0,a
+      0006DA 86 82            [24] 1747 	mov	dpl,@r0
+      0006DC 08               [12] 1748 	inc	r0
+      0006DD 86 83            [24] 1749 	mov	dph,@r0
+      0006DF 08               [12] 1750 	inc	r0
+      0006E0 86 F0            [24] 1751 	mov	b,@r0
+      0006E2 12r00r00         [24] 1752 	lcall	__gptrget
+      0006E5 FE               [12] 1753 	mov	r6,a
+      0006E6 A3               [24] 1754 	inc	dptr
+      0006E7 12r00r00         [24] 1755 	lcall	__gptrget
+      0006EA FF               [12] 1756 	mov	r7,a
+      0006EB E5*00            [12] 1757 	mov	a,_bp
+      0006ED 24 0A            [12] 1758 	add	a,#0x0a
+      0006EF F8               [12] 1759 	mov	r0,a
+      0006F0 E6               [12] 1760 	mov	a,@r0
+      0006F1 F4               [12] 1761 	cpl	a
+      0006F2 FC               [12] 1762 	mov	r4,a
+      0006F3 08               [12] 1763 	inc	r0
+      0006F4 E6               [12] 1764 	mov	a,@r0
+      0006F5 F4               [12] 1765 	cpl	a
+      0006F6 FD               [12] 1766 	mov	r5,a
+      0006F7 EC               [12] 1767 	mov	a,r4
+      0006F8 52 06            [12] 1768 	anl	ar6,a
+      0006FA ED               [12] 1769 	mov	a,r5
+      0006FB 52 07            [12] 1770 	anl	ar7,a
+      0006FD E5*00            [12] 1771 	mov	a,_bp
+      0006FF 24 0E            [12] 1772 	add	a,#0x0e
+      000701 F8               [12] 1773 	mov	r0,a
+      000702 86 82            [24] 1774 	mov	dpl,@r0
+      000704 08               [12] 1775 	inc	r0
+      000705 86 83            [24] 1776 	mov	dph,@r0
+      000707 08               [12] 1777 	inc	r0
+      000708 86 F0            [24] 1778 	mov	b,@r0
+      00070A EE               [12] 1779 	mov	a,r6
+      00070B 12r00r00         [24] 1780 	lcall	__gptrput
+      00070E A3               [24] 1781 	inc	dptr
+      00070F EF               [12] 1782 	mov	a,r7
+      000710 12r00r00         [24] 1783 	lcall	__gptrput
+                           000713  1784 	C$event_groups.c$607$1_0$176 ==.
+                                   1785 ;	src/FreeRTOS/event_groups.c:607: ( void ) xTaskResumeAll();
+      000713 12r00r00         [24] 1786 	lcall	_xTaskResumeAll
+                           000716  1787 	C$event_groups.c$609$1_0$176 ==.
+                                   1788 ;	src/FreeRTOS/event_groups.c:609: return pxEventBits->uxEventBits;
+      000716 E5*00            [12] 1789 	mov	a,_bp
+      000718 24 0E            [12] 1790 	add	a,#0x0e
+      00071A F8               [12] 1791 	mov	r0,a
+      00071B 86 82            [24] 1792 	mov	dpl,@r0
+      00071D 08               [12] 1793 	inc	r0
+      00071E 86 83            [24] 1794 	mov	dph,@r0
+      000720 08               [12] 1795 	inc	r0
+      000721 86 F0            [24] 1796 	mov	b,@r0
+      000723 12r00r00         [24] 1797 	lcall	__gptrget
+      000726 FE               [12] 1798 	mov	r6,a
+      000727 A3               [24] 1799 	inc	dptr
+      000728 12r00r00         [24] 1800 	lcall	__gptrget
+      00072B FF               [12] 1801 	mov	r7,a
+      00072C 8E 82            [24] 1802 	mov	dpl,r6
+      00072E 8F 83            [24] 1803 	mov	dph,r7
+                           000730  1804 	C$event_groups.c$610$1_0$176 ==.
+                                   1805 ;	src/FreeRTOS/event_groups.c:610: }
+      000730 85*00 81         [24] 1806 	mov	sp,_bp
+      000733 D0*00            [24] 1807 	pop	_bp
+                           000735  1808 	C$event_groups.c$610$1_0$176 ==.
+                           000735  1809 	XG$xEventGroupSetBits$0$0 ==.
+      000735 22               [24] 1810 	ret
+                                   1811 ;------------------------------------------------------------
+                                   1812 ;Allocation info for local variables in function 'vEventGroupDelete'
+                                   1813 ;------------------------------------------------------------
+                                   1814 ;xEventGroup               Allocated to registers r5 r6 r7 
+                                   1815 ;pxEventBits               Allocated to stack - _bp +1
+                                   1816 ;pxTasksWaitingForBits     Allocated to registers r5 r6 r7 
+                                   1817 ;------------------------------------------------------------
+                           000736  1818 	G$vEventGroupDelete$0$0 ==.
+                           000736  1819 	C$event_groups.c$613$1_0$188 ==.
+                                   1820 ;	src/FreeRTOS/event_groups.c:613: void vEventGroupDelete( EventGroupHandle_t xEventGroup )
+                                   1821 ;	-----------------------------------------
+                                   1822 ;	 function vEventGroupDelete
+                                   1823 ;	-----------------------------------------
+      000736                       1824 _vEventGroupDelete:
+      000736 C0*00            [24] 1825 	push	_bp
+      000738 85 81*00         [24] 1826 	mov	_bp,sp
+      00073B 05 81            [12] 1827 	inc	sp
+      00073D 05 81            [12] 1828 	inc	sp
+      00073F 05 81            [12] 1829 	inc	sp
+      000741 AD 82            [24] 1830 	mov	r5,dpl
+      000743 AE 83            [24] 1831 	mov	r6,dph
+      000745 AF F0            [24] 1832 	mov	r7,b
+                           000747  1833 	C$event_groups.c$615$2_0$188 ==.
+                                   1834 ;	src/FreeRTOS/event_groups.c:615: EventGroup_t *pxEventBits = xEventGroup;
+      000747 A8*00            [24] 1835 	mov	r0,_bp
+      000749 08               [12] 1836 	inc	r0
+      00074A A6 05            [24] 1837 	mov	@r0,ar5
+      00074C 08               [12] 1838 	inc	r0
+      00074D A6 06            [24] 1839 	mov	@r0,ar6
+      00074F 08               [12] 1840 	inc	r0
+      000750 A6 07            [24] 1841 	mov	@r0,ar7
+                           000752  1842 	C$event_groups.c$616$1_0$188 ==.
+                                   1843 ;	src/FreeRTOS/event_groups.c:616: const List_t *pxTasksWaitingForBits = &( pxEventBits->xTasksWaitingForBits );
+      000752 74 02            [12] 1844 	mov	a,#0x02
+      000754 2D               [12] 1845 	add	a,r5
+      000755 FD               [12] 1846 	mov	r5,a
+      000756 E4               [12] 1847 	clr	a
+      000757 3E               [12] 1848 	addc	a,r6
+      000758 FE               [12] 1849 	mov	r6,a
+                           000759  1850 	C$event_groups.c$618$1_0$188 ==.
+                                   1851 ;	src/FreeRTOS/event_groups.c:618: vTaskSuspendAll();
+      000759 C0 07            [24] 1852 	push	ar7
+      00075B C0 06            [24] 1853 	push	ar6
+      00075D C0 05            [24] 1854 	push	ar5
+      00075F 12r00r00         [24] 1855 	lcall	_vTaskSuspendAll
+      000762 D0 05            [24] 1856 	pop	ar5
+      000764 D0 06            [24] 1857 	pop	ar6
+      000766 D0 07            [24] 1858 	pop	ar7
+                           000768  1859 	C$event_groups.c$622$3_0$190 ==.
+                                   1860 ;	src/FreeRTOS/event_groups.c:622: while( listCURRENT_LIST_LENGTH( pxTasksWaitingForBits ) > ( UBaseType_t ) 0 )
+      000768 74 06            [12] 1861 	mov	a,#0x06
+      00076A 2D               [12] 1862 	add	a,r5
+      00076B FA               [12] 1863 	mov	r2,a
+      00076C E4               [12] 1864 	clr	a
+      00076D 3E               [12] 1865 	addc	a,r6
+      00076E FB               [12] 1866 	mov	r3,a
+      00076F 8F 04            [24] 1867 	mov	ar4,r7
+      000771                       1868 00101$:
+      000771 8D 82            [24] 1869 	mov	dpl,r5
+      000773 8E 83            [24] 1870 	mov	dph,r6
+      000775 8F F0            [24] 1871 	mov	b,r7
+      000777 12r00r00         [24] 1872 	lcall	__gptrget
+      00077A 60 4E            [24] 1873 	jz	00103$
+                           00077C  1874 	C$event_groups.c$627$1_0$188 ==.
+                                   1875 ;	src/FreeRTOS/event_groups.c:627: vTaskRemoveFromUnorderedEventList( pxTasksWaitingForBits->xListEnd.pxNext, eventUNBLOCKED_DUE_TO_BIT_SET );
+      00077C C0 05            [24] 1876 	push	ar5
+      00077E C0 06            [24] 1877 	push	ar6
+      000780 C0 07            [24] 1878 	push	ar7
+      000782 8A 82            [24] 1879 	mov	dpl,r2
+      000784 8B 83            [24] 1880 	mov	dph,r3
+      000786 8C F0            [24] 1881 	mov	b,r4
+      000788 12r00r00         [24] 1882 	lcall	__gptrget
+      00078B FD               [12] 1883 	mov	r5,a
+      00078C A3               [24] 1884 	inc	dptr
+      00078D 12r00r00         [24] 1885 	lcall	__gptrget
+      000790 FE               [12] 1886 	mov	r6,a
+      000791 A3               [24] 1887 	inc	dptr
+      000792 12r00r00         [24] 1888 	lcall	__gptrget
+      000795 FF               [12] 1889 	mov	r7,a
+      000796 C0 07            [24] 1890 	push	ar7
+      000798 C0 06            [24] 1891 	push	ar6
+      00079A C0 05            [24] 1892 	push	ar5
+      00079C C0 04            [24] 1893 	push	ar4
+      00079E C0 03            [24] 1894 	push	ar3
+      0007A0 C0 02            [24] 1895 	push	ar2
+      0007A2 E4               [12] 1896 	clr	a
+      0007A3 C0 E0            [24] 1897 	push	acc
+      0007A5 74 02            [12] 1898 	mov	a,#0x02
+      0007A7 C0 E0            [24] 1899 	push	acc
+      0007A9 8D 82            [24] 1900 	mov	dpl,r5
+      0007AB 8E 83            [24] 1901 	mov	dph,r6
+      0007AD 8F F0            [24] 1902 	mov	b,r7
+      0007AF 12r00r00         [24] 1903 	lcall	_vTaskRemoveFromUnorderedEventList
+      0007B2 15 81            [12] 1904 	dec	sp
+      0007B4 15 81            [12] 1905 	dec	sp
+      0007B6 D0 02            [24] 1906 	pop	ar2
+      0007B8 D0 03            [24] 1907 	pop	ar3
+      0007BA D0 04            [24] 1908 	pop	ar4
+      0007BC D0 05            [24] 1909 	pop	ar5
+      0007BE D0 06            [24] 1910 	pop	ar6
+      0007C0 D0 07            [24] 1911 	pop	ar7
+      0007C2 D0 07            [24] 1912 	pop	ar7
+      0007C4 D0 06            [24] 1913 	pop	ar6
+      0007C6 D0 05            [24] 1914 	pop	ar5
+      0007C8 80 A7            [24] 1915 	sjmp	00101$
+      0007CA                       1916 00103$:
+                           0007CA  1917 	C$event_groups.c$634$3_0$191 ==.
+                                   1918 ;	src/FreeRTOS/event_groups.c:634: vPortFree( pxEventBits );
+      0007CA A8*00            [24] 1919 	mov	r0,_bp
+      0007CC 08               [12] 1920 	inc	r0
+      0007CD 86 02            [24] 1921 	mov	ar2,@r0
+      0007CF 08               [12] 1922 	inc	r0
+      0007D0 86 03            [24] 1923 	mov	ar3,@r0
+      0007D2 08               [12] 1924 	inc	r0
+      0007D3 86 04            [24] 1925 	mov	ar4,@r0
+      0007D5 8A 82            [24] 1926 	mov	dpl,r2
+      0007D7 8B 83            [24] 1927 	mov	dph,r3
+      0007D9 8C F0            [24] 1928 	mov	b,r4
+      0007DB 12r00r00         [24] 1929 	lcall	_vPortFree
+                           0007DE  1930 	C$event_groups.c$651$1_0$188 ==.
+                                   1931 ;	src/FreeRTOS/event_groups.c:651: ( void ) xTaskResumeAll();
+      0007DE 12r00r00         [24] 1932 	lcall	_xTaskResumeAll
+                           0007E1  1933 	C$event_groups.c$652$1_0$188 ==.
+                                   1934 ;	src/FreeRTOS/event_groups.c:652: }
+      0007E1 85*00 81         [24] 1935 	mov	sp,_bp
+      0007E4 D0*00            [24] 1936 	pop	_bp
+                           0007E6  1937 	C$event_groups.c$652$1_0$188 ==.
+                           0007E6  1938 	XG$vEventGroupDelete$0$0 ==.
+      0007E6 22               [24] 1939 	ret
+                                   1940 ;------------------------------------------------------------
+                                   1941 ;Allocation info for local variables in function 'vEventGroupSetBitsCallback'
+                                   1942 ;------------------------------------------------------------
+                                   1943 ;ulBitsToSet               Allocated to stack - _bp -6
+                                   1944 ;pvEventGroup              Allocated to registers r5 r6 r7 
+                                   1945 ;------------------------------------------------------------
+                           0007E7  1946 	G$vEventGroupSetBitsCallback$0$0 ==.
+                           0007E7  1947 	C$event_groups.c$657$1_0$193 ==.
+                                   1948 ;	src/FreeRTOS/event_groups.c:657: void vEventGroupSetBitsCallback( void *pvEventGroup, const uint32_t ulBitsToSet )
+                                   1949 ;	-----------------------------------------
+                                   1950 ;	 function vEventGroupSetBitsCallback
+                                   1951 ;	-----------------------------------------
+      0007E7                       1952 _vEventGroupSetBitsCallback:
+      0007E7 C0*00            [24] 1953 	push	_bp
+      0007E9 85 81*00         [24] 1954 	mov	_bp,sp
+      0007EC AD 82            [24] 1955 	mov	r5,dpl
+      0007EE AE 83            [24] 1956 	mov	r6,dph
+      0007F0 AF F0            [24] 1957 	mov	r7,b
+                           0007F2  1958 	C$event_groups.c$659$1_0$193 ==.
+                                   1959 ;	src/FreeRTOS/event_groups.c:659: ( void ) xEventGroupSetBits( pvEventGroup, ( EventBits_t ) ulBitsToSet ); /*lint !e9079 Can't avoid cast to void* as a generic timer callback prototype. Callback casts back to original type so safe. */
+      0007F2 E5*00            [12] 1960 	mov	a,_bp
+      0007F4 24 FA            [12] 1961 	add	a,#0xfa
+      0007F6 F8               [12] 1962 	mov	r0,a
+      0007F7 86 03            [24] 1963 	mov	ar3,@r0
+      0007F9 08               [12] 1964 	inc	r0
+      0007FA 86 04            [24] 1965 	mov	ar4,@r0
+      0007FC C0 03            [24] 1966 	push	ar3
+      0007FE C0 04            [24] 1967 	push	ar4
+      000800 8D 82            [24] 1968 	mov	dpl,r5
+      000802 8E 83            [24] 1969 	mov	dph,r6
+      000804 8F F0            [24] 1970 	mov	b,r7
+      000806 12r04rCF         [24] 1971 	lcall	_xEventGroupSetBits
+      000809 15 81            [12] 1972 	dec	sp
+      00080B 15 81            [12] 1973 	dec	sp
+                           00080D  1974 	C$event_groups.c$660$1_0$193 ==.
+                                   1975 ;	src/FreeRTOS/event_groups.c:660: }
+      00080D D0*00            [24] 1976 	pop	_bp
+                           00080F  1977 	C$event_groups.c$660$1_0$193 ==.
+                           00080F  1978 	XG$vEventGroupSetBitsCallback$0$0 ==.
+      00080F 22               [24] 1979 	ret
+                                   1980 ;------------------------------------------------------------
+                                   1981 ;Allocation info for local variables in function 'vEventGroupClearBitsCallback'
+                                   1982 ;------------------------------------------------------------
+                                   1983 ;ulBitsToClear             Allocated to stack - _bp -6
+                                   1984 ;pvEventGroup              Allocated to registers r5 r6 r7 
+                                   1985 ;------------------------------------------------------------
+                           000810  1986 	G$vEventGroupClearBitsCallback$0$0 ==.
+                           000810  1987 	C$event_groups.c$665$1_0$195 ==.
+                                   1988 ;	src/FreeRTOS/event_groups.c:665: void vEventGroupClearBitsCallback( void *pvEventGroup, const uint32_t ulBitsToClear )
+                                   1989 ;	-----------------------------------------
+                                   1990 ;	 function vEventGroupClearBitsCallback
+                                   1991 ;	-----------------------------------------
+      000810                       1992 _vEventGroupClearBitsCallback:
+      000810 C0*00            [24] 1993 	push	_bp
+      000812 85 81*00         [24] 1994 	mov	_bp,sp
+      000815 AD 82            [24] 1995 	mov	r5,dpl
+      000817 AE 83            [24] 1996 	mov	r6,dph
+      000819 AF F0            [24] 1997 	mov	r7,b
+                           00081B  1998 	C$event_groups.c$667$1_0$195 ==.
+                                   1999 ;	src/FreeRTOS/event_groups.c:667: ( void ) xEventGroupClearBits( pvEventGroup, ( EventBits_t ) ulBitsToClear ); /*lint !e9079 Can't avoid cast to void* as a generic timer callback prototype. Callback casts back to original type so safe. */
+      00081B E5*00            [12] 2000 	mov	a,_bp
+      00081D 24 FA            [12] 2001 	add	a,#0xfa
+      00081F F8               [12] 2002 	mov	r0,a
+      000820 86 03            [24] 2003 	mov	ar3,@r0
+      000822 08               [12] 2004 	inc	r0
+      000823 86 04            [24] 2005 	mov	ar4,@r0
+      000825 C0 03            [24] 2006 	push	ar3
+      000827 C0 04            [24] 2007 	push	ar4
+      000829 8D 82            [24] 2008 	mov	dpl,r5
+      00082B 8E 83            [24] 2009 	mov	dph,r6
+      00082D 8F F0            [24] 2010 	mov	b,r7
+      00082F 12r04r5E         [24] 2011 	lcall	_xEventGroupClearBits
+      000832 15 81            [12] 2012 	dec	sp
+      000834 15 81            [12] 2013 	dec	sp
+                           000836  2014 	C$event_groups.c$668$1_0$195 ==.
+                                   2015 ;	src/FreeRTOS/event_groups.c:668: }
+      000836 D0*00            [24] 2016 	pop	_bp
+                           000838  2017 	C$event_groups.c$668$1_0$195 ==.
+                           000838  2018 	XG$vEventGroupClearBitsCallback$0$0 ==.
+      000838 22               [24] 2019 	ret
+                                   2020 ;------------------------------------------------------------
+                                   2021 ;Allocation info for local variables in function 'prvTestWaitCondition'
+                                   2022 ;------------------------------------------------------------
+                                   2023 ;uxBitsToWaitFor           Allocated to stack - _bp -4
+                                   2024 ;xWaitForAllBits           Allocated to stack - _bp -5
+                                   2025 ;uxCurrentEventBits        Allocated to registers r6 r7 
+                                   2026 ;xWaitConditionMet         Allocated to registers r5 
+                                   2027 ;------------------------------------------------------------
+                           000839  2028 	Fevent_groups$prvTestWaitCondition$0$0 ==.
+                           000839  2029 	C$event_groups.c$671$1_0$197 ==.
+                                   2030 ;	src/FreeRTOS/event_groups.c:671: static BaseType_t prvTestWaitCondition( const EventBits_t uxCurrentEventBits, const EventBits_t uxBitsToWaitFor, const BaseType_t xWaitForAllBits )
+                                   2031 ;	-----------------------------------------
+                                   2032 ;	 function prvTestWaitCondition
+                                   2033 ;	-----------------------------------------
+      000839                       2034 _prvTestWaitCondition:
+      000839 C0*00            [24] 2035 	push	_bp
+      00083B 85 81*00         [24] 2036 	mov	_bp,sp
+      00083E AE 82            [24] 2037 	mov	r6,dpl
+      000840 AF 83            [24] 2038 	mov	r7,dph
+                           000842  2039 	C$event_groups.c$673$2_0$197 ==.
+                                   2040 ;	src/FreeRTOS/event_groups.c:673: BaseType_t xWaitConditionMet = pdFALSE;
+      000842 7D 00            [12] 2041 	mov	r5,#0x00
+                           000844  2042 	C$event_groups.c$675$1_0$197 ==.
+                                   2043 ;	src/FreeRTOS/event_groups.c:675: if( xWaitForAllBits == pdFALSE )
+      000844 E5*00            [12] 2044 	mov	a,_bp
+      000846 24 FB            [12] 2045 	add	a,#0xfb
+      000848 F8               [12] 2046 	mov	r0,a
+      000849 E6               [12] 2047 	mov	a,@r0
+      00084A 70 13            [24] 2048 	jnz	00106$
+                           00084C  2049 	C$event_groups.c$679$2_0$198 ==.
+                                   2050 ;	src/FreeRTOS/event_groups.c:679: if( ( uxCurrentEventBits & uxBitsToWaitFor ) != ( EventBits_t ) 0 )
+      00084C E5*00            [12] 2051 	mov	a,_bp
+      00084E 24 FC            [12] 2052 	add	a,#0xfc
+      000850 F8               [12] 2053 	mov	r0,a
+      000851 E6               [12] 2054 	mov	a,@r0
+      000852 5E               [12] 2055 	anl	a,r6
+      000853 FB               [12] 2056 	mov	r3,a
+      000854 08               [12] 2057 	inc	r0
+      000855 E6               [12] 2058 	mov	a,@r0
+      000856 5F               [12] 2059 	anl	a,r7
+      000857 FC               [12] 2060 	mov	r4,a
+      000858 4B               [12] 2061 	orl	a,r3
+      000859 60 24            [24] 2062 	jz	00107$
+                           00085B  2063 	C$event_groups.c$681$3_0$199 ==.
+                                   2064 ;	src/FreeRTOS/event_groups.c:681: xWaitConditionMet = pdTRUE;
+      00085B 7D 01            [12] 2065 	mov	r5,#0x01
+      00085D 80 20            [24] 2066 	sjmp	00107$
+      00085F                       2067 00106$:
+                           00085F  2068 	C$event_groups.c$692$2_0$201 ==.
+                                   2069 ;	src/FreeRTOS/event_groups.c:692: if( ( uxCurrentEventBits & uxBitsToWaitFor ) == uxBitsToWaitFor )
+      00085F E5*00            [12] 2070 	mov	a,_bp
+      000861 24 FC            [12] 2071 	add	a,#0xfc
+      000863 F8               [12] 2072 	mov	r0,a
+      000864 E6               [12] 2073 	mov	a,@r0
+      000865 52 06            [12] 2074 	anl	ar6,a
+      000867 08               [12] 2075 	inc	r0
+      000868 E6               [12] 2076 	mov	a,@r0
+      000869 52 07            [12] 2077 	anl	ar7,a
+      00086B E5*00            [12] 2078 	mov	a,_bp
+      00086D 24 FC            [12] 2079 	add	a,#0xfc
+      00086F F8               [12] 2080 	mov	r0,a
+      000870 E6               [12] 2081 	mov	a,@r0
+      000871 B5 06 07         [24] 2082 	cjne	a,ar6,00124$
+      000874 08               [12] 2083 	inc	r0
+      000875 E6               [12] 2084 	mov	a,@r0
+      000876 B5 07 02         [24] 2085 	cjne	a,ar7,00124$
+      000879 80 02            [24] 2086 	sjmp	00125$
+      00087B                       2087 00124$:
+      00087B 80 02            [24] 2088 	sjmp	00107$
+      00087D                       2089 00125$:
+                           00087D  2090 	C$event_groups.c$694$3_0$202 ==.
+                                   2091 ;	src/FreeRTOS/event_groups.c:694: xWaitConditionMet = pdTRUE;
+      00087D 7D 01            [12] 2092 	mov	r5,#0x01
+      00087F                       2093 00107$:
+                           00087F  2094 	C$event_groups.c$702$1_0$197 ==.
+                                   2095 ;	src/FreeRTOS/event_groups.c:702: return xWaitConditionMet;
+      00087F 8D 82            [24] 2096 	mov	dpl,r5
+                           000881  2097 	C$event_groups.c$703$1_0$197 ==.
+                                   2098 ;	src/FreeRTOS/event_groups.c:703: }
+      000881 D0*00            [24] 2099 	pop	_bp
+                           000883  2100 	C$event_groups.c$703$1_0$197 ==.
+                           000883  2101 	XFevent_groups$prvTestWaitCondition$0$0 ==.
+      000883 22               [24] 2102 	ret
+                                   2103 	.area CSEG    (CODE)
+                                   2104 	.area CONST   (CODE)
+                                   2105 	.area CABS    (ABS,CODE)

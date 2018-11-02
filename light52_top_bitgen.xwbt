@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/michi/workspace/light52/light52_top.ncd
+OUTFILE=/home/michi/workspace/light52/light52_top.bit
+FAMILY=Spartan6
+PART=xc6slx45-2csg324
+WORKINGDIR=/home/michi/workspace/light52
+LICENSE=WebPack
+USER_INFO=211458568_0_0_237

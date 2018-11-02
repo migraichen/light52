@@ -1,0 +1,28 @@
+###############################################################################
+# Define Device, Package And Speed Grade
+###############################################################################
+NET "clk_in" TNM_NET = TNM_SysClk;
+TIMESPEC "TS_SysClk" = PERIOD "TNM_SysClk" 10 ns HIGH 50 %;
+NET  "clk_in"   LOC = L15;
+NET  "clk_in"   IOSTANDARD = LVCMOS33;
+
+# button "Center"
+NET "rst_in" LOC = F5;
+NET "rst_in" CLOCK_DEDICATED_ROUTE = "FALSE";
+# jumpers
+
+
+# UART1 interface
+NET "rxd_in"   LOC = A16;
+NET "txd_out"   LOC = B16;
+
+# User's LEDs:
+NET "p0_out[0]" LOC = U18;
+NET "p0_out[1]" LOC = M14;
+NET "p0_out[2]" LOC = N14;
+NET "p0_out[3]" LOC = L14;
+NET "p0_out[4]" LOC = M13;
+NET "p0_out[5]" LOC = D4;
+NET "p0_out[6]" LOC = P16;
+NET "p0_out[7]" LOC = N12;
+

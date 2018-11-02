@@ -1,0 +1,32 @@
+-muwx
+-i obj/main.ihx
+-M
+-Y
+-I 0x0080
+-X 0x2000
+-C 0x8000
+-y
+-b HOME = 0x0000
+-b XSEG = 0x0001
+-b PSEG = 0x0001
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k /usr/local/bin/../share/sdcc/lib/large
+-k /usr/local/share/sdcc/lib/large
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+obj/main.rel
+obj/croutine.rel
+obj/tasks.rel
+obj/event_groups.rel
+obj/list.rel
+obj/queue.rel
+obj/stream_buffer.rel
+obj/timers.rel
+obj/heap_1.rel
+obj/port.rel
+
+-e

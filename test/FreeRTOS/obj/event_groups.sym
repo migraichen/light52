@@ -1,0 +1,2188 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+    A                                                           =  0000E0 L
+ 15 A$event_groupsoups$1000                                        00032E GR
+ 15 A$event_groupsoups$1001                                        00032F GR
+ 15 A$event_groupsoups$1004                                        000331 GR
+ 15 A$event_groupsoups$1005                                        000333 GR
+ 15 A$event_groupsoups$1009                                        000335 GR
+ 15 A$event_groupsoups$1010                                        000337 GR
+ 15 A$event_groupsoups$1011                                        000339 GR
+ 15 A$event_groupsoups$1012                                        00033A GR
+ 15 A$event_groupsoups$1013                                        00033B GR
+ 15 A$event_groupsoups$1016                                        00033D GR
+ 15 A$event_groupsoups$1020                                        000340 GR
+ 15 A$event_groupsoups$1021                                        000342 GR
+ 15 A$event_groupsoups$1022                                        000344 GR
+ 15 A$event_groupsoups$1023                                        000345 GR
+ 15 A$event_groupsoups$1024                                        000346 GR
+ 15 A$event_groupsoups$1025                                        000347 GR
+ 15 A$event_groupsoups$1026                                        000348 GR
+ 15 A$event_groupsoups$1027                                        000349 GR
+ 15 A$event_groupsoups$1028                                        00034A GR
+ 15 A$event_groupsoups$1029                                        00034B GR
+ 15 A$event_groupsoups$1030                                        00034C GR
+ 15 A$event_groupsoups$1031                                        00034E GR
+ 15 A$event_groupsoups$1032                                        000350 GR
+ 15 A$event_groupsoups$1033                                        000351 GR
+ 15 A$event_groupsoups$1034                                        000353 GR
+ 15 A$event_groupsoups$1035                                        000354 GR
+ 15 A$event_groupsoups$1036                                        000355 GR
+ 15 A$event_groupsoups$1037                                        000356 GR
+ 15 A$event_groupsoups$1038                                        000357 GR
+ 15 A$event_groupsoups$1039                                        000358 GR
+ 15 A$event_groupsoups$1040                                        000359 GR
+ 15 A$event_groupsoups$1041                                        00035A GR
+ 15 A$event_groupsoups$1042                                        00035C GR
+ 15 A$event_groupsoups$1043                                        00035E GR
+ 15 A$event_groupsoups$1044                                        000360 GR
+ 15 A$event_groupsoups$1045                                        000361 GR
+ 15 A$event_groupsoups$1046                                        000362 GR
+ 15 A$event_groupsoups$1047                                        000364 GR
+ 15 A$event_groupsoups$1048                                        000365 GR
+ 15 A$event_groupsoups$1049                                        000366 GR
+ 15 A$event_groupsoups$1050                                        000368 GR
+ 15 A$event_groupsoups$1051                                        00036A GR
+ 15 A$event_groupsoups$1052                                        00036C GR
+ 15 A$event_groupsoups$1053                                        00036E GR
+ 15 A$event_groupsoups$1054                                        000370 GR
+ 15 A$event_groupsoups$1055                                        000372 GR
+ 15 A$event_groupsoups$1056                                        000375 GR
+ 15 A$event_groupsoups$1057                                        000377 GR
+ 15 A$event_groupsoups$1058                                        000379 GR
+ 15 A$event_groupsoups$1061                                        00037B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1062                                        00037D GR
+ 15 A$event_groupsoups$1066                                        00037F GR
+ 15 A$event_groupsoups$1067                                        000381 GR
+ 15 A$event_groupsoups$1068                                        000383 GR
+ 15 A$event_groupsoups$1069                                        000386 GR
+ 15 A$event_groupsoups$1070                                        000388 GR
+ 15 A$event_groupsoups$1071                                        00038A GR
+ 15 A$event_groupsoups$1074                                        00038C GR
+ 15 A$event_groupsoups$1075                                        00038E GR
+ 15 A$event_groupsoups$1076                                        000390 GR
+ 15 A$event_groupsoups$1077                                        000391 GR
+ 15 A$event_groupsoups$1078                                        000392 GR
+ 15 A$event_groupsoups$1079                                        000393 GR
+ 15 A$event_groupsoups$1080                                        000394 GR
+ 15 A$event_groupsoups$1081                                        000396 GR
+ 15 A$event_groupsoups$1085                                        000399 GR
+ 15 A$event_groupsoups$1086                                        00039A GR
+ 15 A$event_groupsoups$1089                                        00039C GR
+ 15 A$event_groupsoups$1093                                        00039F GR
+ 15 A$event_groupsoups$1094                                        0003A2 GR
+ 15 A$event_groupsoups$1097                                        0003A4 GR
+ 15 A$event_groupsoups$1098                                        0003A6 GR
+ 15 A$event_groupsoups$1099                                        0003A7 GR
+ 15 A$event_groupsoups$1100                                        0003AA GR
+ 15 A$event_groupsoups$1104                                        0003AD GR
+ 15 A$event_groupsoups$1105                                        0003AF GR
+ 15 A$event_groupsoups$1107                                        0003B1 GR
+ 15 A$event_groupsoups$1110                                        0003B3 GR
+ 15 A$event_groupsoups$1111                                        0003B5 GR
+ 15 A$event_groupsoups$1112                                        0003B7 GR
+ 15 A$event_groupsoups$1113                                        0003B8 GR
+ 15 A$event_groupsoups$1114                                        0003BA GR
+ 15 A$event_groupsoups$1115                                        0003BB GR
+ 15 A$event_groupsoups$1116                                        0003BD GR
+ 15 A$event_groupsoups$1117                                        0003BE GR
+ 15 A$event_groupsoups$1118                                        0003C0 GR
+ 15 A$event_groupsoups$1119                                        0003C3 GR
+ 15 A$event_groupsoups$1120                                        0003C4 GR
+ 15 A$event_groupsoups$1121                                        0003C5 GR
+ 15 A$event_groupsoups$1122                                        0003C8 GR
+ 15 A$event_groupsoups$1125                                        0003C9 GR
+ 15 A$event_groupsoups$1126                                        0003CB GR
+ 15 A$event_groupsoups$1127                                        0003CD GR
+ 15 A$event_groupsoups$1128                                        0003CF GR
+ 15 A$event_groupsoups$1129                                        0003D1 GR
+ 15 A$event_groupsoups$1130                                        0003D2 GR
+ 15 A$event_groupsoups$1131                                        0003D3 GR
+ 15 A$event_groupsoups$1132                                        0003D5 GR
+ 15 A$event_groupsoups$1133                                        0003D7 GR
+ 15 A$event_groupsoups$1134                                        0003D9 GR
+ 15 A$event_groupsoups$1135                                        0003DA GR
+ 15 A$event_groupsoups$1136                                        0003DB GR
+ 15 A$event_groupsoups$1137                                        0003DD GR
+ 15 A$event_groupsoups$1138                                        0003DE GR
+ 15 A$event_groupsoups$1139                                        0003DF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1140                                        0003E1 GR
+ 15 A$event_groupsoups$1141                                        0003E3 GR
+ 15 A$event_groupsoups$1142                                        0003E5 GR
+ 15 A$event_groupsoups$1143                                        0003E8 GR
+ 15 A$event_groupsoups$1144                                        0003EA GR
+ 15 A$event_groupsoups$1145                                        0003EC GR
+ 15 A$event_groupsoups$1146                                        0003EE GR
+ 15 A$event_groupsoups$1147                                        0003F0 GR
+ 15 A$event_groupsoups$1148                                        0003F2 GR
+ 15 A$event_groupsoups$1149                                        0003F4 GR
+ 15 A$event_groupsoups$1150                                        0003F5 GR
+ 15 A$event_groupsoups$1153                                        0003F7 GR
+ 15 A$event_groupsoups$1154                                        0003F9 GR
+ 15 A$event_groupsoups$1155                                        0003FB GR
+ 15 A$event_groupsoups$1156                                        0003FC GR
+ 15 A$event_groupsoups$1157                                        0003FD GR
+ 15 A$event_groupsoups$1160                                        0003FF GR
+ 15 A$event_groupsoups$1161                                        000401 GR
+ 15 A$event_groupsoups$1162                                        000403 GR
+ 15 A$event_groupsoups$1163                                        000405 GR
+ 15 A$event_groupsoups$1164                                        000407 GR
+ 15 A$event_groupsoups$1165                                        000408 GR
+ 15 A$event_groupsoups$1166                                        00040A GR
+ 15 A$event_groupsoups$1167                                        00040B GR
+ 15 A$event_groupsoups$1168                                        00040D GR
+ 15 A$event_groupsoups$1169                                        00040E GR
+ 15 A$event_groupsoups$1170                                        000410 GR
+ 15 A$event_groupsoups$1171                                        000413 GR
+ 15 A$event_groupsoups$1172                                        000414 GR
+ 15 A$event_groupsoups$1173                                        000415 GR
+ 15 A$event_groupsoups$1174                                        000418 GR
+ 15 A$event_groupsoups$1175                                        000419 GR
+ 15 A$event_groupsoups$1176                                        00041B GR
+ 15 A$event_groupsoups$1177                                        00041D GR
+ 15 A$event_groupsoups$1178                                        00041E GR
+ 15 A$event_groupsoups$1179                                        00041F GR
+ 15 A$event_groupsoups$1180                                        000420 GR
+ 15 A$event_groupsoups$1181                                        000421 GR
+ 15 A$event_groupsoups$1182                                        000422 GR
+ 15 A$event_groupsoups$1183                                        000423 GR
+ 15 A$event_groupsoups$1184                                        000424 GR
+ 15 A$event_groupsoups$1185                                        000425 GR
+ 15 A$event_groupsoups$1186                                        000426 GR
+ 15 A$event_groupsoups$1187                                        000428 GR
+ 15 A$event_groupsoups$1188                                        000429 GR
+ 15 A$event_groupsoups$1189                                        00042B GR
+ 15 A$event_groupsoups$1190                                        00042D GR
+ 15 A$event_groupsoups$1191                                        00042F GR
+ 15 A$event_groupsoups$1192                                        000430 GR
+ 15 A$event_groupsoups$1193                                        000432 GR
+ 15 A$event_groupsoups$1194                                        000433 GR
+ 15 A$event_groupsoups$1195                                        000435 GR
+ 15 A$event_groupsoups$1196                                        000436 GR
+ 15 A$event_groupsoups$1197                                        000438 GR
+ 15 A$event_groupsoups$1198                                        000439 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1199                                        00043C GR
+ 15 A$event_groupsoups$1200                                        00043D GR
+ 15 A$event_groupsoups$1201                                        00043E GR
+ 15 A$event_groupsoups$1204                                        000441 GR
+ 15 A$event_groupsoups$1205                                        000443 GR
+ 15 A$event_groupsoups$1211                                        000445 GR
+ 15 A$event_groupsoups$1212                                        000447 GR
+ 15 A$event_groupsoups$1213                                        00044A GR
+ 15 A$event_groupsoups$1214                                        00044C GR
+ 15 A$event_groupsoups$1215                                        00044E GR
+ 15 A$event_groupsoups$1219                                        000450 GR
+ 15 A$event_groupsoups$1220                                        000452 GR
+ 15 A$event_groupsoups$1224                                        000454 GR
+ 15 A$event_groupsoups$1225                                        000456 GR
+ 15 A$event_groupsoups$1228                                        000458 GR
+ 15 A$event_groupsoups$1229                                        00045B GR
+ 15 A$event_groupsoups$1232                                        00045D GR
+ 15 A$event_groupsoups$1248                                        00045E GR
+ 15 A$event_groupsoups$1249                                        000460 GR
+ 15 A$event_groupsoups$1250                                        000463 GR
+ 15 A$event_groupsoups$1251                                        000465 GR
+ 15 A$event_groupsoups$1252                                        000467 GR
+ 15 A$event_groupsoups$1255                                        000469 GR
+ 15 A$event_groupsoups$1256                                        00046B GR
+ 15 A$event_groupsoups$1258                                        00046D GR
+ 15 A$event_groupsoups$1261                                        00046F GR
+ 15 A$event_groupsoups$1262                                        000471 GR
+ 15 A$event_groupsoups$1263                                        000472 GR
+ 15 A$event_groupsoups$1264                                        000474 GR
+ 15 A$event_groupsoups$1265                                        000475 GR
+ 15 A$event_groupsoups$1266                                        000477 GR
+ 15 A$event_groupsoups$1267                                        000478 GR
+ 15 A$event_groupsoups$1268                                        00047A GR
+ 15 A$event_groupsoups$1269                                        00047D GR
+ 15 A$event_groupsoups$1270                                        00047E GR
+ 15 A$event_groupsoups$1271                                        00047F GR
+ 15 A$event_groupsoups$1272                                        000482 GR
+ 15 A$event_groupsoups$1273                                        000483 GR
+ 15 A$event_groupsoups$1274                                        000485 GR
+ 15 A$event_groupsoups$1277                                        000487 GR
+ 15 A$event_groupsoups$1278                                        000489 GR
+ 15 A$event_groupsoups$1279                                        00048B GR
+ 15 A$event_groupsoups$1280                                        00048C GR
+ 15 A$event_groupsoups$1281                                        00048D GR
+ 15 A$event_groupsoups$1282                                        00048E GR
+ 15 A$event_groupsoups$1283                                        00048F GR
+ 15 A$event_groupsoups$1284                                        000490 GR
+ 15 A$event_groupsoups$1285                                        000491 GR
+ 15 A$event_groupsoups$1286                                        000492 GR
+ 15 A$event_groupsoups$1287                                        000493 GR
+ 15 A$event_groupsoups$1288                                        000494 GR
+ 15 A$event_groupsoups$1289                                        000496 GR
+ 15 A$event_groupsoups$1290                                        000497 GR
+ 15 A$event_groupsoups$1291                                        000499 GR
+ 15 A$event_groupsoups$1292                                        00049B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1293                                        00049C GR
+ 15 A$event_groupsoups$1294                                        00049E GR
+ 15 A$event_groupsoups$1295                                        00049F GR
+ 15 A$event_groupsoups$1296                                        0004A1 GR
+ 15 A$event_groupsoups$1297                                        0004A2 GR
+ 15 A$event_groupsoups$1298                                        0004A4 GR
+ 15 A$event_groupsoups$1299                                        0004A5 GR
+ 15 A$event_groupsoups$1300                                        0004A8 GR
+ 15 A$event_groupsoups$1301                                        0004A9 GR
+ 15 A$event_groupsoups$1302                                        0004AA GR
+ 15 A$event_groupsoups$1305                                        0004AD GR
+ 15 A$event_groupsoups$1306                                        0004AF GR
+ 15 A$event_groupsoups$1307                                        0004B2 GR
+ 15 A$event_groupsoups$1308                                        0004B4 GR
+ 15 A$event_groupsoups$1309                                        0004B6 GR
+ 15 A$event_groupsoups$1312                                        0004B8 GR
+ 15 A$event_groupsoups$1313                                        0004BA GR
+ 15 A$event_groupsoups$1316                                        0004BC GR
+ 15 A$event_groupsoups$1317                                        0004BF GR
+ 15 A$event_groupsoups$1320                                        0004C1 GR
+ 15 A$event_groupsoups$1338                                        0004C2 GR
+ 15 A$event_groupsoups$1339                                        0004C5 GR
+ 15 A$event_groupsoups$1340                                        0004C6 GR
+ 15 A$event_groupsoups$1341                                        0004C7 GR
+ 15 A$event_groupsoups$1348                                        0004CA GR
+ 15 A$event_groupsoups$1349                                        0004CC GR
+ 15 A$event_groupsoups$1350                                        0004CE GR
+ 15 A$event_groupsoups$1373                                        0004CF GR
+ 15 A$event_groupsoups$1374                                        0004D1 GR
+ 15 A$event_groupsoups$1375                                        0004D3 GR
+ 15 A$event_groupsoups$1376                                        0004D5 GR
+ 15 A$event_groupsoups$1377                                        0004D7 GR
+ 15 A$event_groupsoups$1378                                        0004D9 GR
+ 15 A$event_groupsoups$1379                                        0004DB GR
+ 15 A$event_groupsoups$1380                                        0004DD GR
+ 15 A$event_groupsoups$1383                                        0004DF GR
+ 15 A$event_groupsoups$1384                                        0004E1 GR
+ 15 A$event_groupsoups$1385                                        0004E3 GR
+ 15 A$event_groupsoups$1386                                        0004E4 GR
+ 15 A$event_groupsoups$1387                                        0004E5 GR
+ 15 A$event_groupsoups$1388                                        0004E6 GR
+ 15 A$event_groupsoups$1389                                        0004E7 GR
+ 15 A$event_groupsoups$1392                                        0004E8 GR
+ 15 A$event_groupsoups$1393                                        0004EA GR
+ 15 A$event_groupsoups$1394                                        0004EC GR
+ 15 A$event_groupsoups$1395                                        0004ED GR
+ 15 A$event_groupsoups$1396                                        0004EF GR
+ 15 A$event_groupsoups$1397                                        0004F0 GR
+ 15 A$event_groupsoups$1398                                        0004F2 GR
+ 15 A$event_groupsoups$1399                                        0004F3 GR
+ 15 A$event_groupsoups$1402                                        0004F5 GR
+ 15 A$event_groupsoups$1403                                        0004F7 GR
+ 15 A$event_groupsoups$1404                                        0004F9 GR
+ 15 A$event_groupsoups$1405                                        0004FA GR
+ 15 A$event_groupsoups$1406                                        0004FC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1407                                        0004FD GR
+ 15 A$event_groupsoups$1408                                        0004FE GR
+ 15 A$event_groupsoups$1409                                        0004FF GR
+ 15 A$event_groupsoups$1410                                        000500 GR
+ 15 A$event_groupsoups$1411                                        000501 GR
+ 15 A$event_groupsoups$1412                                        000502 GR
+ 15 A$event_groupsoups$1413                                        000503 GR
+ 15 A$event_groupsoups$1416                                        000505 GR
+ 15 A$event_groupsoups$1417                                        000507 GR
+ 15 A$event_groupsoups$1418                                        000509 GR
+ 15 A$event_groupsoups$1419                                        00050A GR
+ 15 A$event_groupsoups$1420                                        00050C GR
+ 15 A$event_groupsoups$1421                                        00050D GR
+ 15 A$event_groupsoups$1422                                        00050E GR
+ 15 A$event_groupsoups$1423                                        00050F GR
+ 15 A$event_groupsoups$1424                                        000510 GR
+ 15 A$event_groupsoups$1425                                        000511 GR
+ 15 A$event_groupsoups$1426                                        000512 GR
+ 15 A$event_groupsoups$1427                                        000513 GR
+ 15 A$event_groupsoups$1428                                        000515 GR
+ 15 A$event_groupsoups$1429                                        000517 GR
+ 15 A$event_groupsoups$1430                                        000519 GR
+ 15 A$event_groupsoups$1431                                        00051A GR
+ 15 A$event_groupsoups$1432                                        00051C GR
+ 15 A$event_groupsoups$1433                                        00051D GR
+ 15 A$event_groupsoups$1434                                        00051F GR
+ 15 A$event_groupsoups$1435                                        000520 GR
+ 15 A$event_groupsoups$1438                                        000522 GR
+ 15 A$event_groupsoups$1439                                        000524 GR
+ 15 A$event_groupsoups$1440                                        000526 GR
+ 15 A$event_groupsoups$1441                                        000528 GR
+ 15 A$event_groupsoups$1442                                        00052B GR
+ 15 A$event_groupsoups$1443                                        00052D GR
+ 15 A$event_groupsoups$1444                                        00052F GR
+ 15 A$event_groupsoups$1447                                        000531 GR
+ 15 A$event_groupsoups$1448                                        000533 GR
+ 15 A$event_groupsoups$1449                                        000535 GR
+ 15 A$event_groupsoups$1450                                        000536 GR
+ 15 A$event_groupsoups$1451                                        000538 GR
+ 15 A$event_groupsoups$1452                                        000539 GR
+ 15 A$event_groupsoups$1453                                        00053A GR
+ 15 A$event_groupsoups$1454                                        00053B GR
+ 15 A$event_groupsoups$1455                                        00053C GR
+ 15 A$event_groupsoups$1456                                        00053D GR
+ 15 A$event_groupsoups$1457                                        00053E GR
+ 15 A$event_groupsoups$1458                                        00053F GR
+ 15 A$event_groupsoups$1459                                        000541 GR
+ 15 A$event_groupsoups$1460                                        000543 GR
+ 15 A$event_groupsoups$1461                                        000545 GR
+ 15 A$event_groupsoups$1462                                        000547 GR
+ 15 A$event_groupsoups$1463                                        000549 GR
+ 15 A$event_groupsoups$1464                                        00054A GR
+ 15 A$event_groupsoups$1465                                        00054D GR
+ 15 A$event_groupsoups$1466                                        00054E GR
+ 15 A$event_groupsoups$1467                                        00054F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1468                                        000552 GR
+ 15 A$event_groupsoups$1469                                        000553 GR
+ 15 A$event_groupsoups$1470                                        000554 GR
+ 15 A$event_groupsoups$1471                                        000555 GR
+ 15 A$event_groupsoups$1472                                        000558 GR
+ 15 A$event_groupsoups$1473                                        000559 GR
+ 15 A$event_groupsoups$1476                                        00055A GR
+ 15 A$event_groupsoups$1477                                        00055C GR
+ 15 A$event_groupsoups$1478                                        00055E GR
+ 15 A$event_groupsoups$1479                                        000560 GR
+ 15 A$event_groupsoups$1480                                        000563 GR
+ 15 A$event_groupsoups$1481                                        000564 GR
+ 15 A$event_groupsoups$1482                                        000565 GR
+ 15 A$event_groupsoups$1483                                        000568 GR
+ 15 A$event_groupsoups$1484                                        000569 GR
+ 15 A$event_groupsoups$1485                                        00056B GR
+ 15 A$event_groupsoups$1486                                        00056D GR
+ 15 A$event_groupsoups$1487                                        00056E GR
+ 15 A$event_groupsoups$1488                                        00056F GR
+ 15 A$event_groupsoups$1489                                        000571 GR
+ 15 A$event_groupsoups$1490                                        000572 GR
+ 15 A$event_groupsoups$1491                                        000573 GR
+ 15 A$event_groupsoups$1492                                        000575 GR
+ 15 A$event_groupsoups$1493                                        000577 GR
+ 15 A$event_groupsoups$1494                                        000579 GR
+ 15 A$event_groupsoups$1495                                        00057B GR
+ 15 A$event_groupsoups$1496                                        00057C GR
+ 15 A$event_groupsoups$1497                                        00057F GR
+ 15 A$event_groupsoups$1498                                        000580 GR
+ 15 A$event_groupsoups$1499                                        000581 GR
+ 15 A$event_groupsoups$1503                                        000584 GR
+ 15 A$event_groupsoups$1504                                        000586 GR
+ 15 A$event_groupsoups$1505                                        000587 GR
+ 15 A$event_groupsoups$1506                                        000589 GR
+ 15 A$event_groupsoups$1507                                        00058B GR
+ 15 A$event_groupsoups$1508                                        00058C GR
+ 15 A$event_groupsoups$1509                                        00058D GR
+ 15 A$event_groupsoups$1510                                        00058F GR
+ 15 A$event_groupsoups$1511                                        000590 GR
+ 15 A$event_groupsoups$1512                                        000591 GR
+ 15 A$event_groupsoups$1513                                        000593 GR
+ 15 A$event_groupsoups$1514                                        000594 GR
+ 15 A$event_groupsoups$1515                                        000595 GR
+ 15 A$event_groupsoups$1516                                        000597 GR
+ 15 A$event_groupsoups$1517                                        000599 GR
+ 15 A$event_groupsoups$1518                                        00059A GR
+ 15 A$event_groupsoups$1519                                        00059C GR
+ 15 A$event_groupsoups$1520                                        00059D GR
+ 15 A$event_groupsoups$1521                                        00059F GR
+ 15 A$event_groupsoups$1522                                        0005A2 GR
+ 15 A$event_groupsoups$1523                                        0005A4 GR
+ 15 A$event_groupsoups$1524                                        0005A6 GR
+ 15 A$event_groupsoups$1525                                        0005A8 GR
+ 15 A$event_groupsoups$1526                                        0005AA GR
+ 15 A$event_groupsoups$1530                                        0005AD GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1531                                        0005AF GR
+ 15 A$event_groupsoups$1532                                        0005B0 GR
+ 15 A$event_groupsoups$1533                                        0005B2 GR
+ 15 A$event_groupsoups$1534                                        0005B3 GR
+ 15 A$event_groupsoups$1535                                        0005B4 GR
+ 15 A$event_groupsoups$1536                                        0005B5 GR
+ 15 A$event_groupsoups$1537                                        0005B6 GR
+ 15 A$event_groupsoups$1538                                        0005B7 GR
+ 15 A$event_groupsoups$1539                                        0005B8 GR
+ 15 A$event_groupsoups$1540                                        0005B9 GR
+ 15 A$event_groupsoups$1541                                        0005BB GR
+ 15 A$event_groupsoups$1542                                        0005BD GR
+ 15 A$event_groupsoups$1543                                        0005BF GR
+ 15 A$event_groupsoups$1544                                        0005C1 GR
+ 15 A$event_groupsoups$1545                                        0005C4 GR
+ 15 A$event_groupsoups$1546                                        0005C5 GR
+ 15 A$event_groupsoups$1547                                        0005C6 GR
+ 15 A$event_groupsoups$1548                                        0005C9 GR
+ 15 A$event_groupsoups$1549                                        0005CA GR
+ 15 A$event_groupsoups$1550                                        0005CB GR
+ 15 A$event_groupsoups$1551                                        0005CE GR
+ 15 A$event_groupsoups$1554                                        0005CF GR
+ 15 A$event_groupsoups$1555                                        0005D1 GR
+ 15 A$event_groupsoups$1556                                        0005D2 GR
+ 15 A$event_groupsoups$1557                                        0005D4 GR
+ 15 A$event_groupsoups$1558                                        0005D5 GR
+ 15 A$event_groupsoups$1559                                        0005D7 GR
+ 15 A$event_groupsoups$1560                                        0005D8 GR
+ 15 A$event_groupsoups$1561                                        0005DA GR
+ 15 A$event_groupsoups$1562                                        0005DD GR
+ 15 A$event_groupsoups$1563                                        0005DE GR
+ 15 A$event_groupsoups$1564                                        0005DF GR
+ 15 A$event_groupsoups$1565                                        0005E2 GR
+ 15 A$event_groupsoups$1568                                        0005E3 GR
+ 15 A$event_groupsoups$1571                                        0005E5 GR
+ 15 A$event_groupsoups$1572                                        0005E7 GR
+ 15 A$event_groupsoups$1573                                        0005E9 GR
+ 15 A$event_groupsoups$1574                                        0005EA GR
+ 15 A$event_groupsoups$1575                                        0005EC GR
+ 15 A$event_groupsoups$1576                                        0005ED GR
+ 15 A$event_groupsoups$1579                                        0005EF GR
+ 15 A$event_groupsoups$1582                                        0005F1 GR
+ 15 A$event_groupsoups$1583                                        0005F3 GR
+ 15 A$event_groupsoups$1584                                        0005F5 GR
+ 15 A$event_groupsoups$1585                                        0005F6 GR
+ 15 A$event_groupsoups$1586                                        0005F7 GR
+ 15 A$event_groupsoups$1587                                        0005F8 GR
+ 15 A$event_groupsoups$1590                                        0005FB GR
+ 15 A$event_groupsoups$1591                                        0005FD GR
+ 15 A$event_groupsoups$1592                                        0005FF GR
+ 15 A$event_groupsoups$1593                                        000601 GR
+ 15 A$event_groupsoups$1594                                        000603 GR
+ 15 A$event_groupsoups$1595                                        000605 GR
+ 15 A$event_groupsoups$1596                                        000606 GR
+ 15 A$event_groupsoups$1597                                        000608 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1598                                        000609 GR
+ 15 A$event_groupsoups$1599                                        00060B GR
+ 15 A$event_groupsoups$1600                                        00060C GR
+ 15 A$event_groupsoups$1601                                        00060E GR
+ 15 A$event_groupsoups$1602                                        000611 GR
+ 15 A$event_groupsoups$1603                                        000612 GR
+ 15 A$event_groupsoups$1604                                        000613 GR
+ 15 A$event_groupsoups$1605                                        000616 GR
+ 15 A$event_groupsoups$1606                                        000617 GR
+ 15 A$event_groupsoups$1607                                        000618 GR
+ 15 A$event_groupsoups$1608                                        00061A GR
+ 15 A$event_groupsoups$1609                                        00061B GR
+ 15 A$event_groupsoups$1610                                        00061D GR
+ 15 A$event_groupsoups$1611                                        00061E GR
+ 15 A$event_groupsoups$1612                                        00061F GR
+ 15 A$event_groupsoups$1613                                        000621 GR
+ 15 A$event_groupsoups$1614                                        000623 GR
+ 15 A$event_groupsoups$1615                                        000625 GR
+ 15 A$event_groupsoups$1618                                        000627 GR
+ 15 A$event_groupsoups$1619                                        000629 GR
+ 15 A$event_groupsoups$1623                                        00062B GR
+ 15 A$event_groupsoups$1624                                        00062D GR
+ 15 A$event_groupsoups$1625                                        00062F GR
+ 15 A$event_groupsoups$1626                                        000631 GR
+ 15 A$event_groupsoups$1627                                        000633 GR
+ 15 A$event_groupsoups$1628                                        000635 GR
+ 15 A$event_groupsoups$1629                                        000636 GR
+ 15 A$event_groupsoups$1630                                        000638 GR
+ 15 A$event_groupsoups$1631                                        000639 GR
+ 15 A$event_groupsoups$1632                                        00063B GR
+ 15 A$event_groupsoups$1633                                        00063C GR
+ 15 A$event_groupsoups$1634                                        00063E GR
+ 15 A$event_groupsoups$1635                                        000641 GR
+ 15 A$event_groupsoups$1636                                        000642 GR
+ 15 A$event_groupsoups$1637                                        000643 GR
+ 15 A$event_groupsoups$1638                                        000646 GR
+ 15 A$event_groupsoups$1639                                        000647 GR
+ 15 A$event_groupsoups$1640                                        000648 GR
+ 15 A$event_groupsoups$1641                                        00064A GR
+ 15 A$event_groupsoups$1642                                        00064B GR
+ 15 A$event_groupsoups$1643                                        00064D GR
+ 15 A$event_groupsoups$1644                                        00064E GR
+ 15 A$event_groupsoups$1645                                        000651 GR
+ 15 A$event_groupsoups$1646                                        000652 GR
+ 15 A$event_groupsoups$1647                                        000655 GR
+ 15 A$event_groupsoups$1649                                        000657 GR
+ 15 A$event_groupsoups$1650                                        000659 GR
+ 15 A$event_groupsoups$1651                                        00065B GR
+ 15 A$event_groupsoups$1652                                        00065D GR
+ 15 A$event_groupsoups$1654                                        00065F GR
+ 15 A$event_groupsoups$1655                                        000661 GR
+ 15 A$event_groupsoups$1656                                        000663 GR
+ 15 A$event_groupsoups$1659                                        000665 GR
+ 15 A$event_groupsoups$1663                                        000667 GR
+ 15 A$event_groupsoups$1664                                        000668 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1667                                        00066A GR
+ 15 A$event_groupsoups$1668                                        00066C GR
+ 15 A$event_groupsoups$1669                                        00066E GR
+ 15 A$event_groupsoups$1670                                        00066F GR
+ 15 A$event_groupsoups$1671                                        000670 GR
+ 15 A$event_groupsoups$1672                                        000671 GR
+ 15 A$event_groupsoups$1675                                        000674 GR
+ 15 A$event_groupsoups$1676                                        000676 GR
+ 15 A$event_groupsoups$1677                                        000678 GR
+ 15 A$event_groupsoups$1678                                        000679 GR
+ 15 A$event_groupsoups$1679                                        00067A GR
+ 15 A$event_groupsoups$1680                                        00067B GR
+ 15 A$event_groupsoups$1681                                        00067C GR
+ 15 A$event_groupsoups$1682                                        00067D GR
+ 15 A$event_groupsoups$1683                                        00067E GR
+ 15 A$event_groupsoups$1684                                        00067F GR
+ 15 A$event_groupsoups$1688                                        000680 GR
+ 15 A$event_groupsoups$1689                                        000682 GR
+ 15 A$event_groupsoups$1690                                        000684 GR
+ 15 A$event_groupsoups$1691                                        000686 GR
+ 15 A$event_groupsoups$1692                                        000688 GR
+ 15 A$event_groupsoups$1693                                        00068A GR
+ 15 A$event_groupsoups$1694                                        00068B GR
+ 15 A$event_groupsoups$1695                                        00068D GR
+ 15 A$event_groupsoups$1696                                        00068E GR
+ 15 A$event_groupsoups$1697                                        000690 GR
+ 15 A$event_groupsoups$1698                                        000691 GR
+ 15 A$event_groupsoups$1699                                        000693 GR
+ 15 A$event_groupsoups$1700                                        000696 GR
+ 15 A$event_groupsoups$1701                                        000697 GR
+ 15 A$event_groupsoups$1702                                        000698 GR
+ 15 A$event_groupsoups$1703                                        00069B GR
+ 15 A$event_groupsoups$1704                                        00069C GR
+ 15 A$event_groupsoups$1705                                        00069F GR
+ 15 A$event_groupsoups$1706                                        0006A1 GR
+ 15 A$event_groupsoups$1707                                        0006A3 GR
+ 15 A$event_groupsoups$1708                                        0006A5 GR
+ 15 A$event_groupsoups$1709                                        0006A7 GR
+ 15 A$event_groupsoups$1710                                        0006A9 GR
+ 15 A$event_groupsoups$1711                                        0006AB GR
+ 15 A$event_groupsoups$1712                                        0006AC GR
+ 15 A$event_groupsoups$1713                                        0006AE GR
+ 15 A$event_groupsoups$1714                                        0006AF GR
+ 15 A$event_groupsoups$1715                                        0006B1 GR
+ 15 A$event_groupsoups$1716                                        0006B2 GR
+ 15 A$event_groupsoups$1717                                        0006B4 GR
+ 15 A$event_groupsoups$1718                                        0006B7 GR
+ 15 A$event_groupsoups$1719                                        0006B9 GR
+ 15 A$event_groupsoups$1720                                        0006BB GR
+ 15 A$event_groupsoups$1721                                        0006BD GR
+ 15 A$event_groupsoups$1722                                        0006BF GR
+ 15 A$event_groupsoups$1725                                        0006C1 GR
+ 15 A$event_groupsoups$1726                                        0006C3 GR
+ 15 A$event_groupsoups$1727                                        0006C5 GR
+ 15 A$event_groupsoups$1733                                        0006C7 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1734                                        0006C9 GR
+ 15 A$event_groupsoups$1735                                        0006CA GR
+ 15 A$event_groupsoups$1736                                        0006CC GR
+ 15 A$event_groupsoups$1737                                        0006CD GR
+ 15 A$event_groupsoups$1738                                        0006CF GR
+ 15 A$event_groupsoups$1739                                        0006D0 GR
+ 15 A$event_groupsoups$1740                                        0006D2 GR
+ 15 A$event_groupsoups$1744                                        0006D5 GR
+ 15 A$event_groupsoups$1745                                        0006D7 GR
+ 15 A$event_groupsoups$1746                                        0006D9 GR
+ 15 A$event_groupsoups$1747                                        0006DA GR
+ 15 A$event_groupsoups$1748                                        0006DC GR
+ 15 A$event_groupsoups$1749                                        0006DD GR
+ 15 A$event_groupsoups$1750                                        0006DF GR
+ 15 A$event_groupsoups$1751                                        0006E0 GR
+ 15 A$event_groupsoups$1752                                        0006E2 GR
+ 15 A$event_groupsoups$1753                                        0006E5 GR
+ 15 A$event_groupsoups$1754                                        0006E6 GR
+ 15 A$event_groupsoups$1755                                        0006E7 GR
+ 15 A$event_groupsoups$1756                                        0006EA GR
+ 15 A$event_groupsoups$1757                                        0006EB GR
+ 15 A$event_groupsoups$1758                                        0006ED GR
+ 15 A$event_groupsoups$1759                                        0006EF GR
+ 15 A$event_groupsoups$1760                                        0006F0 GR
+ 15 A$event_groupsoups$1761                                        0006F1 GR
+ 15 A$event_groupsoups$1762                                        0006F2 GR
+ 15 A$event_groupsoups$1763                                        0006F3 GR
+ 15 A$event_groupsoups$1764                                        0006F4 GR
+ 15 A$event_groupsoups$1765                                        0006F5 GR
+ 15 A$event_groupsoups$1766                                        0006F6 GR
+ 15 A$event_groupsoups$1767                                        0006F7 GR
+ 15 A$event_groupsoups$1768                                        0006F8 GR
+ 15 A$event_groupsoups$1769                                        0006FA GR
+ 15 A$event_groupsoups$1770                                        0006FB GR
+ 15 A$event_groupsoups$1771                                        0006FD GR
+ 15 A$event_groupsoups$1772                                        0006FF GR
+ 15 A$event_groupsoups$1773                                        000701 GR
+ 15 A$event_groupsoups$1774                                        000702 GR
+ 15 A$event_groupsoups$1775                                        000704 GR
+ 15 A$event_groupsoups$1776                                        000705 GR
+ 15 A$event_groupsoups$1777                                        000707 GR
+ 15 A$event_groupsoups$1778                                        000708 GR
+ 15 A$event_groupsoups$1779                                        00070A GR
+ 15 A$event_groupsoups$1780                                        00070B GR
+ 15 A$event_groupsoups$1781                                        00070E GR
+ 15 A$event_groupsoups$1782                                        00070F GR
+ 15 A$event_groupsoups$1783                                        000710 GR
+ 15 A$event_groupsoups$1786                                        000713 GR
+ 15 A$event_groupsoups$1789                                        000716 GR
+ 15 A$event_groupsoups$1790                                        000718 GR
+ 15 A$event_groupsoups$1791                                        00071A GR
+ 15 A$event_groupsoups$1792                                        00071B GR
+ 15 A$event_groupsoups$1793                                        00071D GR
+ 15 A$event_groupsoups$1794                                        00071E GR
+ 15 A$event_groupsoups$1795                                        000720 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1796                                        000721 GR
+ 15 A$event_groupsoups$1797                                        000723 GR
+ 15 A$event_groupsoups$1798                                        000726 GR
+ 15 A$event_groupsoups$1799                                        000727 GR
+ 15 A$event_groupsoups$1800                                        000728 GR
+ 15 A$event_groupsoups$1801                                        00072B GR
+ 15 A$event_groupsoups$1802                                        00072C GR
+ 15 A$event_groupsoups$1803                                        00072E GR
+ 15 A$event_groupsoups$1806                                        000730 GR
+ 15 A$event_groupsoups$1807                                        000733 GR
+ 15 A$event_groupsoups$1810                                        000735 GR
+ 15 A$event_groupsoups$1825                                        000736 GR
+ 15 A$event_groupsoups$1826                                        000738 GR
+ 15 A$event_groupsoups$1827                                        00073B GR
+ 15 A$event_groupsoups$1828                                        00073D GR
+ 15 A$event_groupsoups$1829                                        00073F GR
+ 15 A$event_groupsoups$1830                                        000741 GR
+ 15 A$event_groupsoups$1831                                        000743 GR
+ 15 A$event_groupsoups$1832                                        000745 GR
+ 15 A$event_groupsoups$1835                                        000747 GR
+ 15 A$event_groupsoups$1836                                        000749 GR
+ 15 A$event_groupsoups$1837                                        00074A GR
+ 15 A$event_groupsoups$1838                                        00074C GR
+ 15 A$event_groupsoups$1839                                        00074D GR
+ 15 A$event_groupsoups$1840                                        00074F GR
+ 15 A$event_groupsoups$1841                                        000750 GR
+ 15 A$event_groupsoups$1844                                        000752 GR
+ 15 A$event_groupsoups$1845                                        000754 GR
+ 15 A$event_groupsoups$1846                                        000755 GR
+ 15 A$event_groupsoups$1847                                        000756 GR
+ 15 A$event_groupsoups$1848                                        000757 GR
+ 15 A$event_groupsoups$1849                                        000758 GR
+ 15 A$event_groupsoups$1852                                        000759 GR
+ 15 A$event_groupsoups$1853                                        00075B GR
+ 15 A$event_groupsoups$1854                                        00075D GR
+ 15 A$event_groupsoups$1855                                        00075F GR
+ 15 A$event_groupsoups$1856                                        000762 GR
+ 15 A$event_groupsoups$1857                                        000764 GR
+ 15 A$event_groupsoups$1858                                        000766 GR
+ 15 A$event_groupsoups$1861                                        000768 GR
+ 15 A$event_groupsoups$1862                                        00076A GR
+ 15 A$event_groupsoups$1863                                        00076B GR
+ 15 A$event_groupsoups$1864                                        00076C GR
+ 15 A$event_groupsoups$1865                                        00076D GR
+ 15 A$event_groupsoups$1866                                        00076E GR
+ 15 A$event_groupsoups$1867                                        00076F GR
+ 15 A$event_groupsoups$1869                                        000771 GR
+ 15 A$event_groupsoups$1870                                        000773 GR
+ 15 A$event_groupsoups$1871                                        000775 GR
+ 15 A$event_groupsoups$1872                                        000777 GR
+ 15 A$event_groupsoups$1873                                        00077A GR
+ 15 A$event_groupsoups$1876                                        00077C GR
+ 15 A$event_groupsoups$1877                                        00077E GR
+ 15 A$event_groupsoups$1878                                        000780 GR
+ 15 A$event_groupsoups$1879                                        000782 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1880                                        000784 GR
+ 15 A$event_groupsoups$1881                                        000786 GR
+ 15 A$event_groupsoups$1882                                        000788 GR
+ 15 A$event_groupsoups$1883                                        00078B GR
+ 15 A$event_groupsoups$1884                                        00078C GR
+ 15 A$event_groupsoups$1885                                        00078D GR
+ 15 A$event_groupsoups$1886                                        000790 GR
+ 15 A$event_groupsoups$1887                                        000791 GR
+ 15 A$event_groupsoups$1888                                        000792 GR
+ 15 A$event_groupsoups$1889                                        000795 GR
+ 15 A$event_groupsoups$1890                                        000796 GR
+ 15 A$event_groupsoups$1891                                        000798 GR
+ 15 A$event_groupsoups$1892                                        00079A GR
+ 15 A$event_groupsoups$1893                                        00079C GR
+ 15 A$event_groupsoups$1894                                        00079E GR
+ 15 A$event_groupsoups$1895                                        0007A0 GR
+ 15 A$event_groupsoups$1896                                        0007A2 GR
+ 15 A$event_groupsoups$1897                                        0007A3 GR
+ 15 A$event_groupsoups$1898                                        0007A5 GR
+ 15 A$event_groupsoups$1899                                        0007A7 GR
+ 15 A$event_groupsoups$1900                                        0007A9 GR
+ 15 A$event_groupsoups$1901                                        0007AB GR
+ 15 A$event_groupsoups$1902                                        0007AD GR
+ 15 A$event_groupsoups$1903                                        0007AF GR
+ 15 A$event_groupsoups$1904                                        0007B2 GR
+ 15 A$event_groupsoups$1905                                        0007B4 GR
+ 15 A$event_groupsoups$1906                                        0007B6 GR
+ 15 A$event_groupsoups$1907                                        0007B8 GR
+ 15 A$event_groupsoups$1908                                        0007BA GR
+ 15 A$event_groupsoups$1909                                        0007BC GR
+ 15 A$event_groupsoups$1910                                        0007BE GR
+ 15 A$event_groupsoups$1911                                        0007C0 GR
+ 15 A$event_groupsoups$1912                                        0007C2 GR
+ 15 A$event_groupsoups$1913                                        0007C4 GR
+ 15 A$event_groupsoups$1914                                        0007C6 GR
+ 15 A$event_groupsoups$1915                                        0007C8 GR
+ 15 A$event_groupsoups$1919                                        0007CA GR
+ 15 A$event_groupsoups$1920                                        0007CC GR
+ 15 A$event_groupsoups$1921                                        0007CD GR
+ 15 A$event_groupsoups$1922                                        0007CF GR
+ 15 A$event_groupsoups$1923                                        0007D0 GR
+ 15 A$event_groupsoups$1924                                        0007D2 GR
+ 15 A$event_groupsoups$1925                                        0007D3 GR
+ 15 A$event_groupsoups$1926                                        0007D5 GR
+ 15 A$event_groupsoups$1927                                        0007D7 GR
+ 15 A$event_groupsoups$1928                                        0007D9 GR
+ 15 A$event_groupsoups$1929                                        0007DB GR
+ 15 A$event_groupsoups$1932                                        0007DE GR
+ 15 A$event_groupsoups$1935                                        0007E1 GR
+ 15 A$event_groupsoups$1936                                        0007E4 GR
+ 15 A$event_groupsoups$1939                                        0007E6 GR
+ 15 A$event_groupsoups$1953                                        0007E7 GR
+ 15 A$event_groupsoups$1954                                        0007E9 GR
+ 15 A$event_groupsoups$1955                                        0007EC GR
+ 15 A$event_groupsoups$1956                                        0007EE GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$1957                                        0007F0 GR
+ 15 A$event_groupsoups$1960                                        0007F2 GR
+ 15 A$event_groupsoups$1961                                        0007F4 GR
+ 15 A$event_groupsoups$1962                                        0007F6 GR
+ 15 A$event_groupsoups$1963                                        0007F7 GR
+ 15 A$event_groupsoups$1964                                        0007F9 GR
+ 15 A$event_groupsoups$1965                                        0007FA GR
+ 15 A$event_groupsoups$1966                                        0007FC GR
+ 15 A$event_groupsoups$1967                                        0007FE GR
+ 15 A$event_groupsoups$1968                                        000800 GR
+ 15 A$event_groupsoups$1969                                        000802 GR
+ 15 A$event_groupsoups$1970                                        000804 GR
+ 15 A$event_groupsoups$1971                                        000806 GR
+ 15 A$event_groupsoups$1972                                        000809 GR
+ 15 A$event_groupsoups$1973                                        00080B GR
+ 15 A$event_groupsoups$1976                                        00080D GR
+ 15 A$event_groupsoups$1979                                        00080F GR
+ 15 A$event_groupsoups$1993                                        000810 GR
+ 15 A$event_groupsoups$1994                                        000812 GR
+ 15 A$event_groupsoups$1995                                        000815 GR
+ 15 A$event_groupsoups$1996                                        000817 GR
+ 15 A$event_groupsoups$1997                                        000819 GR
+ 15 A$event_groupsoups$2000                                        00081B GR
+ 15 A$event_groupsoups$2001                                        00081D GR
+ 15 A$event_groupsoups$2002                                        00081F GR
+ 15 A$event_groupsoups$2003                                        000820 GR
+ 15 A$event_groupsoups$2004                                        000822 GR
+ 15 A$event_groupsoups$2005                                        000823 GR
+ 15 A$event_groupsoups$2006                                        000825 GR
+ 15 A$event_groupsoups$2007                                        000827 GR
+ 15 A$event_groupsoups$2008                                        000829 GR
+ 15 A$event_groupsoups$2009                                        00082B GR
+ 15 A$event_groupsoups$2010                                        00082D GR
+ 15 A$event_groupsoups$2011                                        00082F GR
+ 15 A$event_groupsoups$2012                                        000832 GR
+ 15 A$event_groupsoups$2013                                        000834 GR
+ 15 A$event_groupsoups$2016                                        000836 GR
+ 15 A$event_groupsoups$2019                                        000838 GR
+ 15 A$event_groupsoups$2035                                        000839 GR
+ 15 A$event_groupsoups$2036                                        00083B GR
+ 15 A$event_groupsoups$2037                                        00083E GR
+ 15 A$event_groupsoups$2038                                        000840 GR
+ 15 A$event_groupsoups$2041                                        000842 GR
+ 15 A$event_groupsoups$2044                                        000844 GR
+ 15 A$event_groupsoups$2045                                        000846 GR
+ 15 A$event_groupsoups$2046                                        000848 GR
+ 15 A$event_groupsoups$2047                                        000849 GR
+ 15 A$event_groupsoups$2048                                        00084A GR
+ 15 A$event_groupsoups$2051                                        00084C GR
+ 15 A$event_groupsoups$2052                                        00084E GR
+ 15 A$event_groupsoups$2053                                        000850 GR
+ 15 A$event_groupsoups$2054                                        000851 GR
+ 15 A$event_groupsoups$2055                                        000852 GR
+ 15 A$event_groupsoups$2056                                        000853 GR
+ 15 A$event_groupsoups$2057                                        000854 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$2058                                        000855 GR
+ 15 A$event_groupsoups$2059                                        000856 GR
+ 15 A$event_groupsoups$2060                                        000857 GR
+ 15 A$event_groupsoups$2061                                        000858 GR
+ 15 A$event_groupsoups$2062                                        000859 GR
+ 15 A$event_groupsoups$2065                                        00085B GR
+ 15 A$event_groupsoups$2066                                        00085D GR
+ 15 A$event_groupsoups$2070                                        00085F GR
+ 15 A$event_groupsoups$2071                                        000861 GR
+ 15 A$event_groupsoups$2072                                        000863 GR
+ 15 A$event_groupsoups$2073                                        000864 GR
+ 15 A$event_groupsoups$2074                                        000865 GR
+ 15 A$event_groupsoups$2075                                        000867 GR
+ 15 A$event_groupsoups$2076                                        000868 GR
+ 15 A$event_groupsoups$2077                                        000869 GR
+ 15 A$event_groupsoups$2078                                        00086B GR
+ 15 A$event_groupsoups$2079                                        00086D GR
+ 15 A$event_groupsoups$2080                                        00086F GR
+ 15 A$event_groupsoups$2081                                        000870 GR
+ 15 A$event_groupsoups$2082                                        000871 GR
+ 15 A$event_groupsoups$2083                                        000874 GR
+ 15 A$event_groupsoups$2084                                        000875 GR
+ 15 A$event_groupsoups$2085                                        000876 GR
+ 15 A$event_groupsoups$2086                                        000879 GR
+ 15 A$event_groupsoups$2088                                        00087B GR
+ 15 A$event_groupsoups$2092                                        00087D GR
+ 15 A$event_groupsoups$2096                                        00087F GR
+ 15 A$event_groupsoups$2099                                        000881 GR
+ 15 A$event_groupsoups$2102                                        000883 GR
+ 15 A$event_groupsoups$343                                         000000 GR
+ 15 A$event_groupsoups$344                                         000003 GR
+ 15 A$event_groupsoups$345                                         000006 GR
+ 15 A$event_groupsoups$346                                         000008 GR
+ 15 A$event_groupsoups$347                                         00000A GR
+ 15 A$event_groupsoups$350                                         00000C GR
+ 15 A$event_groupsoups$351                                         00000D GR
+ 15 A$event_groupsoups$352                                         00000E GR
+ 15 A$event_groupsoups$355                                         000010 GR
+ 15 A$event_groupsoups$356                                         000012 GR
+ 15 A$event_groupsoups$357                                         000014 GR
+ 15 A$event_groupsoups$358                                         000016 GR
+ 15 A$event_groupsoups$359                                         000017 GR
+ 15 A$event_groupsoups$360                                         00001A GR
+ 15 A$event_groupsoups$361                                         00001B GR
+ 15 A$event_groupsoups$364                                         00001E GR
+ 15 A$event_groupsoups$365                                         000020 GR
+ 15 A$event_groupsoups$366                                         000021 GR
+ 15 A$event_groupsoups$367                                         000022 GR
+ 15 A$event_groupsoups$368                                         000023 GR
+ 15 A$event_groupsoups$369                                         000024 GR
+ 15 A$event_groupsoups$370                                         000025 GR
+ 15 A$event_groupsoups$371                                         000027 GR
+ 15 A$event_groupsoups$372                                         000029 GR
+ 15 A$event_groupsoups$373                                         00002B GR
+ 15 A$event_groupsoups$374                                         00002D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 16.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$375                                         00002F GR
+ 15 A$event_groupsoups$376                                         000031 GR
+ 15 A$event_groupsoups$377                                         000033 GR
+ 15 A$event_groupsoups$378                                         000036 GR
+ 15 A$event_groupsoups$379                                         000038 GR
+ 15 A$event_groupsoups$380                                         00003A GR
+ 15 A$event_groupsoups$384                                         00003C GR
+ 15 A$event_groupsoups$385                                         00003E GR
+ 15 A$event_groupsoups$386                                         000040 GR
+ 15 A$event_groupsoups$391                                         000042 GR
+ 15 A$event_groupsoups$413                                         000043 GR
+ 15 A$event_groupsoups$414                                         000045 GR
+ 15 A$event_groupsoups$415                                         000048 GR
+ 15 A$event_groupsoups$416                                         00004A GR
+ 15 A$event_groupsoups$417                                         00004C GR
+ 15 A$event_groupsoups$418                                         00004E GR
+ 15 A$event_groupsoups$419                                         000050 GR
+ 15 A$event_groupsoups$420                                         000052 GR
+ 15 A$event_groupsoups$423                                         000054 GR
+ 15 A$event_groupsoups$424                                         000056 GR
+ 15 A$event_groupsoups$425                                         000057 GR
+ 15 A$event_groupsoups$426                                         000059 GR
+ 15 A$event_groupsoups$427                                         00005B GR
+ 15 A$event_groupsoups$428                                         00005C GR
+ 15 A$event_groupsoups$429                                         00005D GR
+ 15 A$event_groupsoups$430                                         00005E GR
+ 15 A$event_groupsoups$431                                         00005F GR
+ 15 A$event_groupsoups$432                                         000060 GR
+ 15 A$event_groupsoups$433                                         000061 GR
+ 15 A$event_groupsoups$434                                         000062 GR
+ 15 A$event_groupsoups$435                                         000063 GR
+ 15 A$event_groupsoups$436                                         000064 GR
+ 15 A$event_groupsoups$437                                         000065 GR
+ 15 A$event_groupsoups$440                                         000066 GR
+ 15 A$event_groupsoups$443                                         000069 GR
+ 15 A$event_groupsoups$444                                         00006B GR
+ 15 A$event_groupsoups$445                                         00006C GR
+ 15 A$event_groupsoups$446                                         00006E GR
+ 15 A$event_groupsoups$447                                         00006F GR
+ 15 A$event_groupsoups$448                                         000071 GR
+ 15 A$event_groupsoups$449                                         000072 GR
+ 15 A$event_groupsoups$450                                         000074 GR
+ 15 A$event_groupsoups$451                                         000077 GR
+ 15 A$event_groupsoups$452                                         000078 GR
+ 15 A$event_groupsoups$453                                         000079 GR
+ 15 A$event_groupsoups$454                                         00007C GR
+ 15 A$event_groupsoups$457                                         00007D GR
+ 15 A$event_groupsoups$458                                         00007F GR
+ 15 A$event_groupsoups$459                                         000081 GR
+ 15 A$event_groupsoups$460                                         000083 GR
+ 15 A$event_groupsoups$461                                         000085 GR
+ 15 A$event_groupsoups$462                                         000086 GR
+ 15 A$event_groupsoups$463                                         000087 GR
+ 15 A$event_groupsoups$464                                         000089 GR
+ 15 A$event_groupsoups$465                                         00008A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 17.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$466                                         00008B GR
+ 15 A$event_groupsoups$467                                         00008D GR
+ 15 A$event_groupsoups$468                                         00008F GR
+ 15 A$event_groupsoups$469                                         000090 GR
+ 15 A$event_groupsoups$470                                         000092 GR
+ 15 A$event_groupsoups$471                                         000093 GR
+ 15 A$event_groupsoups$472                                         000095 GR
+ 15 A$event_groupsoups$473                                         000096 GR
+ 15 A$event_groupsoups$474                                         000098 GR
+ 15 A$event_groupsoups$475                                         00009B GR
+ 15 A$event_groupsoups$476                                         00009D GR
+ 15 A$event_groupsoups$477                                         00009F GR
+ 15 A$event_groupsoups$478                                         0000A1 GR
+ 15 A$event_groupsoups$481                                         0000A3 GR
+ 15 A$event_groupsoups$482                                         0000A5 GR
+ 15 A$event_groupsoups$483                                         0000A7 GR
+ 15 A$event_groupsoups$484                                         0000A8 GR
+ 15 A$event_groupsoups$485                                         0000A9 GR
+ 15 A$event_groupsoups$486                                         0000AA GR
+ 15 A$event_groupsoups$487                                         0000AB GR
+ 15 A$event_groupsoups$488                                         0000AC GR
+ 15 A$event_groupsoups$489                                         0000AD GR
+ 15 A$event_groupsoups$490                                         0000AE GR
+ 15 A$event_groupsoups$491                                         0000AF GR
+ 15 A$event_groupsoups$492                                         0000B1 GR
+ 15 A$event_groupsoups$493                                         0000B3 GR
+ 15 A$event_groupsoups$494                                         0000B4 GR
+ 15 A$event_groupsoups$495                                         0000B5 GR
+ 15 A$event_groupsoups$496                                         0000B7 GR
+ 15 A$event_groupsoups$497                                         0000B8 GR
+ 15 A$event_groupsoups$498                                         0000B9 GR
+ 15 A$event_groupsoups$499                                         0000BB GR
+ 15 A$event_groupsoups$500                                         0000BD GR
+ 15 A$event_groupsoups$501                                         0000BF GR
+ 15 A$event_groupsoups$502                                         0000C0 GR
+ 15 A$event_groupsoups$503                                         0000C1 GR
+ 15 A$event_groupsoups$504                                         0000C4 GR
+ 15 A$event_groupsoups$505                                         0000C5 GR
+ 15 A$event_groupsoups$506                                         0000C6 GR
+ 15 A$event_groupsoups$507                                         0000C9 GR
+ 15 A$event_groupsoups$509                                         0000CB GR
+ 15 A$event_groupsoups$513                                         0000CD GR
+ 15 A$event_groupsoups$514                                         0000CF GR
+ 15 A$event_groupsoups$515                                         0000D1 GR
+ 15 A$event_groupsoups$516                                         0000D2 GR
+ 15 A$event_groupsoups$517                                         0000D3 GR
+ 15 A$event_groupsoups$518                                         0000D4 GR
+ 15 A$event_groupsoups$519                                         0000D5 GR
+ 15 A$event_groupsoups$520                                         0000D6 GR
+ 15 A$event_groupsoups$521                                         0000D7 GR
+ 15 A$event_groupsoups$522                                         0000D8 GR
+ 15 A$event_groupsoups$525                                         0000D9 GR
+ 15 A$event_groupsoups$526                                         0000DB GR
+ 15 A$event_groupsoups$527                                         0000DC GR
+ 15 A$event_groupsoups$528                                         0000DE GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 18.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$529                                         0000DF GR
+ 15 A$event_groupsoups$530                                         0000E1 GR
+ 15 A$event_groupsoups$531                                         0000E2 GR
+ 15 A$event_groupsoups$532                                         0000E4 GR
+ 15 A$event_groupsoups$533                                         0000E7 GR
+ 15 A$event_groupsoups$534                                         0000E8 GR
+ 15 A$event_groupsoups$535                                         0000E9 GR
+ 15 A$event_groupsoups$536                                         0000EC GR
+ 15 A$event_groupsoups$537                                         0000ED GR
+ 15 A$event_groupsoups$538                                         0000EF GR
+ 15 A$event_groupsoups$539                                         0000F1 GR
+ 15 A$event_groupsoups$540                                         0000F2 GR
+ 15 A$event_groupsoups$541                                         0000F3 GR
+ 15 A$event_groupsoups$542                                         0000F4 GR
+ 15 A$event_groupsoups$543                                         0000F5 GR
+ 15 A$event_groupsoups$544                                         0000F6 GR
+ 15 A$event_groupsoups$545                                         0000F7 GR
+ 15 A$event_groupsoups$546                                         0000F8 GR
+ 15 A$event_groupsoups$547                                         0000F9 GR
+ 15 A$event_groupsoups$548                                         0000FA GR
+ 15 A$event_groupsoups$549                                         0000FC GR
+ 15 A$event_groupsoups$550                                         0000FD GR
+ 15 A$event_groupsoups$551                                         0000FF GR
+ 15 A$event_groupsoups$552                                         000101 GR
+ 15 A$event_groupsoups$553                                         000102 GR
+ 15 A$event_groupsoups$554                                         000104 GR
+ 15 A$event_groupsoups$555                                         000105 GR
+ 15 A$event_groupsoups$556                                         000107 GR
+ 15 A$event_groupsoups$557                                         000108 GR
+ 15 A$event_groupsoups$558                                         00010A GR
+ 15 A$event_groupsoups$559                                         00010B GR
+ 15 A$event_groupsoups$560                                         00010E GR
+ 15 A$event_groupsoups$561                                         00010F GR
+ 15 A$event_groupsoups$562                                         000110 GR
+ 15 A$event_groupsoups$565                                         000113 GR
+ 15 A$event_groupsoups$566                                         000115 GR
+ 15 A$event_groupsoups$567                                         000117 GR
+ 15 A$event_groupsoups$568                                         000118 GR
+ 15 A$event_groupsoups$569                                         000119 GR
+ 15 A$event_groupsoups$570                                         00011A GR
+ 15 A$event_groupsoups$571                                         00011B GR
+ 15 A$event_groupsoups$572                                         00011C GR
+ 15 A$event_groupsoups$576                                         00011E GR
+ 15 A$event_groupsoups$577                                         000120 GR
+ 15 A$event_groupsoups$578                                         000122 GR
+ 15 A$event_groupsoups$579                                         000123 GR
+ 15 A$event_groupsoups$580                                         000124 GR
+ 15 A$event_groupsoups$581                                         000125 GR
+ 15 A$event_groupsoups$582                                         000126 GR
+ 15 A$event_groupsoups$585                                         000128 GR
+ 15 A$event_groupsoups$586                                         00012A GR
+ 15 A$event_groupsoups$587                                         00012C GR
+ 15 A$event_groupsoups$588                                         00012D GR
+ 15 A$event_groupsoups$589                                         00012F GR
+ 15 A$event_groupsoups$590                                         000131 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 19.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$591                                         000132 GR
+ 15 A$event_groupsoups$592                                         000133 GR
+ 15 A$event_groupsoups$593                                         000134 GR
+ 15 A$event_groupsoups$594                                         000136 GR
+ 15 A$event_groupsoups$595                                         000137 GR
+ 15 A$event_groupsoups$596                                         000139 GR
+ 15 A$event_groupsoups$597                                         00013A GR
+ 15 A$event_groupsoups$598                                         00013B GR
+ 15 A$event_groupsoups$599                                         00013C GR
+ 15 A$event_groupsoups$600                                         00013D GR
+ 15 A$event_groupsoups$601                                         00013E GR
+ 15 A$event_groupsoups$602                                         00013F GR
+ 15 A$event_groupsoups$603                                         000140 GR
+ 15 A$event_groupsoups$604                                         000142 GR
+ 15 A$event_groupsoups$605                                         000144 GR
+ 15 A$event_groupsoups$606                                         000146 GR
+ 15 A$event_groupsoups$607                                         000147 GR
+ 15 A$event_groupsoups$608                                         000148 GR
+ 15 A$event_groupsoups$609                                         00014A GR
+ 15 A$event_groupsoups$610                                         00014B GR
+ 15 A$event_groupsoups$611                                         00014C GR
+ 15 A$event_groupsoups$612                                         00014E GR
+ 15 A$event_groupsoups$613                                         000150 GR
+ 15 A$event_groupsoups$614                                         000152 GR
+ 15 A$event_groupsoups$615                                         000154 GR
+ 15 A$event_groupsoups$616                                         000156 GR
+ 15 A$event_groupsoups$617                                         000158 GR
+ 15 A$event_groupsoups$618                                         00015B GR
+ 15 A$event_groupsoups$619                                         00015D GR
+ 15 A$event_groupsoups$620                                         00015F GR
+ 15 A$event_groupsoups$623                                         000161 GR
+ 15 A$event_groupsoups$624                                         000163 GR
+ 15 A$event_groupsoups$625                                         000165 GR
+ 15 A$event_groupsoups$629                                         000167 GR
+ 15 A$event_groupsoups$630                                         000169 GR
+ 15 A$event_groupsoups$631                                         00016A GR
+ 15 A$event_groupsoups$632                                         00016C GR
+ 15 A$event_groupsoups$633                                         00016D GR
+ 15 A$event_groupsoups$634                                         00016F GR
+ 15 A$event_groupsoups$635                                         000170 GR
+ 15 A$event_groupsoups$636                                         000172 GR
+ 15 A$event_groupsoups$637                                         000175 GR
+ 15 A$event_groupsoups$638                                         000176 GR
+ 15 A$event_groupsoups$639                                         000177 GR
+ 15 A$event_groupsoups$640                                         00017A GR
+ 15 A$event_groupsoups$646                                         00017B GR
+ 15 A$event_groupsoups$647                                         00017D GR
+ 15 A$event_groupsoups$648                                         00017F GR
+ 15 A$event_groupsoups$649                                         000182 GR
+ 15 A$event_groupsoups$650                                         000184 GR
+ 15 A$event_groupsoups$651                                         000186 GR
+ 15 A$event_groupsoups$654                                         000188 GR
+ 15 A$event_groupsoups$655                                         00018A GR
+ 15 A$event_groupsoups$656                                         00018C GR
+ 15 A$event_groupsoups$657                                         00018D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 20.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$658                                         00018E GR
+ 15 A$event_groupsoups$659                                         00018F GR
+ 15 A$event_groupsoups$660                                         000190 GR
+ 15 A$event_groupsoups$661                                         000192 GR
+ 15 A$event_groupsoups$665                                         000195 GR
+ 15 A$event_groupsoups$666                                         000196 GR
+ 15 A$event_groupsoups$669                                         000198 GR
+ 15 A$event_groupsoups$673                                         00019B GR
+ 15 A$event_groupsoups$674                                         00019E GR
+ 15 A$event_groupsoups$675                                         0001A0 GR
+ 15 A$event_groupsoups$676                                         0001A2 GR
+ 15 A$event_groupsoups$677                                         0001A4 GR
+ 15 A$event_groupsoups$678                                         0001A6 GR
+ 15 A$event_groupsoups$679                                         0001A7 GR
+ 15 A$event_groupsoups$680                                         0001A9 GR
+ 15 A$event_groupsoups$681                                         0001AA GR
+ 15 A$event_groupsoups$684                                         0001AC GR
+ 15 A$event_groupsoups$685                                         0001AE GR
+ 15 A$event_groupsoups$686                                         0001B0 GR
+ 15 A$event_groupsoups$687                                         0001B1 GR
+ 15 A$event_groupsoups$688                                         0001B2 GR
+ 15 A$event_groupsoups$689                                         0001B3 GR
+ 15 A$event_groupsoups$690                                         0001B6 GR
+ 15 A$event_groupsoups$694                                         0001B9 GR
+ 15 A$event_groupsoups$695                                         0001BB GR
+ 15 A$event_groupsoups$697                                         0001BD GR
+ 15 A$event_groupsoups$700                                         0001BF GR
+ 15 A$event_groupsoups$701                                         0001C1 GR
+ 15 A$event_groupsoups$702                                         0001C3 GR
+ 15 A$event_groupsoups$703                                         0001C4 GR
+ 15 A$event_groupsoups$704                                         0001C6 GR
+ 15 A$event_groupsoups$705                                         0001C7 GR
+ 15 A$event_groupsoups$706                                         0001C9 GR
+ 15 A$event_groupsoups$707                                         0001CA GR
+ 15 A$event_groupsoups$708                                         0001CC GR
+ 15 A$event_groupsoups$709                                         0001CF GR
+ 15 A$event_groupsoups$710                                         0001D0 GR
+ 15 A$event_groupsoups$711                                         0001D1 GR
+ 15 A$event_groupsoups$712                                         0001D4 GR
+ 15 A$event_groupsoups$713                                         0001D5 GR
+ 15 A$event_groupsoups$714                                         0001D7 GR
+ 15 A$event_groupsoups$715                                         0001D9 GR
+ 15 A$event_groupsoups$716                                         0001DA GR
+ 15 A$event_groupsoups$717                                         0001DC GR
+ 15 A$event_groupsoups$718                                         0001DD GR
+ 15 A$event_groupsoups$721                                         0001DF GR
+ 15 A$event_groupsoups$722                                         0001E1 GR
+ 15 A$event_groupsoups$723                                         0001E3 GR
+ 15 A$event_groupsoups$724                                         0001E4 GR
+ 15 A$event_groupsoups$725                                         0001E6 GR
+ 15 A$event_groupsoups$726                                         0001E8 GR
+ 15 A$event_groupsoups$727                                         0001E9 GR
+ 15 A$event_groupsoups$728                                         0001EA GR
+ 15 A$event_groupsoups$729                                         0001EB GR
+ 15 A$event_groupsoups$730                                         0001EC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 21.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$731                                         0001ED GR
+ 15 A$event_groupsoups$732                                         0001EE GR
+ 15 A$event_groupsoups$733                                         0001EF GR
+ 15 A$event_groupsoups$734                                         0001F0 GR
+ 15 A$event_groupsoups$735                                         0001F1 GR
+ 15 A$event_groupsoups$736                                         0001F3 GR
+ 15 A$event_groupsoups$737                                         0001F5 GR
+ 15 A$event_groupsoups$738                                         0001F6 GR
+ 15 A$event_groupsoups$739                                         0001F7 GR
+ 15 A$event_groupsoups$740                                         0001FA GR
+ 15 A$event_groupsoups$741                                         0001FB GR
+ 15 A$event_groupsoups$742                                         0001FC GR
+ 15 A$event_groupsoups$743                                         0001FF GR
+ 15 A$event_groupsoups$745                                         000201 GR
+ 15 A$event_groupsoups$749                                         000203 GR
+ 15 A$event_groupsoups$750                                         000205 GR
+ 15 A$event_groupsoups$751                                         000207 GR
+ 15 A$event_groupsoups$752                                         000208 GR
+ 15 A$event_groupsoups$753                                         000209 GR
+ 15 A$event_groupsoups$754                                         00020A GR
+ 15 A$event_groupsoups$755                                         00020B GR
+ 15 A$event_groupsoups$756                                         00020C GR
+ 15 A$event_groupsoups$757                                         00020D GR
+ 15 A$event_groupsoups$758                                         00020E GR
+ 15 A$event_groupsoups$759                                         00020F GR
+ 15 A$event_groupsoups$760                                         000210 GR
+ 15 A$event_groupsoups$761                                         000212 GR
+ 15 A$event_groupsoups$762                                         000213 GR
+ 15 A$event_groupsoups$763                                         000215 GR
+ 15 A$event_groupsoups$764                                         000217 GR
+ 15 A$event_groupsoups$765                                         000219 GR
+ 15 A$event_groupsoups$766                                         00021A GR
+ 15 A$event_groupsoups$767                                         00021C GR
+ 15 A$event_groupsoups$768                                         00021D GR
+ 15 A$event_groupsoups$769                                         00021F GR
+ 15 A$event_groupsoups$770                                         000220 GR
+ 15 A$event_groupsoups$771                                         000222 GR
+ 15 A$event_groupsoups$772                                         000223 GR
+ 15 A$event_groupsoups$773                                         000226 GR
+ 15 A$event_groupsoups$774                                         000227 GR
+ 15 A$event_groupsoups$775                                         000228 GR
+ 15 A$event_groupsoups$779                                         00022B GR
+ 15 A$event_groupsoups$780                                         00022D GR
+ 15 A$event_groupsoups$781                                         000230 GR
+ 15 A$event_groupsoups$782                                         000232 GR
+ 15 A$event_groupsoups$783                                         000234 GR
+ 15 A$event_groupsoups$789                                         000236 GR
+ 15 A$event_groupsoups$790                                         000238 GR
+ 15 A$event_groupsoups$791                                         00023A GR
+ 15 A$event_groupsoups$792                                         00023B GR
+ 15 A$event_groupsoups$793                                         00023D GR
+ 15 A$event_groupsoups$797                                         00023F GR
+ 15 A$event_groupsoups$798                                         000241 GR
+ 15 A$event_groupsoups$801                                         000243 GR
+ 15 A$event_groupsoups$802                                         000246 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 22.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$805                                         000248 GR
+ 15 A$event_groupsoups$830                                         000249 GR
+ 15 A$event_groupsoups$831                                         00024B GR
+ 15 A$event_groupsoups$832                                         00024E GR
+ 15 A$event_groupsoups$833                                         000250 GR
+ 15 A$event_groupsoups$834                                         000252 GR
+ 15 A$event_groupsoups$835                                         000254 GR
+ 15 A$event_groupsoups$836                                         000256 GR
+ 15 A$event_groupsoups$837                                         000258 GR
+ 15 A$event_groupsoups$840                                         00025A GR
+ 15 A$event_groupsoups$841                                         00025C GR
+ 15 A$event_groupsoups$842                                         00025D GR
+ 15 A$event_groupsoups$843                                         00025F GR
+ 15 A$event_groupsoups$844                                         000261 GR
+ 15 A$event_groupsoups$845                                         000262 GR
+ 15 A$event_groupsoups$846                                         000263 GR
+ 15 A$event_groupsoups$847                                         000264 GR
+ 15 A$event_groupsoups$848                                         000265 GR
+ 15 A$event_groupsoups$849                                         000266 GR
+ 15 A$event_groupsoups$850                                         000267 GR
+ 15 A$event_groupsoups$851                                         000268 GR
+ 15 A$event_groupsoups$852                                         000269 GR
+ 15 A$event_groupsoups$853                                         00026A GR
+ 15 A$event_groupsoups$854                                         00026B GR
+ 15 A$event_groupsoups$857                                         00026C GR
+ 15 A$event_groupsoups$858                                         00026E GR
+ 15 A$event_groupsoups$861                                         000270 GR
+ 15 A$event_groupsoups$862                                         000272 GR
+ 15 A$event_groupsoups$863                                         000274 GR
+ 15 A$event_groupsoups$866                                         000277 GR
+ 15 A$event_groupsoups$867                                         000279 GR
+ 15 A$event_groupsoups$868                                         00027A GR
+ 15 A$event_groupsoups$869                                         00027C GR
+ 15 A$event_groupsoups$870                                         00027D GR
+ 15 A$event_groupsoups$871                                         00027F GR
+ 15 A$event_groupsoups$872                                         000280 GR
+ 15 A$event_groupsoups$873                                         000282 GR
+ 15 A$event_groupsoups$874                                         000285 GR
+ 15 A$event_groupsoups$875                                         000286 GR
+ 15 A$event_groupsoups$876                                         000287 GR
+ 15 A$event_groupsoups$877                                         00028A GR
+ 15 A$event_groupsoups$880                                         00028B GR
+ 15 A$event_groupsoups$881                                         00028D GR
+ 15 A$event_groupsoups$882                                         00028F GR
+ 15 A$event_groupsoups$883                                         000291 GR
+ 15 A$event_groupsoups$884                                         000293 GR
+ 15 A$event_groupsoups$885                                         000294 GR
+ 15 A$event_groupsoups$886                                         000295 GR
+ 15 A$event_groupsoups$887                                         000297 GR
+ 15 A$event_groupsoups$888                                         000299 GR
+ 15 A$event_groupsoups$889                                         00029B GR
+ 15 A$event_groupsoups$890                                         00029C GR
+ 15 A$event_groupsoups$891                                         00029D GR
+ 15 A$event_groupsoups$892                                         00029F GR
+ 15 A$event_groupsoups$893                                         0002A0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 23.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$894                                         0002A1 GR
+ 15 A$event_groupsoups$895                                         0002A3 GR
+ 15 A$event_groupsoups$896                                         0002A5 GR
+ 15 A$event_groupsoups$897                                         0002A7 GR
+ 15 A$event_groupsoups$898                                         0002AA GR
+ 15 A$event_groupsoups$899                                         0002AC GR
+ 15 A$event_groupsoups$900                                         0002AE GR
+ 15 A$event_groupsoups$901                                         0002B0 GR
+ 15 A$event_groupsoups$902                                         0002B2 GR
+ 15 A$event_groupsoups$903                                         0002B4 GR
+ 15 A$event_groupsoups$904                                         0002B6 GR
+ 15 A$event_groupsoups$905                                         0002B8 GR
+ 15 A$event_groupsoups$908                                         0002BA GR
+ 15 A$event_groupsoups$909                                         0002BB GR
+ 15 A$event_groupsoups$912                                         0002BD GR
+ 15 A$event_groupsoups$913                                         0002BF GR
+ 15 A$event_groupsoups$916                                         0002C1 GR
+ 15 A$event_groupsoups$917                                         0002C3 GR
+ 15 A$event_groupsoups$918                                         0002C5 GR
+ 15 A$event_groupsoups$919                                         0002C6 GR
+ 15 A$event_groupsoups$920                                         0002C7 GR
+ 15 A$event_groupsoups$921                                         0002C8 GR
+ 15 A$event_groupsoups$922                                         0002C9 GR
+ 15 A$event_groupsoups$925                                         0002CA GR
+ 15 A$event_groupsoups$926                                         0002CC GR
+ 15 A$event_groupsoups$927                                         0002CE GR
+ 15 A$event_groupsoups$928                                         0002CF GR
+ 15 A$event_groupsoups$929                                         0002D0 GR
+ 15 A$event_groupsoups$930                                         0002D2 GR
+ 15 A$event_groupsoups$934                                         0002D5 GR
+ 15 A$event_groupsoups$935                                         0002D7 GR
+ 15 A$event_groupsoups$936                                         0002D9 GR
+ 15 A$event_groupsoups$937                                         0002DB GR
+ 15 A$event_groupsoups$938                                         0002DC GR
+ 15 A$event_groupsoups$939                                         0002DE GR
+ 15 A$event_groupsoups$940                                         0002DF GR
+ 15 A$event_groupsoups$941                                         0002E1 GR
+ 15 A$event_groupsoups$942                                         0002E2 GR
+ 15 A$event_groupsoups$943                                         0002E4 GR
+ 15 A$event_groupsoups$944                                         0002E7 GR
+ 15 A$event_groupsoups$945                                         0002E8 GR
+ 15 A$event_groupsoups$946                                         0002E9 GR
+ 15 A$event_groupsoups$947                                         0002EC GR
+ 15 A$event_groupsoups$948                                         0002ED GR
+ 15 A$event_groupsoups$949                                         0002EF GR
+ 15 A$event_groupsoups$950                                         0002F1 GR
+ 15 A$event_groupsoups$951                                         0002F2 GR
+ 15 A$event_groupsoups$952                                         0002F3 GR
+ 15 A$event_groupsoups$953                                         0002F4 GR
+ 15 A$event_groupsoups$954                                         0002F5 GR
+ 15 A$event_groupsoups$955                                         0002F6 GR
+ 15 A$event_groupsoups$956                                         0002F7 GR
+ 15 A$event_groupsoups$957                                         0002F8 GR
+ 15 A$event_groupsoups$958                                         0002F9 GR
+ 15 A$event_groupsoups$959                                         0002FA GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 24.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 A$event_groupsoups$960                                         0002FC GR
+ 15 A$event_groupsoups$961                                         0002FD GR
+ 15 A$event_groupsoups$962                                         0002FF GR
+ 15 A$event_groupsoups$963                                         000301 GR
+ 15 A$event_groupsoups$964                                         000302 GR
+ 15 A$event_groupsoups$965                                         000304 GR
+ 15 A$event_groupsoups$966                                         000305 GR
+ 15 A$event_groupsoups$967                                         000307 GR
+ 15 A$event_groupsoups$968                                         000308 GR
+ 15 A$event_groupsoups$969                                         00030A GR
+ 15 A$event_groupsoups$970                                         00030B GR
+ 15 A$event_groupsoups$971                                         00030E GR
+ 15 A$event_groupsoups$972                                         00030F GR
+ 15 A$event_groupsoups$973                                         000310 GR
+ 15 A$event_groupsoups$974                                         000313 GR
+ 15 A$event_groupsoups$975                                         000315 GR
+ 15 A$event_groupsoups$976                                         000317 GR
+ 15 A$event_groupsoups$980                                         000319 GR
+ 15 A$event_groupsoups$981                                         00031B GR
+ 15 A$event_groupsoups$982                                         00031D GR
+ 15 A$event_groupsoups$983                                         00031E GR
+ 15 A$event_groupsoups$984                                         00031F GR
+ 15 A$event_groupsoups$985                                         000320 GR
+ 15 A$event_groupsoups$986                                         000321 GR
+ 15 A$event_groupsoups$989                                         000323 GR
+ 15 A$event_groupsoups$990                                         000325 GR
+ 15 A$event_groupsoups$993                                         000327 GR
+ 15 A$event_groupsoups$997                                         000329 GR
+ 15 A$event_groupsoups$998                                         00032B GR
+ 15 A$event_groupsoups$999                                         00032D GR
+    A.0                                                         =  0000E0 L
+    A.1                                                         =  0000E1 L
+    A.2                                                         =  0000E2 L
+    A.3                                                         =  0000E3 L
+    A.4                                                         =  0000E4 L
+    A.5                                                         =  0000E5 L
+    A.6                                                         =  0000E6 L
+    A.7                                                         =  0000E7 L
+    AC                                                          =  0000D6 L
+    ACC                                                         =  0000E0 L
+    ACC.0                                                       =  0000E0 L
+    ACC.1                                                       =  0000E1 L
+    ACC.2                                                       =  0000E2 L
+    ACC.3                                                       =  0000E3 L
+    ACC.4                                                       =  0000E4 L
+    ACC.5                                                       =  0000E5 L
+    ACC.6                                                       =  0000E6 L
+    ACC.7                                                       =  0000E7 L
+    B                                                           =  0000F0 L
+    B.0                                                         =  0000F0 L
+    B.1                                                         =  0000F1 L
+    B.2                                                         =  0000F2 L
+    B.3                                                         =  0000F3 L
+    B.4                                                         =  0000F4 L
+    B.5                                                         =  0000F5 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 25.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    B.6                                                         =  0000F6 L
+    B.7                                                         =  0000F7 L
+ 15 C$event_groups.c$145$0_0$129                                =  000000 GR
+ 15 C$event_groups.c$162$1_0$129                                =  000000 GR
+ 15 C$event_groups.c$164$1_0$129                                =  00000C GR
+ 15 C$event_groups.c$166$2_0$130                                =  000010 GR
+ 15 C$event_groups.c$167$2_0$130                                =  00001E GR
+ 15 C$event_groups.c$185$1_0$129                                =  00003C GR
+ 15 C$event_groups.c$186$1_0$129                                =  000042 GR
+ 15 C$event_groups.c$191$1_0$133                                =  000043 GR
+ 15 C$event_groups.c$194$2_0$133                                =  000054 GR
+ 15 C$event_groups.c$206$1_0$133                                =  000066 GR
+ 15 C$event_groups.c$208$2_0$134                                =  000069 GR
+ 15 C$event_groups.c$210$2_0$134                                =  00007D GR
+ 15 C$event_groups.c$212$2_0$134                                =  0000A3 GR
+ 15 C$event_groups.c$215$3_0$135                                =  0000CD GR
+ 15 C$event_groups.c$219$3_0$135                                =  0000D9 GR
+ 15 C$event_groups.c$221$3_0$135                                =  000113 GR
+ 15 C$event_groups.c$225$3_0$136                                =  00011E GR
+ 15 C$event_groups.c$232$4_0$137                                =  000128 GR
+ 15 C$event_groups.c$238$4_0$137                                =  000161 GR
+ 15 C$event_groups.c$244$4_0$138                                =  000167 GR
+ 15 C$event_groups.c$245$2_0$134                                =  00017B GR
+ 15 C$event_groups.c$249$1_0$133                                =  00017B GR
+ 15 C$event_groups.c$251$1_0$133                                =  000188 GR
+ 15 C$event_groups.c$253$2_0$139                                =  000195 GR
+ 15 C$event_groups.c$255$3_0$140                                =  000198 GR
+ 15 C$event_groups.c$266$2_0$139                                =  00019B GR
+ 15 C$event_groups.c$268$2_0$139                                =  0001AC GR
+ 15 C$event_groups.c$271$3_0$142                                =  0001B9 GR
+ 15 C$event_groups.c$273$4_0$143                                =  0001BF GR
+ 15 C$event_groups.c$279$4_0$143                                =  0001DF GR
+ 15 C$event_groups.c$281$5_0$144                                =  000203 GR
+ 15 C$event_groups.c$288$3_0$142                                =  00022B GR
+ 15 C$event_groups.c$290$2_0$139                                =  000236 GR
+ 15 C$event_groups.c$299$2_0$139                                =  000236 GR
+ 15 C$event_groups.c$307$1_0$133                                =  00023F GR
+ 15 C$event_groups.c$308$1_0$133                                =  000248 GR
+ 15 C$event_groups.c$311$1_0$148                                =  000249 GR
+ 15 C$event_groups.c$313$2_0$148                                =  00025A GR
+ 15 C$event_groups.c$314$2_0$148                                =  00026C GR
+ 15 C$event_groups.c$329$1_0$148                                =  000270 GR
+ 15 C$event_groups.c$331$2_0$149                                =  000277 GR
+ 15 C$event_groups.c$334$2_0$149                                =  00028B GR
+ 15 C$event_groups.c$336$2_0$149                                =  0002BA GR
+ 15 C$event_groups.c$340$3_0$150                                =  0002BD GR
+ 15 C$event_groups.c$341$3_0$150                                =  0002C1 GR
+ 15 C$event_groups.c$344$3_0$150                                =  0002CA GR
+ 15 C$event_groups.c$346$1_0$148                                =  0002D5 GR
+ 15 C$event_groups.c$353$2_0$149                                =  000319 GR
+ 15 C$event_groups.c$357$3_0$153                                =  000323 GR
+ 15 C$event_groups.c$358$2_0$149                                =  000327 GR
+ 15 C$event_groups.c$366$3_0$154                                =  000329 GR
+ 15 C$event_groups.c$368$4_0$155                                =  000331 GR
+ 15 C$event_groups.c$375$3_0$154                                =  000335 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 26.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 C$event_groups.c$377$4_0$157                                =  00033D GR
+ 15 C$event_groups.c$387$3_0$154                                =  000340 GR
+ 15 C$event_groups.c$392$3_0$154                                =  00037B GR
+ 15 C$event_groups.c$397$1_0$148                                =  00037F GR
+ 15 C$event_groups.c$399$1_0$148                                =  00038C GR
+ 15 C$event_groups.c$401$2_0$159                                =  000399 GR
+ 15 C$event_groups.c$403$3_0$160                                =  00039C GR
+ 15 C$event_groups.c$414$2_0$159                                =  00039F GR
+ 15 C$event_groups.c$416$2_0$159                                =  0003A4 GR
+ 15 C$event_groups.c$418$3_0$162                                =  0003AD GR
+ 15 C$event_groups.c$421$4_0$163                                =  0003B3 GR
+ 15 C$event_groups.c$425$4_0$163                                =  0003C9 GR
+ 15 C$event_groups.c$427$5_0$164                                =  0003F7 GR
+ 15 C$event_groups.c$429$1_0$148                                =  0003FF GR
+ 15 C$event_groups.c$429$4_0$163                                =  000445 GR
+ 15 C$event_groups.c$442$3_0$162                                =  000445 GR
+ 15 C$event_groups.c$450$2_0$159                                =  000450 GR
+ 15 C$event_groups.c$457$1_0$148                                =  000454 GR
+ 15 C$event_groups.c$458$1_0$148                                =  00045D GR
+ 15 C$event_groups.c$461$1_0$170                                =  00045E GR
+ 15 C$event_groups.c$471$1_0$170                                =  000469 GR
+ 15 C$event_groups.c$477$2_0$171                                =  00046F GR
+ 15 C$event_groups.c$480$2_0$171                                =  000487 GR
+ 15 C$event_groups.c$482$1_0$170                                =  0004AD GR
+ 15 C$event_groups.c$484$1_0$170                                =  0004B8 GR
+ 15 C$event_groups.c$485$1_0$170                                =  0004C1 GR
+ 15 C$event_groups.c$503$1_0$173                                =  0004C2 GR
+ 15 C$event_groups.c$511$2_0$174                                =  0004C2 GR
+ 15 C$event_groups.c$515$1_0$173                                =  0004CA GR
+ 15 C$event_groups.c$516$1_0$173                                =  0004CA GR
+ 15 C$event_groups.c$519$1_0$176                                =  0004CF GR
+ 15 C$event_groups.c$524$2_0$176                                =  0004DF GR
+ 15 C$event_groups.c$525$2_0$176                                =  0004E8 GR
+ 15 C$event_groups.c$533$1_0$176                                =  0004F5 GR
+ 15 C$event_groups.c$534$1_0$176                                =  000505 GR
+ 15 C$event_groups.c$535$1_0$176                                =  000522 GR
+ 15 C$event_groups.c$539$2_0$177                                =  000531 GR
+ 15 C$event_groups.c$542$2_0$177                                =  00055A GR
+ 15 C$event_groups.c$545$2_0$177                                =  000584 GR
+ 15 C$event_groups.c$547$1_0$176                                =  0005AD GR
+ 15 C$event_groups.c$548$3_0$178                                =  0005CF GR
+ 15 C$event_groups.c$549$3_0$178                                =  0005E3 GR
+ 15 C$event_groups.c$552$3_0$178                                =  0005E5 GR
+ 15 C$event_groups.c$553$3_0$178                                =  0005EF GR
+ 15 C$event_groups.c$555$3_0$178                                =  0005F1 GR
+ 15 C$event_groups.c$558$1_0$176                                =  0005FB GR
+ 15 C$event_groups.c$560$5_0$180                                =  000627 GR
+ 15 C$event_groups.c$567$1_0$176                                =  00062B GR
+ 15 C$event_groups.c$570$4_0$182                                =  000665 GR
+ 15 C$event_groups.c$577$3_0$178                                =  000667 GR
+ 15 C$event_groups.c$580$4_0$184                                =  00066A GR
+ 15 C$event_groups.c$582$5_0$185                                =  000674 GR
+ 15 C$event_groups.c$594$1_0$176                                =  000680 GR
+ 15 C$event_groups.c$594$3_0$178                                =  0006C7 GR
+ 15 C$event_groups.c$600$3_0$178                                =  0006C7 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 27.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 15 C$event_groups.c$605$2_0$177                                =  0006D5 GR
+ 15 C$event_groups.c$607$1_0$176                                =  000713 GR
+ 15 C$event_groups.c$609$1_0$176                                =  000716 GR
+ 15 C$event_groups.c$610$1_0$176                                =  000735 GR
+ 15 C$event_groups.c$613$1_0$188                                =  000736 GR
+ 15 C$event_groups.c$615$2_0$188                                =  000747 GR
+ 15 C$event_groups.c$616$1_0$188                                =  000752 GR
+ 15 C$event_groups.c$618$1_0$188                                =  000759 GR
+ 15 C$event_groups.c$622$3_0$190                                =  000768 GR
+ 15 C$event_groups.c$627$1_0$188                                =  00077C GR
+ 15 C$event_groups.c$634$3_0$191                                =  0007CA GR
+ 15 C$event_groups.c$651$1_0$188                                =  0007DE GR
+ 15 C$event_groups.c$652$1_0$188                                =  0007E6 GR
+ 15 C$event_groups.c$657$1_0$193                                =  0007E7 GR
+ 15 C$event_groups.c$659$1_0$193                                =  0007F2 GR
+ 15 C$event_groups.c$660$1_0$193                                =  00080F GR
+ 15 C$event_groups.c$665$1_0$195                                =  000810 GR
+ 15 C$event_groups.c$667$1_0$195                                =  00081B GR
+ 15 C$event_groups.c$668$1_0$195                                =  000838 GR
+ 15 C$event_groups.c$671$1_0$197                                =  000839 GR
+ 15 C$event_groups.c$673$2_0$197                                =  000842 GR
+ 15 C$event_groups.c$675$1_0$197                                =  000844 GR
+ 15 C$event_groups.c$679$2_0$198                                =  00084C GR
+ 15 C$event_groups.c$681$3_0$199                                =  00085B GR
+ 15 C$event_groups.c$692$2_0$201                                =  00085F GR
+ 15 C$event_groups.c$694$3_0$202                                =  00087D GR
+ 15 C$event_groups.c$702$1_0$197                                =  00087F GR
+ 15 C$event_groups.c$703$1_0$197                                =  000883 GR
+    CPRL2                                                       =  0000C8 L
+    CT2                                                         =  0000C9 L
+    CY                                                          =  0000D7 L
+    DPH                                                         =  000083 L
+    DPL                                                         =  000082 L
+    EA                                                          =  0000AF L
+    ES                                                          =  0000AC L
+    ET0                                                         =  0000A9 L
+    ET1                                                         =  0000AB L
+    ET2                                                         =  0000AD L
+    EX0                                                         =  0000A8 L
+    EX1                                                         =  0000AA L
+    EXEN2                                                       =  0000CB L
+    EXF2                                                        =  0000CE L
+    F0                                                          =  0000D5 L
+ 15 Fevent_groups$prvTestWaitCondition$0$0                      =  000839 GR
+    G$ACC$0_0$0                                                 =  0000E0 G
+    G$B$0_0$0                                                   =  0000F0 G
+    G$DPH$0_0$0                                                 =  000083 G
+    G$DPL$0_0$0                                                 =  000082 G
+    G$EA$0_0$0                                                  =  0000AF G
+    G$EEX$0_0$0                                                 =  0000A8 G
+    G$EIRQ0$0_0$0                                               =  0000C0 G
+    G$EIRQ1$0_0$0                                               =  0000C1 G
+    G$EIRQ2$0_0$0                                               =  0000C2 G
+    G$EIRQ3$0_0$0                                               =  0000C3 G
+    G$EIRQ4$0_0$0                                               =  0000C4 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 28.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    G$EIRQ5$0_0$0                                               =  0000C5 G
+    G$EIRQ6$0_0$0                                               =  0000C6 G
+    G$EIRQ7$0_0$0                                               =  0000C7 G
+    G$ES$0_0$0                                                  =  0000AC G
+    G$ET0$0_0$0                                                 =  0000A9 G
+    G$EXTINT$0_0$0                                              =  0000C0 G
+    G$IE$0_0$0                                                  =  0000A8 G
+    G$P0$0_0$0                                                  =  000080 G
+    G$P0_0$0_0$0                                                =  000080 G
+    G$P0_1$0_0$0                                                =  000081 G
+    G$P0_2$0_0$0                                                =  000082 G
+    G$P0_3$0_0$0                                                =  000083 G
+    G$P0_4$0_0$0                                                =  000084 G
+    G$P0_5$0_0$0                                                =  000085 G
+    G$P0_6$0_0$0                                                =  000086 G
+    G$P0_7$0_0$0                                                =  000087 G
+    G$P1$0_0$0                                                  =  000090 G
+    G$P1_0$0_0$0                                                =  000090 G
+    G$P1_1$0_0$0                                                =  000091 G
+    G$P1_2$0_0$0                                                =  000092 G
+    G$P1_3$0_0$0                                                =  000093 G
+    G$P1_4$0_0$0                                                =  000094 G
+    G$P1_5$0_0$0                                                =  000095 G
+    G$P1_6$0_0$0                                                =  000096 G
+    G$P1_7$0_0$0                                                =  000097 G
+    G$P2$0_0$0                                                  =  0000A0 G
+    G$P2_0$0_0$0                                                =  0000A0 G
+    G$P2_1$0_0$0                                                =  0000A1 G
+    G$P2_2$0_0$0                                                =  0000A2 G
+    G$P2_3$0_0$0                                                =  0000A3 G
+    G$P2_4$0_0$0                                                =  0000A4 G
+    G$P2_5$0_0$0                                                =  0000A5 G
+    G$P2_6$0_0$0                                                =  0000A6 G
+    G$P2_7$0_0$0                                                =  0000A7 G
+    G$P3$0_0$0                                                  =  0000B0 G
+    G$P3_0$0_0$0                                                =  0000B0 G
+    G$P3_1$0_0$0                                                =  0000B1 G
+    G$P3_2$0_0$0                                                =  0000B2 G
+    G$P3_3$0_0$0                                                =  0000B3 G
+    G$P3_4$0_0$0                                                =  0000B4 G
+    G$P3_5$0_0$0                                                =  0000B5 G
+    G$P3_6$0_0$0                                                =  0000B6 G
+    G$P3_7$0_0$0                                                =  0000B7 G
+    G$PSW$0_0$0                                                 =  0000D0 G
+    G$RXIRQ$0_0$0                                               =  00009D G
+    G$RXRDY$0_0$0                                               =  00009D G
+    G$SBPH$0_0$0                                                =  00009B G
+    G$SBPL$0_0$0                                                =  00009A G
+    G$SBUF$0_0$0                                                =  000099 G
+    G$SCON$0_0$0                                                =  000098 G
+    G$SP$0_0$0                                                  =  000081 G
+    G$T0ARL$0_0$0                                               =  00008C G
+    G$T0CEN$0_0$0                                               =  00008D G
+    G$T0CH$0_0$0                                                =  00008F G
+    G$T0CL$0_0$0                                                =  00008E G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 29.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    G$T0H$0_0$0                                                 =  00008D G
+    G$T0IRQ$0_0$0                                               =  000088 G
+    G$T0L$0_0$0                                                 =  00008C G
+    G$TCON$0_0$0                                                =  000088 G
+    G$TXIRQ$0_0$0                                               =  00009C G
+    G$TXRDY$0_0$0                                               =  00009C G
+ 15 G$vEventGroupClearBitsCallback$0$0                          =  000810 GR
+ 15 G$vEventGroupDelete$0$0                                     =  000736 GR
+ 15 G$vEventGroupSetBitsCallback$0$0                            =  0007E7 GR
+ 15 G$xEventGroupClearBits$0$0                                  =  00045E GR
+ 15 G$xEventGroupCreate$0$0                                     =  000000 GR
+ 15 G$xEventGroupGetBitsFromISR$0$0                             =  0004C2 GR
+ 15 G$xEventGroupSetBits$0$0                                    =  0004CF GR
+ 15 G$xEventGroupSync$0$0                                       =  000043 GR
+ 15 G$xEventGroupWaitBits$0$0                                   =  000249 GR
+    IE                                                          =  0000A8 L
+    IE.0                                                        =  0000A8 L
+    IE.1                                                        =  0000A9 L
+    IE.2                                                        =  0000AA L
+    IE.3                                                        =  0000AB L
+    IE.4                                                        =  0000AC L
+    IE.5                                                        =  0000AD L
+    IE.7                                                        =  0000AF L
+    IE0                                                         =  000089 L
+    IE1                                                         =  00008B L
+    INT0                                                        =  0000B2 L
+    INT1                                                        =  0000B3 L
+    IP                                                          =  0000B8 L
+    IP.0                                                        =  0000B8 L
+    IP.1                                                        =  0000B9 L
+    IP.2                                                        =  0000BA L
+    IP.3                                                        =  0000BB L
+    IP.4                                                        =  0000BC L
+    IP.5                                                        =  0000BD L
+    IT0                                                         =  000088 L
+    IT1                                                         =  00008A L
+    OV                                                          =  0000D2 L
+    P                                                           =  0000D0 L
+    P0                                                          =  000080 L
+    P0.0                                                        =  000080 L
+    P0.1                                                        =  000081 L
+    P0.2                                                        =  000082 L
+    P0.3                                                        =  000083 L
+    P0.4                                                        =  000084 L
+    P0.5                                                        =  000085 L
+    P0.6                                                        =  000086 L
+    P0.7                                                        =  000087 L
+    P1                                                          =  000090 L
+    P1.0                                                        =  000090 L
+    P1.1                                                        =  000091 L
+    P1.2                                                        =  000092 L
+    P1.3                                                        =  000093 L
+    P1.4                                                        =  000094 L
+    P1.5                                                        =  000095 L
+    P1.6                                                        =  000096 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 30.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    P1.7                                                        =  000097 L
+    P2                                                          =  0000A0 L
+    P2.0                                                        =  0000A0 L
+    P2.1                                                        =  0000A1 L
+    P2.2                                                        =  0000A2 L
+    P2.3                                                        =  0000A3 L
+    P2.4                                                        =  0000A4 L
+    P2.5                                                        =  0000A5 L
+    P2.6                                                        =  0000A6 L
+    P2.7                                                        =  0000A7 L
+    P3                                                          =  0000B0 L
+    P3.0                                                        =  0000B0 L
+    P3.1                                                        =  0000B1 L
+    P3.2                                                        =  0000B2 L
+    P3.3                                                        =  0000B3 L
+    P3.4                                                        =  0000B4 L
+    P3.5                                                        =  0000B5 L
+    P3.6                                                        =  0000B6 L
+    P3.7                                                        =  0000B7 L
+    PCON                                                        =  000087 L
+    PS                                                          =  0000BC L
+    PSW                                                         =  0000D0 L
+    PSW.0                                                       =  0000D0 L
+    PSW.1                                                       =  0000D1 L
+    PSW.2                                                       =  0000D2 L
+    PSW.3                                                       =  0000D3 L
+    PSW.4                                                       =  0000D4 L
+    PSW.5                                                       =  0000D5 L
+    PSW.6                                                       =  0000D6 L
+    PSW.7                                                       =  0000D7 L
+    PT0                                                         =  0000B9 L
+    PT1                                                         =  0000BB L
+    PT2                                                         =  0000BD L
+    PX0                                                         =  0000B8 L
+    PX1                                                         =  0000BA L
+    RB8                                                         =  00009A L
+    RCAP2H                                                      =  0000CB L
+    RCAP2L                                                      =  0000CA L
+    RCLK                                                        =  0000CD L
+    REN                                                         =  00009C L
+    RI                                                          =  000098 L
+    RS0                                                         =  0000D3 L
+    RS1                                                         =  0000D4 L
+    RXD                                                         =  0000B0 L
+    SBUF                                                        =  000099 L
+    SCON                                                        =  000098 L
+    SCON.0                                                      =  000098 L
+    SCON.1                                                      =  000099 L
+    SCON.2                                                      =  00009A L
+    SCON.3                                                      =  00009B L
+    SCON.4                                                      =  00009C L
+    SCON.5                                                      =  00009D L
+    SCON.6                                                      =  00009E L
+    SCON.7                                                      =  00009F L
+    SM0                                                         =  00009F L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 31.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    SM1                                                         =  00009E L
+    SM2                                                         =  00009D L
+    SP                                                          =  000081 L
+    T2CON                                                       =  0000C8 L
+    T2CON.0                                                     =  0000C8 L
+    T2CON.1                                                     =  0000C9 L
+    T2CON.2                                                     =  0000CA L
+    T2CON.3                                                     =  0000CB L
+    T2CON.4                                                     =  0000CC L
+    T2CON.5                                                     =  0000CD L
+    T2CON.6                                                     =  0000CE L
+    T2CON.7                                                     =  0000CF L
+    TB8                                                         =  00009B L
+    TCLK                                                        =  0000CC L
+    TCON                                                        =  000088 L
+    TCON.0                                                      =  000088 L
+    TCON.1                                                      =  000089 L
+    TCON.2                                                      =  00008A L
+    TCON.3                                                      =  00008B L
+    TCON.4                                                      =  00008C L
+    TCON.5                                                      =  00008D L
+    TCON.6                                                      =  00008E L
+    TCON.7                                                      =  00008F L
+    TF0                                                         =  00008D L
+    TF1                                                         =  00008F L
+    TF2                                                         =  0000CF L
+    TH0                                                         =  00008C L
+    TH1                                                         =  00008D L
+    TH2                                                         =  0000CD L
+    TI                                                          =  000099 L
+    TL0                                                         =  00008A L
+    TL1                                                         =  00008B L
+    TL2                                                         =  0000CC L
+    TMOD                                                        =  000089 L
+    TR0                                                         =  00008C L
+    TR1                                                         =  00008E L
+    TR2                                                         =  0000CA L
+    TXD                                                         =  0000B1 L
+ 15 XFevent_groups$prvTestWaitCondition$0$0                     =  000883 GR
+ 15 XG$vEventGroupClearBitsCallback$0$0                         =  000838 GR
+ 15 XG$vEventGroupDelete$0$0                                    =  0007E6 GR
+ 15 XG$vEventGroupSetBitsCallback$0$0                           =  00080F GR
+ 15 XG$xEventGroupClearBits$0$0                                 =  0004C1 GR
+ 15 XG$xEventGroupCreate$0$0                                    =  000042 GR
+ 15 XG$xEventGroupGetBitsFromISR$0$0                            =  0004CA GR
+ 15 XG$xEventGroupSetBits$0$0                                   =  000735 GR
+ 15 XG$xEventGroupSync$0$0                                      =  000248 GR
+ 15 XG$xEventGroupWaitBits$0$0                                  =  00045D GR
+    _ACC                                                        =  0000E0 G
+    _B                                                          =  0000F0 G
+    _DPH                                                        =  000083 G
+    _DPL                                                        =  000082 G
+    _EA                                                         =  0000AF G
+    _EEX                                                        =  0000A8 G
+    _EIRQ0                                                      =  0000C0 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 32.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    _EIRQ1                                                      =  0000C1 G
+    _EIRQ2                                                      =  0000C2 G
+    _EIRQ3                                                      =  0000C3 G
+    _EIRQ4                                                      =  0000C4 G
+    _EIRQ5                                                      =  0000C5 G
+    _EIRQ6                                                      =  0000C6 G
+    _EIRQ7                                                      =  0000C7 G
+    _ES                                                         =  0000AC G
+    _ET0                                                        =  0000A9 G
+    _EXTINT                                                     =  0000C0 G
+    _IE                                                         =  0000A8 G
+    _P0                                                         =  000080 G
+    _P0_0                                                       =  000080 G
+    _P0_1                                                       =  000081 G
+    _P0_2                                                       =  000082 G
+    _P0_3                                                       =  000083 G
+    _P0_4                                                       =  000084 G
+    _P0_5                                                       =  000085 G
+    _P0_6                                                       =  000086 G
+    _P0_7                                                       =  000087 G
+    _P1                                                         =  000090 G
+    _P1_0                                                       =  000090 G
+    _P1_1                                                       =  000091 G
+    _P1_2                                                       =  000092 G
+    _P1_3                                                       =  000093 G
+    _P1_4                                                       =  000094 G
+    _P1_5                                                       =  000095 G
+    _P1_6                                                       =  000096 G
+    _P1_7                                                       =  000097 G
+    _P2                                                         =  0000A0 G
+    _P2_0                                                       =  0000A0 G
+    _P2_1                                                       =  0000A1 G
+    _P2_2                                                       =  0000A2 G
+    _P2_3                                                       =  0000A3 G
+    _P2_4                                                       =  0000A4 G
+    _P2_5                                                       =  0000A5 G
+    _P2_6                                                       =  0000A6 G
+    _P2_7                                                       =  0000A7 G
+    _P3                                                         =  0000B0 G
+    _P3_0                                                       =  0000B0 G
+    _P3_1                                                       =  0000B1 G
+    _P3_2                                                       =  0000B2 G
+    _P3_3                                                       =  0000B3 G
+    _P3_4                                                       =  0000B4 G
+    _P3_5                                                       =  0000B5 G
+    _P3_6                                                       =  0000B6 G
+    _P3_7                                                       =  0000B7 G
+    _PSW                                                        =  0000D0 G
+    _RXIRQ                                                      =  00009D G
+    _RXRDY                                                      =  00009D G
+    _SBPH                                                       =  00009B G
+    _SBPL                                                       =  00009A G
+    _SBUF                                                       =  000099 G
+    _SCON                                                       =  000098 G
+    _SP                                                         =  000081 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 33.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    _T0ARL                                                      =  00008C G
+    _T0CEN                                                      =  00008D G
+    _T0CH                                                       =  00008F G
+    _T0CL                                                       =  00008E G
+    _T0H                                                        =  00008D G
+    _T0IRQ                                                      =  000088 G
+    _T0L                                                        =  00008C G
+    _TCON                                                       =  000088 G
+    _TXIRQ                                                      =  00009C G
+    _TXRDY                                                      =  00009C G
+    ___gptr_cmp                                                    ****** GX
+    __gptrget                                                      ****** GX
+    __gptrput                                                      ****** GX
+    _bp                                                            ****** GX
+ 15 _prvTestWaitCondition                                          000839 R
+    _pvPortMalloc                                                  ****** GX
+    _uxTaskResetEventItemValue                                     ****** GX
+ 15 _vEventGroupClearBitsCallback                                  000810 GR
+ 15 _vEventGroupDelete                                             000736 GR
+ 15 _vEventGroupSetBitsCallback                                    0007E7 GR
+    _vListInitialise                                               ****** GX
+    _vPortFree                                                     ****** GX
+    _vPortYield                                                    ****** GX
+    _vTaskPlaceOnUnorderedEventList                                ****** GX
+    _vTaskRemoveFromUnorderedEventList                             ****** GX
+    _vTaskSuspendAll                                               ****** GX
+ 15 _xEventGroupClearBits                                          00045E GR
+ 15 _xEventGroupCreate                                             000000 GR
+ 15 _xEventGroupGetBitsFromISR                                     0004C2 GR
+ 15 _xEventGroupSetBits                                            0004CF GR
+ 15 _xEventGroupSync                                               000043 GR
+ 15 _xEventGroupWaitBits                                           000249 GR
+    _xTaskResumeAll                                                ****** GX
+    a                                                           =  0000E0 L
+    a.0                                                         =  0000E0 L
+    a.1                                                         =  0000E1 L
+    a.2                                                         =  0000E2 L
+    a.3                                                         =  0000E3 L
+    a.4                                                         =  0000E4 L
+    a.5                                                         =  0000E5 L
+    a.6                                                         =  0000E6 L
+    a.7                                                         =  0000E7 L
+    ac                                                          =  0000D6 L
+    acc                                                         =  0000E0 L
+    acc.0                                                       =  0000E0 L
+    acc.1                                                       =  0000E1 L
+    acc.2                                                       =  0000E2 L
+    acc.3                                                       =  0000E3 L
+    acc.4                                                       =  0000E4 L
+    acc.5                                                       =  0000E5 L
+    acc.6                                                       =  0000E6 L
+    acc.7                                                       =  0000E7 L
+    ar0                                                         =  000000 
+    ar1                                                         =  000001 
+    ar2                                                         =  000002 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 34.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    ar3                                                         =  000003 
+    ar4                                                         =  000004 
+    ar5                                                         =  000005 
+    ar6                                                         =  000006 
+    ar7                                                         =  000007 
+    b                                                           =  0000F0 L
+    b.0                                                         =  0000F0 L
+    b.1                                                         =  0000F1 L
+    b.2                                                         =  0000F2 L
+    b.3                                                         =  0000F3 L
+    b.4                                                         =  0000F4 L
+    b.5                                                         =  0000F5 L
+    b.6                                                         =  0000F6 L
+    b.7                                                         =  0000F7 L
+    cprl2                                                       =  0000C8 L
+    ct2                                                         =  0000C9 L
+    cy                                                          =  0000D7 L
+    dph                                                         =  000083 L
+    dpl                                                         =  000082 L
+    ea                                                          =  0000AF L
+    es                                                          =  0000AC L
+    et0                                                         =  0000A9 L
+    et1                                                         =  0000AB L
+    et2                                                         =  0000AD L
+    ex0                                                         =  0000A8 L
+    ex1                                                         =  0000AA L
+    exen2                                                       =  0000CB L
+    exf2                                                        =  0000CE L
+    f0                                                          =  0000D5 L
+    ie                                                          =  0000A8 L
+    ie.0                                                        =  0000A8 L
+    ie.1                                                        =  0000A9 L
+    ie.2                                                        =  0000AA L
+    ie.3                                                        =  0000AB L
+    ie.4                                                        =  0000AC L
+    ie.5                                                        =  0000AD L
+    ie.7                                                        =  0000AF L
+    ie0                                                         =  000089 L
+    ie1                                                         =  00008B L
+    int0                                                        =  0000B2 L
+    int1                                                        =  0000B3 L
+    ip                                                          =  0000B8 L
+    ip.0                                                        =  0000B8 L
+    ip.1                                                        =  0000B9 L
+    ip.2                                                        =  0000BA L
+    ip.3                                                        =  0000BB L
+    ip.4                                                        =  0000BC L
+    ip.5                                                        =  0000BD L
+    it0                                                         =  000088 L
+    it1                                                         =  00008A L
+    ov                                                          =  0000D2 L
+    p                                                           =  0000D0 L
+    p0                                                          =  000080 L
+    p0.0                                                        =  000080 L
+    p0.1                                                        =  000081 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 35.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    p0.2                                                        =  000082 L
+    p0.3                                                        =  000083 L
+    p0.4                                                        =  000084 L
+    p0.5                                                        =  000085 L
+    p0.6                                                        =  000086 L
+    p0.7                                                        =  000087 L
+    p1                                                          =  000090 L
+    p1.0                                                        =  000090 L
+    p1.1                                                        =  000091 L
+    p1.2                                                        =  000092 L
+    p1.3                                                        =  000093 L
+    p1.4                                                        =  000094 L
+    p1.5                                                        =  000095 L
+    p1.6                                                        =  000096 L
+    p1.7                                                        =  000097 L
+    p2                                                          =  0000A0 L
+    p2.0                                                        =  0000A0 L
+    p2.1                                                        =  0000A1 L
+    p2.2                                                        =  0000A2 L
+    p2.3                                                        =  0000A3 L
+    p2.4                                                        =  0000A4 L
+    p2.5                                                        =  0000A5 L
+    p2.6                                                        =  0000A6 L
+    p2.7                                                        =  0000A7 L
+    p3                                                          =  0000B0 L
+    p3.0                                                        =  0000B0 L
+    p3.1                                                        =  0000B1 L
+    p3.2                                                        =  0000B2 L
+    p3.3                                                        =  0000B3 L
+    p3.4                                                        =  0000B4 L
+    p3.5                                                        =  0000B5 L
+    p3.6                                                        =  0000B6 L
+    p3.7                                                        =  0000B7 L
+    pcon                                                        =  000087 L
+    ps                                                          =  0000BC L
+    psw                                                         =  0000D0 L
+    psw.0                                                       =  0000D0 L
+    psw.1                                                       =  0000D1 L
+    psw.2                                                       =  0000D2 L
+    psw.3                                                       =  0000D3 L
+    psw.4                                                       =  0000D4 L
+    psw.5                                                       =  0000D5 L
+    psw.6                                                       =  0000D6 L
+    psw.7                                                       =  0000D7 L
+    pt0                                                         =  0000B9 L
+    pt1                                                         =  0000BB L
+    pt2                                                         =  0000BD L
+    px0                                                         =  0000B8 L
+    px1                                                         =  0000BA L
+    rb8                                                         =  00009A L
+    rcap2h                                                      =  0000CB L
+    rcap2l                                                      =  0000CA L
+    rclk                                                        =  0000CD L
+    ren                                                         =  00009C L
+    ri                                                          =  000098 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 36.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    rs0                                                         =  0000D3 L
+    rs1                                                         =  0000D4 L
+    rxd                                                         =  0000B0 L
+    sbuf                                                        =  000099 L
+    scon                                                        =  000098 L
+    scon.0                                                      =  000098 L
+    scon.1                                                      =  000099 L
+    scon.2                                                      =  00009A L
+    scon.3                                                      =  00009B L
+    scon.4                                                      =  00009C L
+    scon.5                                                      =  00009D L
+    scon.6                                                      =  00009E L
+    scon.7                                                      =  00009F L
+    sm0                                                         =  00009F L
+    sm1                                                         =  00009E L
+    sm2                                                         =  00009D L
+    sp                                                          =  000081 L
+    t2con                                                       =  0000C8 L
+    t2con.0                                                     =  0000C8 L
+    t2con.1                                                     =  0000C9 L
+    t2con.2                                                     =  0000CA L
+    t2con.3                                                     =  0000CB L
+    t2con.4                                                     =  0000CC L
+    t2con.5                                                     =  0000CD L
+    t2con.6                                                     =  0000CE L
+    t2con.7                                                     =  0000CF L
+    tb8                                                         =  00009B L
+    tclk                                                        =  0000CC L
+    tcon                                                        =  000088 L
+    tcon.0                                                      =  000088 L
+    tcon.1                                                      =  000089 L
+    tcon.2                                                      =  00008A L
+    tcon.3                                                      =  00008B L
+    tcon.4                                                      =  00008C L
+    tcon.5                                                      =  00008D L
+    tcon.6                                                      =  00008E L
+    tcon.7                                                      =  00008F L
+    tf0                                                         =  00008D L
+    tf1                                                         =  00008F L
+    tf2                                                         =  0000CF L
+    th0                                                         =  00008C L
+    th1                                                         =  00008D L
+    th2                                                         =  0000CD L
+    ti                                                          =  000099 L
+    tl0                                                         =  00008A L
+    tl1                                                         =  00008B L
+    tl2                                                         =  0000CC L
+    tmod                                                        =  000089 L
+    tr0                                                         =  00008C L
+    tr1                                                         =  00008E L
+    tr2                                                         =  0000CA L
+    txd                                                         =  0000B1 L
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 37.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 RSEG                                       size      0   flags    8
+   2 RSEG0                                      size      0   flags    8
+   3 RSEG1                                      size      0   flags    8
+   4 REG_BANK_0                                 size      8   flags    4
+   5 DSEG                                       size      0   flags    0
+   6 ISEG                                       size      0   flags    0
+   7 IABS                                       size      0   flags    8
+   8 BSEG                                       size      0   flags   80
+   9 PSEG                                       size      0   flags   50
+   A XSEG                                       size      0   flags   40
+   B XABS                                       size      0   flags   48
+   C HOME                                       size      0   flags   20
+   D GSINIT0                                    size      0   flags   20
+   E GSINIT1                                    size      0   flags   20
+   F GSINIT2                                    size      0   flags   20
+  10 GSINIT3                                    size      0   flags   20
+  11 GSINIT4                                    size      0   flags   20
+  12 GSINIT5                                    size      0   flags   20
+  13 GSINIT                                     size      0   flags   20
+  14 GSFINAL                                    size      0   flags   20
+  15 CSEG                                       size    884   flags   20
+  16 CONST                                      size      0   flags   20
+  17 CABS                                       size      0   flags   28
+

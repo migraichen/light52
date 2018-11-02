@@ -1,0 +1,1492 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.8.0 #10562 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module list
+                                      6 	.optsdcc -mmcs51 --model-large
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _P3_7
+                                     12 	.globl _P3_6
+                                     13 	.globl _P3_5
+                                     14 	.globl _P3_4
+                                     15 	.globl _P3_3
+                                     16 	.globl _P3_2
+                                     17 	.globl _P3_1
+                                     18 	.globl _P3_0
+                                     19 	.globl _P2_7
+                                     20 	.globl _P2_6
+                                     21 	.globl _P2_5
+                                     22 	.globl _P2_4
+                                     23 	.globl _P2_3
+                                     24 	.globl _P2_2
+                                     25 	.globl _P2_1
+                                     26 	.globl _P2_0
+                                     27 	.globl _P1_7
+                                     28 	.globl _P1_6
+                                     29 	.globl _P1_5
+                                     30 	.globl _P1_4
+                                     31 	.globl _P1_3
+                                     32 	.globl _P1_2
+                                     33 	.globl _P1_1
+                                     34 	.globl _P1_0
+                                     35 	.globl _P0_7
+                                     36 	.globl _P0_6
+                                     37 	.globl _P0_5
+                                     38 	.globl _P0_4
+                                     39 	.globl _P0_3
+                                     40 	.globl _P0_2
+                                     41 	.globl _P0_1
+                                     42 	.globl _P0_0
+                                     43 	.globl _EIRQ7
+                                     44 	.globl _EIRQ6
+                                     45 	.globl _EIRQ5
+                                     46 	.globl _EIRQ4
+                                     47 	.globl _EIRQ3
+                                     48 	.globl _EIRQ2
+                                     49 	.globl _EIRQ1
+                                     50 	.globl _EIRQ0
+                                     51 	.globl _T0CEN
+                                     52 	.globl _T0ARL
+                                     53 	.globl _T0IRQ
+                                     54 	.globl _RXRDY
+                                     55 	.globl _TXRDY
+                                     56 	.globl _RXIRQ
+                                     57 	.globl _TXIRQ
+                                     58 	.globl _EEX
+                                     59 	.globl _ET0
+                                     60 	.globl _ES
+                                     61 	.globl _EA
+                                     62 	.globl _P3
+                                     63 	.globl _P2
+                                     64 	.globl _P1
+                                     65 	.globl _P0
+                                     66 	.globl _EXTINT
+                                     67 	.globl _T0CH
+                                     68 	.globl _T0CL
+                                     69 	.globl _T0H
+                                     70 	.globl _T0L
+                                     71 	.globl _TCON
+                                     72 	.globl _SBPH
+                                     73 	.globl _SBPL
+                                     74 	.globl _SBUF
+                                     75 	.globl _SCON
+                                     76 	.globl _IE
+                                     77 	.globl _DPL
+                                     78 	.globl _DPH
+                                     79 	.globl _SP
+                                     80 	.globl _PSW
+                                     81 	.globl _B
+                                     82 	.globl _ACC
+                                     83 	.globl _vListInitialise
+                                     84 	.globl _vListInitialiseItem
+                                     85 	.globl _vListInsertEnd
+                                     86 	.globl _vListInsert
+                                     87 	.globl _uxListRemove
+                                     88 ;--------------------------------------------------------
+                                     89 ; special function registers
+                                     90 ;--------------------------------------------------------
+                                     91 	.area RSEG    (ABS,DATA)
+      000000                         92 	.org 0x0000
+                           0000E0    93 G$ACC$0_0$0 == 0x00e0
+                           0000E0    94 _ACC	=	0x00e0
+                           0000F0    95 G$B$0_0$0 == 0x00f0
+                           0000F0    96 _B	=	0x00f0
+                           0000D0    97 G$PSW$0_0$0 == 0x00d0
+                           0000D0    98 _PSW	=	0x00d0
+                           000081    99 G$SP$0_0$0 == 0x0081
+                           000081   100 _SP	=	0x0081
+                           000083   101 G$DPH$0_0$0 == 0x0083
+                           000083   102 _DPH	=	0x0083
+                           000082   103 G$DPL$0_0$0 == 0x0082
+                           000082   104 _DPL	=	0x0082
+                           0000A8   105 G$IE$0_0$0 == 0x00a8
+                           0000A8   106 _IE	=	0x00a8
+                           000098   107 G$SCON$0_0$0 == 0x0098
+                           000098   108 _SCON	=	0x0098
+                           000099   109 G$SBUF$0_0$0 == 0x0099
+                           000099   110 _SBUF	=	0x0099
+                           00009A   111 G$SBPL$0_0$0 == 0x009a
+                           00009A   112 _SBPL	=	0x009a
+                           00009B   113 G$SBPH$0_0$0 == 0x009b
+                           00009B   114 _SBPH	=	0x009b
+                           000088   115 G$TCON$0_0$0 == 0x0088
+                           000088   116 _TCON	=	0x0088
+                           00008C   117 G$T0L$0_0$0 == 0x008c
+                           00008C   118 _T0L	=	0x008c
+                           00008D   119 G$T0H$0_0$0 == 0x008d
+                           00008D   120 _T0H	=	0x008d
+                           00008E   121 G$T0CL$0_0$0 == 0x008e
+                           00008E   122 _T0CL	=	0x008e
+                           00008F   123 G$T0CH$0_0$0 == 0x008f
+                           00008F   124 _T0CH	=	0x008f
+                           0000C0   125 G$EXTINT$0_0$0 == 0x00c0
+                           0000C0   126 _EXTINT	=	0x00c0
+                           000080   127 G$P0$0_0$0 == 0x0080
+                           000080   128 _P0	=	0x0080
+                           000090   129 G$P1$0_0$0 == 0x0090
+                           000090   130 _P1	=	0x0090
+                           0000A0   131 G$P2$0_0$0 == 0x00a0
+                           0000A0   132 _P2	=	0x00a0
+                           0000B0   133 G$P3$0_0$0 == 0x00b0
+                           0000B0   134 _P3	=	0x00b0
+                                    135 ;--------------------------------------------------------
+                                    136 ; special function bits
+                                    137 ;--------------------------------------------------------
+                                    138 	.area RSEG    (ABS,DATA)
+      000000                        139 	.org 0x0000
+                           0000AF   140 G$EA$0_0$0 == 0x00af
+                           0000AF   141 _EA	=	0x00af
+                           0000AC   142 G$ES$0_0$0 == 0x00ac
+                           0000AC   143 _ES	=	0x00ac
+                           0000A9   144 G$ET0$0_0$0 == 0x00a9
+                           0000A9   145 _ET0	=	0x00a9
+                           0000A8   146 G$EEX$0_0$0 == 0x00a8
+                           0000A8   147 _EEX	=	0x00a8
+                           00009C   148 G$TXIRQ$0_0$0 == 0x009c
+                           00009C   149 _TXIRQ	=	0x009c
+                           00009D   150 G$RXIRQ$0_0$0 == 0x009d
+                           00009D   151 _RXIRQ	=	0x009d
+                           00009C   152 G$TXRDY$0_0$0 == 0x009c
+                           00009C   153 _TXRDY	=	0x009c
+                           00009D   154 G$RXRDY$0_0$0 == 0x009d
+                           00009D   155 _RXRDY	=	0x009d
+                           000088   156 G$T0IRQ$0_0$0 == 0x0088
+                           000088   157 _T0IRQ	=	0x0088
+                           00008C   158 G$T0ARL$0_0$0 == 0x008c
+                           00008C   159 _T0ARL	=	0x008c
+                           00008D   160 G$T0CEN$0_0$0 == 0x008d
+                           00008D   161 _T0CEN	=	0x008d
+                           0000C0   162 G$EIRQ0$0_0$0 == 0x00c0
+                           0000C0   163 _EIRQ0	=	0x00c0
+                           0000C1   164 G$EIRQ1$0_0$0 == 0x00c1
+                           0000C1   165 _EIRQ1	=	0x00c1
+                           0000C2   166 G$EIRQ2$0_0$0 == 0x00c2
+                           0000C2   167 _EIRQ2	=	0x00c2
+                           0000C3   168 G$EIRQ3$0_0$0 == 0x00c3
+                           0000C3   169 _EIRQ3	=	0x00c3
+                           0000C4   170 G$EIRQ4$0_0$0 == 0x00c4
+                           0000C4   171 _EIRQ4	=	0x00c4
+                           0000C5   172 G$EIRQ5$0_0$0 == 0x00c5
+                           0000C5   173 _EIRQ5	=	0x00c5
+                           0000C6   174 G$EIRQ6$0_0$0 == 0x00c6
+                           0000C6   175 _EIRQ6	=	0x00c6
+                           0000C7   176 G$EIRQ7$0_0$0 == 0x00c7
+                           0000C7   177 _EIRQ7	=	0x00c7
+                           000080   178 G$P0_0$0_0$0 == 0x0080
+                           000080   179 _P0_0	=	0x0080
+                           000081   180 G$P0_1$0_0$0 == 0x0081
+                           000081   181 _P0_1	=	0x0081
+                           000082   182 G$P0_2$0_0$0 == 0x0082
+                           000082   183 _P0_2	=	0x0082
+                           000083   184 G$P0_3$0_0$0 == 0x0083
+                           000083   185 _P0_3	=	0x0083
+                           000084   186 G$P0_4$0_0$0 == 0x0084
+                           000084   187 _P0_4	=	0x0084
+                           000085   188 G$P0_5$0_0$0 == 0x0085
+                           000085   189 _P0_5	=	0x0085
+                           000086   190 G$P0_6$0_0$0 == 0x0086
+                           000086   191 _P0_6	=	0x0086
+                           000087   192 G$P0_7$0_0$0 == 0x0087
+                           000087   193 _P0_7	=	0x0087
+                           000090   194 G$P1_0$0_0$0 == 0x0090
+                           000090   195 _P1_0	=	0x0090
+                           000091   196 G$P1_1$0_0$0 == 0x0091
+                           000091   197 _P1_1	=	0x0091
+                           000092   198 G$P1_2$0_0$0 == 0x0092
+                           000092   199 _P1_2	=	0x0092
+                           000093   200 G$P1_3$0_0$0 == 0x0093
+                           000093   201 _P1_3	=	0x0093
+                           000094   202 G$P1_4$0_0$0 == 0x0094
+                           000094   203 _P1_4	=	0x0094
+                           000095   204 G$P1_5$0_0$0 == 0x0095
+                           000095   205 _P1_5	=	0x0095
+                           000096   206 G$P1_6$0_0$0 == 0x0096
+                           000096   207 _P1_6	=	0x0096
+                           000097   208 G$P1_7$0_0$0 == 0x0097
+                           000097   209 _P1_7	=	0x0097
+                           0000A0   210 G$P2_0$0_0$0 == 0x00a0
+                           0000A0   211 _P2_0	=	0x00a0
+                           0000A1   212 G$P2_1$0_0$0 == 0x00a1
+                           0000A1   213 _P2_1	=	0x00a1
+                           0000A2   214 G$P2_2$0_0$0 == 0x00a2
+                           0000A2   215 _P2_2	=	0x00a2
+                           0000A3   216 G$P2_3$0_0$0 == 0x00a3
+                           0000A3   217 _P2_3	=	0x00a3
+                           0000A4   218 G$P2_4$0_0$0 == 0x00a4
+                           0000A4   219 _P2_4	=	0x00a4
+                           0000A5   220 G$P2_5$0_0$0 == 0x00a5
+                           0000A5   221 _P2_5	=	0x00a5
+                           0000A6   222 G$P2_6$0_0$0 == 0x00a6
+                           0000A6   223 _P2_6	=	0x00a6
+                           0000A7   224 G$P2_7$0_0$0 == 0x00a7
+                           0000A7   225 _P2_7	=	0x00a7
+                           0000B0   226 G$P3_0$0_0$0 == 0x00b0
+                           0000B0   227 _P3_0	=	0x00b0
+                           0000B1   228 G$P3_1$0_0$0 == 0x00b1
+                           0000B1   229 _P3_1	=	0x00b1
+                           0000B2   230 G$P3_2$0_0$0 == 0x00b2
+                           0000B2   231 _P3_2	=	0x00b2
+                           0000B3   232 G$P3_3$0_0$0 == 0x00b3
+                           0000B3   233 _P3_3	=	0x00b3
+                           0000B4   234 G$P3_4$0_0$0 == 0x00b4
+                           0000B4   235 _P3_4	=	0x00b4
+                           0000B5   236 G$P3_5$0_0$0 == 0x00b5
+                           0000B5   237 _P3_5	=	0x00b5
+                           0000B6   238 G$P3_6$0_0$0 == 0x00b6
+                           0000B6   239 _P3_6	=	0x00b6
+                           0000B7   240 G$P3_7$0_0$0 == 0x00b7
+                           0000B7   241 _P3_7	=	0x00b7
+                                    242 ;--------------------------------------------------------
+                                    243 ; overlayable register banks
+                                    244 ;--------------------------------------------------------
+                                    245 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        246 	.ds 8
+                                    247 ;--------------------------------------------------------
+                                    248 ; internal ram data
+                                    249 ;--------------------------------------------------------
+                                    250 	.area DSEG    (DATA)
+                                    251 ;--------------------------------------------------------
+                                    252 ; overlayable items in internal ram 
+                                    253 ;--------------------------------------------------------
+                                    254 ;--------------------------------------------------------
+                                    255 ; indirectly addressable internal ram data
+                                    256 ;--------------------------------------------------------
+                                    257 	.area ISEG    (DATA)
+                                    258 ;--------------------------------------------------------
+                                    259 ; absolute internal ram data
+                                    260 ;--------------------------------------------------------
+                                    261 	.area IABS    (ABS,DATA)
+                                    262 	.area IABS    (ABS,DATA)
+                                    263 ;--------------------------------------------------------
+                                    264 ; bit data
+                                    265 ;--------------------------------------------------------
+                                    266 	.area BSEG    (BIT)
+                                    267 ;--------------------------------------------------------
+                                    268 ; paged external ram data
+                                    269 ;--------------------------------------------------------
+                                    270 	.area PSEG    (PAG,XDATA)
+                                    271 ;--------------------------------------------------------
+                                    272 ; external ram data
+                                    273 ;--------------------------------------------------------
+                                    274 	.area XSEG    (XDATA)
+                                    275 ;--------------------------------------------------------
+                                    276 ; absolute external ram data
+                                    277 ;--------------------------------------------------------
+                                    278 	.area XABS    (ABS,XDATA)
+                                    279 ;--------------------------------------------------------
+                                    280 ; external initialized ram data
+                                    281 ;--------------------------------------------------------
+                                    282 	.area HOME    (CODE)
+                                    283 	.area GSINIT0 (CODE)
+                                    284 	.area GSINIT1 (CODE)
+                                    285 	.area GSINIT2 (CODE)
+                                    286 	.area GSINIT3 (CODE)
+                                    287 	.area GSINIT4 (CODE)
+                                    288 	.area GSINIT5 (CODE)
+                                    289 	.area GSINIT  (CODE)
+                                    290 	.area GSFINAL (CODE)
+                                    291 	.area CSEG    (CODE)
+                                    292 ;--------------------------------------------------------
+                                    293 ; global & static initialisations
+                                    294 ;--------------------------------------------------------
+                                    295 	.area HOME    (CODE)
+                                    296 	.area GSINIT  (CODE)
+                                    297 	.area GSFINAL (CODE)
+                                    298 	.area GSINIT  (CODE)
+                                    299 ;--------------------------------------------------------
+                                    300 ; Home
+                                    301 ;--------------------------------------------------------
+                                    302 	.area HOME    (CODE)
+                                    303 	.area HOME    (CODE)
+                                    304 ;--------------------------------------------------------
+                                    305 ; code
+                                    306 ;--------------------------------------------------------
+                                    307 	.area CSEG    (CODE)
+                                    308 ;------------------------------------------------------------
+                                    309 ;Allocation info for local variables in function 'vListInitialise'
+                                    310 ;------------------------------------------------------------
+                                    311 ;pxList                    Allocated to stack - _bp +1
+                                    312 ;sloc0                     Allocated to stack - _bp +4
+                                    313 ;sloc1                     Allocated to stack - _bp +7
+                                    314 ;------------------------------------------------------------
+                           000000   315 	G$vListInitialise$0$0 ==.
+                           000000   316 	C$list.c$37$0_0$47 ==.
+                                    317 ;	src/FreeRTOS/list.c:37: void vListInitialise( List_t * const pxList )
+                                    318 ;	-----------------------------------------
+                                    319 ;	 function vListInitialise
+                                    320 ;	-----------------------------------------
+      000000                        321 _vListInitialise:
+                           000007   322 	ar7 = 0x07
+                           000006   323 	ar6 = 0x06
+                           000005   324 	ar5 = 0x05
+                           000004   325 	ar4 = 0x04
+                           000003   326 	ar3 = 0x03
+                           000002   327 	ar2 = 0x02
+                           000001   328 	ar1 = 0x01
+                           000000   329 	ar0 = 0x00
+      000000 C0*00            [24]  330 	push	_bp
+      000002 85 81*00         [24]  331 	mov	_bp,sp
+      000005 C0 82            [24]  332 	push	dpl
+      000007 C0 83            [24]  333 	push	dph
+      000009 C0 F0            [24]  334 	push	b
+      00000B 05 81            [12]  335 	inc	sp
+      00000D 05 81            [12]  336 	inc	sp
+      00000F 05 81            [12]  337 	inc	sp
+                           000011   338 	C$list.c$42$1_0$47 ==.
+                                    339 ;	src/FreeRTOS/list.c:42: pxList->pxIndex = ( ListItem_t * ) &( pxList->xListEnd );			/*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. */
+      000011 A8*00            [24]  340 	mov	r0,_bp
+      000013 08               [12]  341 	inc	r0
+      000014 74 01            [12]  342 	mov	a,#0x01
+      000016 26               [12]  343 	add	a,@r0
+      000017 FF               [12]  344 	mov	r7,a
+      000018 E4               [12]  345 	clr	a
+      000019 08               [12]  346 	inc	r0
+      00001A 36               [12]  347 	addc	a,@r0
+      00001B FB               [12]  348 	mov	r3,a
+      00001C 08               [12]  349 	inc	r0
+      00001D 86 02            [24]  350 	mov	ar2,@r0
+      00001F A8*00            [24]  351 	mov	r0,_bp
+      000021 08               [12]  352 	inc	r0
+      000022 E5*00            [12]  353 	mov	a,_bp
+      000024 24 04            [12]  354 	add	a,#0x04
+      000026 F9               [12]  355 	mov	r1,a
+      000027 74 04            [12]  356 	mov	a,#0x04
+      000029 26               [12]  357 	add	a,@r0
+      00002A F7               [12]  358 	mov	@r1,a
+      00002B E4               [12]  359 	clr	a
+      00002C 08               [12]  360 	inc	r0
+      00002D 36               [12]  361 	addc	a,@r0
+      00002E 09               [12]  362 	inc	r1
+      00002F F7               [12]  363 	mov	@r1,a
+      000030 08               [12]  364 	inc	r0
+      000031 09               [12]  365 	inc	r1
+      000032 E6               [12]  366 	mov	a,@r0
+      000033 F7               [12]  367 	mov	@r1,a
+      000034 E5*00            [12]  368 	mov	a,_bp
+      000036 24 04            [12]  369 	add	a,#0x04
+      000038 F8               [12]  370 	mov	r0,a
+      000039 86 04            [24]  371 	mov	ar4,@r0
+      00003B 08               [12]  372 	inc	r0
+      00003C 86 05            [24]  373 	mov	ar5,@r0
+      00003E 08               [12]  374 	inc	r0
+      00003F 86 06            [24]  375 	mov	ar6,@r0
+      000041 8F 82            [24]  376 	mov	dpl,r7
+      000043 8B 83            [24]  377 	mov	dph,r3
+      000045 8A F0            [24]  378 	mov	b,r2
+      000047 EC               [12]  379 	mov	a,r4
+      000048 12r00r00         [24]  380 	lcall	__gptrput
+      00004B A3               [24]  381 	inc	dptr
+      00004C ED               [12]  382 	mov	a,r5
+      00004D 12r00r00         [24]  383 	lcall	__gptrput
+      000050 A3               [24]  384 	inc	dptr
+      000051 EE               [12]  385 	mov	a,r6
+      000052 12r00r00         [24]  386 	lcall	__gptrput
+                           000055   387 	C$list.c$46$1_0$47 ==.
+                                    388 ;	src/FreeRTOS/list.c:46: pxList->xListEnd.xItemValue = portMAX_DELAY;
+      000055 E5*00            [12]  389 	mov	a,_bp
+      000057 24 04            [12]  390 	add	a,#0x04
+      000059 F8               [12]  391 	mov	r0,a
+      00005A 86 82            [24]  392 	mov	dpl,@r0
+      00005C 08               [12]  393 	inc	r0
+      00005D 86 83            [24]  394 	mov	dph,@r0
+      00005F 08               [12]  395 	inc	r0
+      000060 86 F0            [24]  396 	mov	b,@r0
+      000062 74 FF            [12]  397 	mov	a,#0xff
+      000064 12r00r00         [24]  398 	lcall	__gptrput
+      000067 A3               [24]  399 	inc	dptr
+      000068 12r00r00         [24]  400 	lcall	__gptrput
+                           00006B   401 	C$list.c$50$1_0$47 ==.
+                                    402 ;	src/FreeRTOS/list.c:50: pxList->xListEnd.pxNext = ( ListItem_t * ) &( pxList->xListEnd );	/*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. */
+      00006B E5*00            [12]  403 	mov	a,_bp
+      00006D 24 04            [12]  404 	add	a,#0x04
+      00006F F8               [12]  405 	mov	r0,a
+      000070 74 02            [12]  406 	mov	a,#0x02
+      000072 26               [12]  407 	add	a,@r0
+      000073 FF               [12]  408 	mov	r7,a
+      000074 E4               [12]  409 	clr	a
+      000075 08               [12]  410 	inc	r0
+      000076 36               [12]  411 	addc	a,@r0
+      000077 FD               [12]  412 	mov	r5,a
+      000078 08               [12]  413 	inc	r0
+      000079 86 04            [24]  414 	mov	ar4,@r0
+      00007B E5*00            [12]  415 	mov	a,_bp
+      00007D 24 04            [12]  416 	add	a,#0x04
+      00007F F8               [12]  417 	mov	r0,a
+      000080 86 02            [24]  418 	mov	ar2,@r0
+      000082 08               [12]  419 	inc	r0
+      000083 86 03            [24]  420 	mov	ar3,@r0
+      000085 08               [12]  421 	inc	r0
+      000086 86 06            [24]  422 	mov	ar6,@r0
+      000088 8F 82            [24]  423 	mov	dpl,r7
+      00008A 8D 83            [24]  424 	mov	dph,r5
+      00008C 8C F0            [24]  425 	mov	b,r4
+      00008E EA               [12]  426 	mov	a,r2
+      00008F 12r00r00         [24]  427 	lcall	__gptrput
+      000092 A3               [24]  428 	inc	dptr
+      000093 EB               [12]  429 	mov	a,r3
+      000094 12r00r00         [24]  430 	lcall	__gptrput
+      000097 A3               [24]  431 	inc	dptr
+      000098 EE               [12]  432 	mov	a,r6
+      000099 12r00r00         [24]  433 	lcall	__gptrput
+                           00009C   434 	C$list.c$51$1_0$47 ==.
+                                    435 ;	src/FreeRTOS/list.c:51: pxList->xListEnd.pxPrevious = ( ListItem_t * ) &( pxList->xListEnd );/*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. */
+      00009C E5*00            [12]  436 	mov	a,_bp
+      00009E 24 04            [12]  437 	add	a,#0x04
+      0000A0 F8               [12]  438 	mov	r0,a
+      0000A1 74 05            [12]  439 	mov	a,#0x05
+      0000A3 26               [12]  440 	add	a,@r0
+      0000A4 FF               [12]  441 	mov	r7,a
+      0000A5 E4               [12]  442 	clr	a
+      0000A6 08               [12]  443 	inc	r0
+      0000A7 36               [12]  444 	addc	a,@r0
+      0000A8 FD               [12]  445 	mov	r5,a
+      0000A9 08               [12]  446 	inc	r0
+      0000AA 86 04            [24]  447 	mov	ar4,@r0
+      0000AC E5*00            [12]  448 	mov	a,_bp
+      0000AE 24 04            [12]  449 	add	a,#0x04
+      0000B0 F8               [12]  450 	mov	r0,a
+      0000B1 86 02            [24]  451 	mov	ar2,@r0
+      0000B3 08               [12]  452 	inc	r0
+      0000B4 86 03            [24]  453 	mov	ar3,@r0
+      0000B6 08               [12]  454 	inc	r0
+      0000B7 86 06            [24]  455 	mov	ar6,@r0
+      0000B9 8F 82            [24]  456 	mov	dpl,r7
+      0000BB 8D 83            [24]  457 	mov	dph,r5
+      0000BD 8C F0            [24]  458 	mov	b,r4
+      0000BF EA               [12]  459 	mov	a,r2
+      0000C0 12r00r00         [24]  460 	lcall	__gptrput
+      0000C3 A3               [24]  461 	inc	dptr
+      0000C4 EB               [12]  462 	mov	a,r3
+      0000C5 12r00r00         [24]  463 	lcall	__gptrput
+      0000C8 A3               [24]  464 	inc	dptr
+      0000C9 EE               [12]  465 	mov	a,r6
+      0000CA 12r00r00         [24]  466 	lcall	__gptrput
+                           0000CD   467 	C$list.c$53$1_0$47 ==.
+                                    468 ;	src/FreeRTOS/list.c:53: pxList->uxNumberOfItems = ( UBaseType_t ) 0U;
+      0000CD A8*00            [24]  469 	mov	r0,_bp
+      0000CF 08               [12]  470 	inc	r0
+      0000D0 86 82            [24]  471 	mov	dpl,@r0
+      0000D2 08               [12]  472 	inc	r0
+      0000D3 86 83            [24]  473 	mov	dph,@r0
+      0000D5 08               [12]  474 	inc	r0
+      0000D6 86 F0            [24]  475 	mov	b,@r0
+      0000D8 E4               [12]  476 	clr	a
+      0000D9 12r00r00         [24]  477 	lcall	__gptrput
+                           0000DC   478 	C$list.c$59$1_0$47 ==.
+                                    479 ;	src/FreeRTOS/list.c:59: }
+      0000DC 85*00 81         [24]  480 	mov	sp,_bp
+      0000DF D0*00            [24]  481 	pop	_bp
+                           0000E1   482 	C$list.c$59$1_0$47 ==.
+                           0000E1   483 	XG$vListInitialise$0$0 ==.
+      0000E1 22               [24]  484 	ret
+                                    485 ;------------------------------------------------------------
+                                    486 ;Allocation info for local variables in function 'vListInitialiseItem'
+                                    487 ;------------------------------------------------------------
+                                    488 ;pxItem                    Allocated to registers r5 r6 r7 
+                                    489 ;------------------------------------------------------------
+                           0000E2   490 	G$vListInitialiseItem$0$0 ==.
+                           0000E2   491 	C$list.c$62$1_0$49 ==.
+                                    492 ;	src/FreeRTOS/list.c:62: void vListInitialiseItem( ListItem_t * const pxItem )
+                                    493 ;	-----------------------------------------
+                                    494 ;	 function vListInitialiseItem
+                                    495 ;	-----------------------------------------
+      0000E2                        496 _vListInitialiseItem:
+      0000E2 AD 82            [24]  497 	mov	r5,dpl
+      0000E4 AE 83            [24]  498 	mov	r6,dph
+      0000E6 AF F0            [24]  499 	mov	r7,b
+                           0000E8   500 	C$list.c$65$1_0$49 ==.
+                                    501 ;	src/FreeRTOS/list.c:65: pxItem->pxContainer = NULL;
+      0000E8 74 0B            [12]  502 	mov	a,#0x0b
+      0000EA 2D               [12]  503 	add	a,r5
+      0000EB FD               [12]  504 	mov	r5,a
+      0000EC E4               [12]  505 	clr	a
+      0000ED 3E               [12]  506 	addc	a,r6
+      0000EE FE               [12]  507 	mov	r6,a
+      0000EF 8D 82            [24]  508 	mov	dpl,r5
+      0000F1 8E 83            [24]  509 	mov	dph,r6
+      0000F3 8F F0            [24]  510 	mov	b,r7
+      0000F5 E4               [12]  511 	clr	a
+      0000F6 12r00r00         [24]  512 	lcall	__gptrput
+      0000F9 A3               [24]  513 	inc	dptr
+      0000FA 12r00r00         [24]  514 	lcall	__gptrput
+      0000FD A3               [24]  515 	inc	dptr
+      0000FE 12r00r00         [24]  516 	lcall	__gptrput
+                           000101   517 	C$list.c$71$1_0$49 ==.
+                                    518 ;	src/FreeRTOS/list.c:71: }
+                           000101   519 	C$list.c$71$1_0$49 ==.
+                           000101   520 	XG$vListInitialiseItem$0$0 ==.
+      000101 22               [24]  521 	ret
+                                    522 ;------------------------------------------------------------
+                                    523 ;Allocation info for local variables in function 'vListInsertEnd'
+                                    524 ;------------------------------------------------------------
+                                    525 ;pxNewListItem             Allocated to stack - _bp -5
+                                    526 ;pxList                    Allocated to stack - _bp +1
+                                    527 ;pxIndex                   Allocated to stack - _bp +10
+                                    528 ;sloc0                     Allocated to stack - _bp +4
+                                    529 ;sloc1                     Allocated to stack - _bp +7
+                                    530 ;------------------------------------------------------------
+                           000102   531 	G$vListInsertEnd$0$0 ==.
+                           000102   532 	C$list.c$74$1_0$51 ==.
+                                    533 ;	src/FreeRTOS/list.c:74: void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem )
+                                    534 ;	-----------------------------------------
+                                    535 ;	 function vListInsertEnd
+                                    536 ;	-----------------------------------------
+      000102                        537 _vListInsertEnd:
+      000102 C0*00            [24]  538 	push	_bp
+      000104 85 81*00         [24]  539 	mov	_bp,sp
+      000107 C0 82            [24]  540 	push	dpl
+      000109 C0 83            [24]  541 	push	dph
+      00010B C0 F0            [24]  542 	push	b
+      00010D E5 81            [12]  543 	mov	a,sp
+      00010F 24 09            [12]  544 	add	a,#0x09
+      000111 F5 81            [12]  545 	mov	sp,a
+                           000113   546 	C$list.c$76$1_0$51 ==.
+                                    547 ;	src/FreeRTOS/list.c:76: ListItem_t * const pxIndex = pxList->pxIndex;
+      000113 A8*00            [24]  548 	mov	r0,_bp
+      000115 08               [12]  549 	inc	r0
+      000116 74 01            [12]  550 	mov	a,#0x01
+      000118 26               [12]  551 	add	a,@r0
+      000119 FA               [12]  552 	mov	r2,a
+      00011A E4               [12]  553 	clr	a
+      00011B 08               [12]  554 	inc	r0
+      00011C 36               [12]  555 	addc	a,@r0
+      00011D FB               [12]  556 	mov	r3,a
+      00011E 08               [12]  557 	inc	r0
+      00011F 86 04            [24]  558 	mov	ar4,@r0
+      000121 8A 82            [24]  559 	mov	dpl,r2
+      000123 8B 83            [24]  560 	mov	dph,r3
+      000125 8C F0            [24]  561 	mov	b,r4
+      000127 E5*00            [12]  562 	mov	a,_bp
+      000129 24 0A            [12]  563 	add	a,#0x0a
+      00012B F8               [12]  564 	mov	r0,a
+      00012C 12r00r00         [24]  565 	lcall	__gptrget
+      00012F F6               [12]  566 	mov	@r0,a
+      000130 A3               [24]  567 	inc	dptr
+      000131 12r00r00         [24]  568 	lcall	__gptrget
+      000134 08               [12]  569 	inc	r0
+      000135 F6               [12]  570 	mov	@r0,a
+      000136 A3               [24]  571 	inc	dptr
+      000137 12r00r00         [24]  572 	lcall	__gptrget
+      00013A 08               [12]  573 	inc	r0
+      00013B F6               [12]  574 	mov	@r0,a
+                           00013C   575 	C$list.c$87$1_0$51 ==.
+                                    576 ;	src/FreeRTOS/list.c:87: pxNewListItem->pxNext = pxIndex;
+      00013C E5*00            [12]  577 	mov	a,_bp
+      00013E 24 FB            [12]  578 	add	a,#0xfb
+      000140 F8               [12]  579 	mov	r0,a
+      000141 86 02            [24]  580 	mov	ar2,@r0
+      000143 08               [12]  581 	inc	r0
+      000144 86 03            [24]  582 	mov	ar3,@r0
+      000146 08               [12]  583 	inc	r0
+      000147 86 04            [24]  584 	mov	ar4,@r0
+      000149 74 02            [12]  585 	mov	a,#0x02
+      00014B 2A               [12]  586 	add	a,r2
+      00014C FD               [12]  587 	mov	r5,a
+      00014D E4               [12]  588 	clr	a
+      00014E 3B               [12]  589 	addc	a,r3
+      00014F FE               [12]  590 	mov	r6,a
+      000150 8C 07            [24]  591 	mov	ar7,r4
+      000152 8D 82            [24]  592 	mov	dpl,r5
+      000154 8E 83            [24]  593 	mov	dph,r6
+      000156 8F F0            [24]  594 	mov	b,r7
+      000158 E5*00            [12]  595 	mov	a,_bp
+      00015A 24 0A            [12]  596 	add	a,#0x0a
+      00015C F8               [12]  597 	mov	r0,a
+      00015D E6               [12]  598 	mov	a,@r0
+      00015E 12r00r00         [24]  599 	lcall	__gptrput
+      000161 A3               [24]  600 	inc	dptr
+      000162 08               [12]  601 	inc	r0
+      000163 E6               [12]  602 	mov	a,@r0
+      000164 12r00r00         [24]  603 	lcall	__gptrput
+      000167 A3               [24]  604 	inc	dptr
+      000168 08               [12]  605 	inc	r0
+      000169 E6               [12]  606 	mov	a,@r0
+      00016A 12r00r00         [24]  607 	lcall	__gptrput
+                           00016D   608 	C$list.c$88$1_0$51 ==.
+                                    609 ;	src/FreeRTOS/list.c:88: pxNewListItem->pxPrevious = pxIndex->pxPrevious;
+      00016D E5*00            [12]  610 	mov	a,_bp
+      00016F 24 04            [12]  611 	add	a,#0x04
+      000171 F8               [12]  612 	mov	r0,a
+      000172 74 05            [12]  613 	mov	a,#0x05
+      000174 2A               [12]  614 	add	a,r2
+      000175 F6               [12]  615 	mov	@r0,a
+      000176 E4               [12]  616 	clr	a
+      000177 3B               [12]  617 	addc	a,r3
+      000178 08               [12]  618 	inc	r0
+      000179 F6               [12]  619 	mov	@r0,a
+      00017A 08               [12]  620 	inc	r0
+      00017B A6 04            [24]  621 	mov	@r0,ar4
+      00017D E5*00            [12]  622 	mov	a,_bp
+      00017F 24 0A            [12]  623 	add	a,#0x0a
+      000181 F8               [12]  624 	mov	r0,a
+      000182 E5*00            [12]  625 	mov	a,_bp
+      000184 24 07            [12]  626 	add	a,#0x07
+      000186 F9               [12]  627 	mov	r1,a
+      000187 74 05            [12]  628 	mov	a,#0x05
+      000189 26               [12]  629 	add	a,@r0
+      00018A F7               [12]  630 	mov	@r1,a
+      00018B E4               [12]  631 	clr	a
+      00018C 08               [12]  632 	inc	r0
+      00018D 36               [12]  633 	addc	a,@r0
+      00018E 09               [12]  634 	inc	r1
+      00018F F7               [12]  635 	mov	@r1,a
+      000190 08               [12]  636 	inc	r0
+      000191 09               [12]  637 	inc	r1
+      000192 E6               [12]  638 	mov	a,@r0
+      000193 F7               [12]  639 	mov	@r1,a
+      000194 E5*00            [12]  640 	mov	a,_bp
+      000196 24 07            [12]  641 	add	a,#0x07
+      000198 F8               [12]  642 	mov	r0,a
+      000199 86 82            [24]  643 	mov	dpl,@r0
+      00019B 08               [12]  644 	inc	r0
+      00019C 86 83            [24]  645 	mov	dph,@r0
+      00019E 08               [12]  646 	inc	r0
+      00019F 86 F0            [24]  647 	mov	b,@r0
+      0001A1 12r00r00         [24]  648 	lcall	__gptrget
+      0001A4 FD               [12]  649 	mov	r5,a
+      0001A5 A3               [24]  650 	inc	dptr
+      0001A6 12r00r00         [24]  651 	lcall	__gptrget
+      0001A9 FE               [12]  652 	mov	r6,a
+      0001AA A3               [24]  653 	inc	dptr
+      0001AB 12r00r00         [24]  654 	lcall	__gptrget
+      0001AE FF               [12]  655 	mov	r7,a
+      0001AF E5*00            [12]  656 	mov	a,_bp
+      0001B1 24 04            [12]  657 	add	a,#0x04
+      0001B3 F8               [12]  658 	mov	r0,a
+      0001B4 86 82            [24]  659 	mov	dpl,@r0
+      0001B6 08               [12]  660 	inc	r0
+      0001B7 86 83            [24]  661 	mov	dph,@r0
+      0001B9 08               [12]  662 	inc	r0
+      0001BA 86 F0            [24]  663 	mov	b,@r0
+      0001BC ED               [12]  664 	mov	a,r5
+      0001BD 12r00r00         [24]  665 	lcall	__gptrput
+      0001C0 A3               [24]  666 	inc	dptr
+      0001C1 EE               [12]  667 	mov	a,r6
+      0001C2 12r00r00         [24]  668 	lcall	__gptrput
+      0001C5 A3               [24]  669 	inc	dptr
+      0001C6 EF               [12]  670 	mov	a,r7
+      0001C7 12r00r00         [24]  671 	lcall	__gptrput
+                           0001CA   672 	C$list.c$93$1_0$51 ==.
+                                    673 ;	src/FreeRTOS/list.c:93: pxIndex->pxPrevious->pxNext = pxNewListItem;
+      0001CA E5*00            [12]  674 	mov	a,_bp
+      0001CC 24 07            [12]  675 	add	a,#0x07
+      0001CE F8               [12]  676 	mov	r0,a
+      0001CF 86 82            [24]  677 	mov	dpl,@r0
+      0001D1 08               [12]  678 	inc	r0
+      0001D2 86 83            [24]  679 	mov	dph,@r0
+      0001D4 08               [12]  680 	inc	r0
+      0001D5 86 F0            [24]  681 	mov	b,@r0
+      0001D7 12r00r00         [24]  682 	lcall	__gptrget
+      0001DA FD               [12]  683 	mov	r5,a
+      0001DB A3               [24]  684 	inc	dptr
+      0001DC 12r00r00         [24]  685 	lcall	__gptrget
+      0001DF FE               [12]  686 	mov	r6,a
+      0001E0 A3               [24]  687 	inc	dptr
+      0001E1 12r00r00         [24]  688 	lcall	__gptrget
+      0001E4 FF               [12]  689 	mov	r7,a
+      0001E5 74 02            [12]  690 	mov	a,#0x02
+      0001E7 2D               [12]  691 	add	a,r5
+      0001E8 FD               [12]  692 	mov	r5,a
+      0001E9 E4               [12]  693 	clr	a
+      0001EA 3E               [12]  694 	addc	a,r6
+      0001EB FE               [12]  695 	mov	r6,a
+      0001EC 8D 82            [24]  696 	mov	dpl,r5
+      0001EE 8E 83            [24]  697 	mov	dph,r6
+      0001F0 8F F0            [24]  698 	mov	b,r7
+      0001F2 EA               [12]  699 	mov	a,r2
+      0001F3 12r00r00         [24]  700 	lcall	__gptrput
+      0001F6 A3               [24]  701 	inc	dptr
+      0001F7 EB               [12]  702 	mov	a,r3
+      0001F8 12r00r00         [24]  703 	lcall	__gptrput
+      0001FB A3               [24]  704 	inc	dptr
+      0001FC EC               [12]  705 	mov	a,r4
+      0001FD 12r00r00         [24]  706 	lcall	__gptrput
+                           000200   707 	C$list.c$94$1_0$51 ==.
+                                    708 ;	src/FreeRTOS/list.c:94: pxIndex->pxPrevious = pxNewListItem;
+      000200 E5*00            [12]  709 	mov	a,_bp
+      000202 24 07            [12]  710 	add	a,#0x07
+      000204 F8               [12]  711 	mov	r0,a
+      000205 86 82            [24]  712 	mov	dpl,@r0
+      000207 08               [12]  713 	inc	r0
+      000208 86 83            [24]  714 	mov	dph,@r0
+      00020A 08               [12]  715 	inc	r0
+      00020B 86 F0            [24]  716 	mov	b,@r0
+      00020D EA               [12]  717 	mov	a,r2
+      00020E 12r00r00         [24]  718 	lcall	__gptrput
+      000211 A3               [24]  719 	inc	dptr
+      000212 EB               [12]  720 	mov	a,r3
+      000213 12r00r00         [24]  721 	lcall	__gptrput
+      000216 A3               [24]  722 	inc	dptr
+      000217 EC               [12]  723 	mov	a,r4
+      000218 12r00r00         [24]  724 	lcall	__gptrput
+                           00021B   725 	C$list.c$97$1_0$51 ==.
+                                    726 ;	src/FreeRTOS/list.c:97: pxNewListItem->pxContainer = pxList;
+      00021B 74 0B            [12]  727 	mov	a,#0x0b
+      00021D 2A               [12]  728 	add	a,r2
+      00021E FA               [12]  729 	mov	r2,a
+      00021F E4               [12]  730 	clr	a
+      000220 3B               [12]  731 	addc	a,r3
+      000221 FB               [12]  732 	mov	r3,a
+      000222 8A 82            [24]  733 	mov	dpl,r2
+      000224 8B 83            [24]  734 	mov	dph,r3
+      000226 8C F0            [24]  735 	mov	b,r4
+      000228 A8*00            [24]  736 	mov	r0,_bp
+      00022A 08               [12]  737 	inc	r0
+      00022B E6               [12]  738 	mov	a,@r0
+      00022C 12r00r00         [24]  739 	lcall	__gptrput
+      00022F A3               [24]  740 	inc	dptr
+      000230 08               [12]  741 	inc	r0
+      000231 E6               [12]  742 	mov	a,@r0
+      000232 12r00r00         [24]  743 	lcall	__gptrput
+      000235 A3               [24]  744 	inc	dptr
+      000236 08               [12]  745 	inc	r0
+      000237 E6               [12]  746 	mov	a,@r0
+      000238 12r00r00         [24]  747 	lcall	__gptrput
+                           00023B   748 	C$list.c$99$1_0$51 ==.
+                                    749 ;	src/FreeRTOS/list.c:99: ( pxList->uxNumberOfItems )++;
+      00023B A8*00            [24]  750 	mov	r0,_bp
+      00023D 08               [12]  751 	inc	r0
+      00023E 86 82            [24]  752 	mov	dpl,@r0
+      000240 08               [12]  753 	inc	r0
+      000241 86 83            [24]  754 	mov	dph,@r0
+      000243 08               [12]  755 	inc	r0
+      000244 86 F0            [24]  756 	mov	b,@r0
+      000246 12r00r00         [24]  757 	lcall	__gptrget
+      000249 FF               [12]  758 	mov	r7,a
+      00024A 0F               [12]  759 	inc	r7
+      00024B A8*00            [24]  760 	mov	r0,_bp
+      00024D 08               [12]  761 	inc	r0
+      00024E 86 82            [24]  762 	mov	dpl,@r0
+      000250 08               [12]  763 	inc	r0
+      000251 86 83            [24]  764 	mov	dph,@r0
+      000253 08               [12]  765 	inc	r0
+      000254 86 F0            [24]  766 	mov	b,@r0
+      000256 EF               [12]  767 	mov	a,r7
+      000257 12r00r00         [24]  768 	lcall	__gptrput
+                           00025A   769 	C$list.c$100$1_0$51 ==.
+                                    770 ;	src/FreeRTOS/list.c:100: }
+      00025A 85*00 81         [24]  771 	mov	sp,_bp
+      00025D D0*00            [24]  772 	pop	_bp
+                           00025F   773 	C$list.c$100$1_0$51 ==.
+                           00025F   774 	XG$vListInsertEnd$0$0 ==.
+      00025F 22               [24]  775 	ret
+                                    776 ;------------------------------------------------------------
+                                    777 ;Allocation info for local variables in function 'vListInsert'
+                                    778 ;------------------------------------------------------------
+                                    779 ;pxNewListItem             Allocated to stack - _bp -5
+                                    780 ;pxList                    Allocated to stack - _bp +1
+                                    781 ;pxIterator                Allocated to stack - _bp +10
+                                    782 ;xValueOfInsertion         Allocated to stack - _bp +13
+                                    783 ;sloc0                     Allocated to stack - _bp +4
+                                    784 ;sloc1                     Allocated to stack - _bp +7
+                                    785 ;------------------------------------------------------------
+                           000260   786 	G$vListInsert$0$0 ==.
+                           000260   787 	C$list.c$103$1_0$53 ==.
+                                    788 ;	src/FreeRTOS/list.c:103: void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem )
+                                    789 ;	-----------------------------------------
+                                    790 ;	 function vListInsert
+                                    791 ;	-----------------------------------------
+      000260                        792 _vListInsert:
+      000260 C0*00            [24]  793 	push	_bp
+      000262 85 81*00         [24]  794 	mov	_bp,sp
+      000265 C0 82            [24]  795 	push	dpl
+      000267 C0 83            [24]  796 	push	dph
+      000269 C0 F0            [24]  797 	push	b
+      00026B E5 81            [12]  798 	mov	a,sp
+      00026D 24 0B            [12]  799 	add	a,#0x0b
+      00026F F5 81            [12]  800 	mov	sp,a
+                           000271   801 	C$list.c$106$1_0$53 ==.
+                                    802 ;	src/FreeRTOS/list.c:106: const TickType_t xValueOfInsertion = pxNewListItem->xItemValue;
+      000271 E5*00            [12]  803 	mov	a,_bp
+      000273 24 FB            [12]  804 	add	a,#0xfb
+      000275 F8               [12]  805 	mov	r0,a
+      000276 86 02            [24]  806 	mov	ar2,@r0
+      000278 08               [12]  807 	inc	r0
+      000279 86 03            [24]  808 	mov	ar3,@r0
+      00027B 08               [12]  809 	inc	r0
+      00027C 86 04            [24]  810 	mov	ar4,@r0
+      00027E 8A 82            [24]  811 	mov	dpl,r2
+      000280 8B 83            [24]  812 	mov	dph,r3
+      000282 8C F0            [24]  813 	mov	b,r4
+      000284 E5*00            [12]  814 	mov	a,_bp
+      000286 24 0D            [12]  815 	add	a,#0x0d
+      000288 F8               [12]  816 	mov	r0,a
+      000289 12r00r00         [24]  817 	lcall	__gptrget
+      00028C F6               [12]  818 	mov	@r0,a
+      00028D A3               [24]  819 	inc	dptr
+      00028E 12r00r00         [24]  820 	lcall	__gptrget
+      000291 08               [12]  821 	inc	r0
+      000292 F6               [12]  822 	mov	@r0,a
+                           000293   823 	C$list.c$122$1_0$53 ==.
+                                    824 ;	src/FreeRTOS/list.c:122: if( xValueOfInsertion == portMAX_DELAY )
+      000293 E5*00            [12]  825 	mov	a,_bp
+      000295 24 0D            [12]  826 	add	a,#0x0d
+      000297 F8               [12]  827 	mov	r0,a
+      000298 B6 FF 43         [24]  828 	cjne	@r0,#0xff,00103$
+      00029B 08               [12]  829 	inc	r0
+      00029C B6 FF 3F         [24]  830 	cjne	@r0,#0xff,00103$
+                           00029F   831 	C$list.c$124$1_0$53 ==.
+                                    832 ;	src/FreeRTOS/list.c:124: pxIterator = pxList->xListEnd.pxPrevious;
+      00029F C0 02            [24]  833 	push	ar2
+      0002A1 C0 03            [24]  834 	push	ar3
+      0002A3 C0 04            [24]  835 	push	ar4
+      0002A5 A8*00            [24]  836 	mov	r0,_bp
+      0002A7 08               [12]  837 	inc	r0
+      0002A8 74 04            [12]  838 	mov	a,#0x04
+      0002AA 26               [12]  839 	add	a,@r0
+      0002AB FA               [12]  840 	mov	r2,a
+      0002AC E4               [12]  841 	clr	a
+      0002AD 08               [12]  842 	inc	r0
+      0002AE 36               [12]  843 	addc	a,@r0
+      0002AF FB               [12]  844 	mov	r3,a
+      0002B0 08               [12]  845 	inc	r0
+      0002B1 86 04            [24]  846 	mov	ar4,@r0
+      0002B3 74 05            [12]  847 	mov	a,#0x05
+      0002B5 2A               [12]  848 	add	a,r2
+      0002B6 FA               [12]  849 	mov	r2,a
+      0002B7 E4               [12]  850 	clr	a
+      0002B8 3B               [12]  851 	addc	a,r3
+      0002B9 FB               [12]  852 	mov	r3,a
+      0002BA 8A 82            [24]  853 	mov	dpl,r2
+      0002BC 8B 83            [24]  854 	mov	dph,r3
+      0002BE 8C F0            [24]  855 	mov	b,r4
+      0002C0 E5*00            [12]  856 	mov	a,_bp
+      0002C2 24 0A            [12]  857 	add	a,#0x0a
+      0002C4 F8               [12]  858 	mov	r0,a
+      0002C5 12r00r00         [24]  859 	lcall	__gptrget
+      0002C8 F6               [12]  860 	mov	@r0,a
+      0002C9 A3               [24]  861 	inc	dptr
+      0002CA 12r00r00         [24]  862 	lcall	__gptrget
+      0002CD 08               [12]  863 	inc	r0
+      0002CE F6               [12]  864 	mov	@r0,a
+      0002CF A3               [24]  865 	inc	dptr
+      0002D0 12r00r00         [24]  866 	lcall	__gptrget
+      0002D3 08               [12]  867 	inc	r0
+      0002D4 F6               [12]  868 	mov	@r0,a
+      0002D5 D0 04            [24]  869 	pop	ar4
+      0002D7 D0 03            [24]  870 	pop	ar3
+      0002D9 D0 02            [24]  871 	pop	ar2
+      0002DB 02r03r62         [24]  872 	ljmp	00104$
+      0002DE                        873 00103$:
+                           0002DE   874 	C$list.c$150$3_0$56 ==.
+                                    875 ;	src/FreeRTOS/list.c:150: for( pxIterator = ( ListItem_t * ) &( pxList->xListEnd ); pxIterator->pxNext->xItemValue <= xValueOfInsertion; pxIterator = pxIterator->pxNext ) /*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. *//*lint !e440 The iterator moves to a different value, not xValueOfInsertion. */
+      0002DE A8*00            [24]  876 	mov	r0,_bp
+      0002E0 08               [12]  877 	inc	r0
+      0002E1 74 04            [12]  878 	mov	a,#0x04
+      0002E3 26               [12]  879 	add	a,@r0
+      0002E4 FD               [12]  880 	mov	r5,a
+      0002E5 E4               [12]  881 	clr	a
+      0002E6 08               [12]  882 	inc	r0
+      0002E7 36               [12]  883 	addc	a,@r0
+      0002E8 FE               [12]  884 	mov	r6,a
+      0002E9 08               [12]  885 	inc	r0
+      0002EA 86 07            [24]  886 	mov	ar7,@r0
+      0002EC E5*00            [12]  887 	mov	a,_bp
+      0002EE 24 0A            [12]  888 	add	a,#0x0a
+      0002F0 F8               [12]  889 	mov	r0,a
+      0002F1 A6 05            [24]  890 	mov	@r0,ar5
+      0002F3 08               [12]  891 	inc	r0
+      0002F4 A6 06            [24]  892 	mov	@r0,ar6
+      0002F6 08               [12]  893 	inc	r0
+      0002F7 A6 07            [24]  894 	mov	@r0,ar7
+      0002F9                        895 00106$:
+      0002F9 C0 02            [24]  896 	push	ar2
+      0002FB C0 03            [24]  897 	push	ar3
+      0002FD C0 04            [24]  898 	push	ar4
+      0002FF E5*00            [12]  899 	mov	a,_bp
+      000301 24 0A            [12]  900 	add	a,#0x0a
+      000303 F8               [12]  901 	mov	r0,a
+      000304 74 02            [12]  902 	mov	a,#0x02
+      000306 26               [12]  903 	add	a,@r0
+      000307 FD               [12]  904 	mov	r5,a
+      000308 E4               [12]  905 	clr	a
+      000309 08               [12]  906 	inc	r0
+      00030A 36               [12]  907 	addc	a,@r0
+      00030B FE               [12]  908 	mov	r6,a
+      00030C 08               [12]  909 	inc	r0
+      00030D 86 07            [24]  910 	mov	ar7,@r0
+      00030F 8D 82            [24]  911 	mov	dpl,r5
+      000311 8E 83            [24]  912 	mov	dph,r6
+      000313 8F F0            [24]  913 	mov	b,r7
+      000315 12r00r00         [24]  914 	lcall	__gptrget
+      000318 FA               [12]  915 	mov	r2,a
+      000319 A3               [24]  916 	inc	dptr
+      00031A 12r00r00         [24]  917 	lcall	__gptrget
+      00031D FB               [12]  918 	mov	r3,a
+      00031E A3               [24]  919 	inc	dptr
+      00031F 12r00r00         [24]  920 	lcall	__gptrget
+      000322 FC               [12]  921 	mov	r4,a
+      000323 8A 82            [24]  922 	mov	dpl,r2
+      000325 8B 83            [24]  923 	mov	dph,r3
+      000327 8C F0            [24]  924 	mov	b,r4
+      000329 12r00r00         [24]  925 	lcall	__gptrget
+      00032C FA               [12]  926 	mov	r2,a
+      00032D A3               [24]  927 	inc	dptr
+      00032E 12r00r00         [24]  928 	lcall	__gptrget
+      000331 FB               [12]  929 	mov	r3,a
+      000332 E5*00            [12]  930 	mov	a,_bp
+      000334 24 0D            [12]  931 	add	a,#0x0d
+      000336 F8               [12]  932 	mov	r0,a
+      000337 C3               [12]  933 	clr	c
+      000338 E6               [12]  934 	mov	a,@r0
+      000339 9A               [12]  935 	subb	a,r2
+      00033A 08               [12]  936 	inc	r0
+      00033B E6               [12]  937 	mov	a,@r0
+      00033C 9B               [12]  938 	subb	a,r3
+      00033D D0 04            [24]  939 	pop	ar4
+      00033F D0 03            [24]  940 	pop	ar3
+      000341 D0 02            [24]  941 	pop	ar2
+      000343 40 1D            [24]  942 	jc	00104$
+      000345 8D 82            [24]  943 	mov	dpl,r5
+      000347 8E 83            [24]  944 	mov	dph,r6
+      000349 8F F0            [24]  945 	mov	b,r7
+      00034B E5*00            [12]  946 	mov	a,_bp
+      00034D 24 0A            [12]  947 	add	a,#0x0a
+      00034F F8               [12]  948 	mov	r0,a
+      000350 12r00r00         [24]  949 	lcall	__gptrget
+      000353 F6               [12]  950 	mov	@r0,a
+      000354 A3               [24]  951 	inc	dptr
+      000355 12r00r00         [24]  952 	lcall	__gptrget
+      000358 08               [12]  953 	inc	r0
+      000359 F6               [12]  954 	mov	@r0,a
+      00035A A3               [24]  955 	inc	dptr
+      00035B 12r00r00         [24]  956 	lcall	__gptrget
+      00035E 08               [12]  957 	inc	r0
+      00035F F6               [12]  958 	mov	@r0,a
+      000360 80 97            [24]  959 	sjmp	00106$
+      000362                        960 00104$:
+                           000362   961 	C$list.c$157$1_0$53 ==.
+                                    962 ;	src/FreeRTOS/list.c:157: pxNewListItem->pxNext = pxIterator->pxNext;
+      000362 E5*00            [12]  963 	mov	a,_bp
+      000364 24 04            [12]  964 	add	a,#0x04
+      000366 F8               [12]  965 	mov	r0,a
+      000367 74 02            [12]  966 	mov	a,#0x02
+      000369 2A               [12]  967 	add	a,r2
+      00036A F6               [12]  968 	mov	@r0,a
+      00036B E4               [12]  969 	clr	a
+      00036C 3B               [12]  970 	addc	a,r3
+      00036D 08               [12]  971 	inc	r0
+      00036E F6               [12]  972 	mov	@r0,a
+      00036F 08               [12]  973 	inc	r0
+      000370 A6 04            [24]  974 	mov	@r0,ar4
+      000372 E5*00            [12]  975 	mov	a,_bp
+      000374 24 0A            [12]  976 	add	a,#0x0a
+      000376 F8               [12]  977 	mov	r0,a
+      000377 E5*00            [12]  978 	mov	a,_bp
+      000379 24 07            [12]  979 	add	a,#0x07
+      00037B F9               [12]  980 	mov	r1,a
+      00037C 74 02            [12]  981 	mov	a,#0x02
+      00037E 26               [12]  982 	add	a,@r0
+      00037F F7               [12]  983 	mov	@r1,a
+      000380 E4               [12]  984 	clr	a
+      000381 08               [12]  985 	inc	r0
+      000382 36               [12]  986 	addc	a,@r0
+      000383 09               [12]  987 	inc	r1
+      000384 F7               [12]  988 	mov	@r1,a
+      000385 08               [12]  989 	inc	r0
+      000386 09               [12]  990 	inc	r1
+      000387 E6               [12]  991 	mov	a,@r0
+      000388 F7               [12]  992 	mov	@r1,a
+      000389 E5*00            [12]  993 	mov	a,_bp
+      00038B 24 07            [12]  994 	add	a,#0x07
+      00038D F8               [12]  995 	mov	r0,a
+      00038E 86 82            [24]  996 	mov	dpl,@r0
+      000390 08               [12]  997 	inc	r0
+      000391 86 83            [24]  998 	mov	dph,@r0
+      000393 08               [12]  999 	inc	r0
+      000394 86 F0            [24] 1000 	mov	b,@r0
+      000396 12r00r00         [24] 1001 	lcall	__gptrget
+      000399 FD               [12] 1002 	mov	r5,a
+      00039A A3               [24] 1003 	inc	dptr
+      00039B 12r00r00         [24] 1004 	lcall	__gptrget
+      00039E FE               [12] 1005 	mov	r6,a
+      00039F A3               [24] 1006 	inc	dptr
+      0003A0 12r00r00         [24] 1007 	lcall	__gptrget
+      0003A3 FF               [12] 1008 	mov	r7,a
+      0003A4 E5*00            [12] 1009 	mov	a,_bp
+      0003A6 24 04            [12] 1010 	add	a,#0x04
+      0003A8 F8               [12] 1011 	mov	r0,a
+      0003A9 86 82            [24] 1012 	mov	dpl,@r0
+      0003AB 08               [12] 1013 	inc	r0
+      0003AC 86 83            [24] 1014 	mov	dph,@r0
+      0003AE 08               [12] 1015 	inc	r0
+      0003AF 86 F0            [24] 1016 	mov	b,@r0
+      0003B1 ED               [12] 1017 	mov	a,r5
+      0003B2 12r00r00         [24] 1018 	lcall	__gptrput
+      0003B5 A3               [24] 1019 	inc	dptr
+      0003B6 EE               [12] 1020 	mov	a,r6
+      0003B7 12r00r00         [24] 1021 	lcall	__gptrput
+      0003BA A3               [24] 1022 	inc	dptr
+      0003BB EF               [12] 1023 	mov	a,r7
+      0003BC 12r00r00         [24] 1024 	lcall	__gptrput
+                           0003BF  1025 	C$list.c$158$1_0$53 ==.
+                                   1026 ;	src/FreeRTOS/list.c:158: pxNewListItem->pxNext->pxPrevious = pxNewListItem;
+      0003BF 74 05            [12] 1027 	mov	a,#0x05
+      0003C1 2D               [12] 1028 	add	a,r5
+      0003C2 FD               [12] 1029 	mov	r5,a
+      0003C3 E4               [12] 1030 	clr	a
+      0003C4 3E               [12] 1031 	addc	a,r6
+      0003C5 FE               [12] 1032 	mov	r6,a
+      0003C6 8D 82            [24] 1033 	mov	dpl,r5
+      0003C8 8E 83            [24] 1034 	mov	dph,r6
+      0003CA 8F F0            [24] 1035 	mov	b,r7
+      0003CC EA               [12] 1036 	mov	a,r2
+      0003CD 12r00r00         [24] 1037 	lcall	__gptrput
+      0003D0 A3               [24] 1038 	inc	dptr
+      0003D1 EB               [12] 1039 	mov	a,r3
+      0003D2 12r00r00         [24] 1040 	lcall	__gptrput
+      0003D5 A3               [24] 1041 	inc	dptr
+      0003D6 EC               [12] 1042 	mov	a,r4
+      0003D7 12r00r00         [24] 1043 	lcall	__gptrput
+                           0003DA  1044 	C$list.c$159$1_0$53 ==.
+                                   1045 ;	src/FreeRTOS/list.c:159: pxNewListItem->pxPrevious = pxIterator;
+      0003DA 74 05            [12] 1046 	mov	a,#0x05
+      0003DC 2A               [12] 1047 	add	a,r2
+      0003DD FD               [12] 1048 	mov	r5,a
+      0003DE E4               [12] 1049 	clr	a
+      0003DF 3B               [12] 1050 	addc	a,r3
+      0003E0 FE               [12] 1051 	mov	r6,a
+      0003E1 8C 07            [24] 1052 	mov	ar7,r4
+      0003E3 8D 82            [24] 1053 	mov	dpl,r5
+      0003E5 8E 83            [24] 1054 	mov	dph,r6
+      0003E7 8F F0            [24] 1055 	mov	b,r7
+      0003E9 E5*00            [12] 1056 	mov	a,_bp
+      0003EB 24 0A            [12] 1057 	add	a,#0x0a
+      0003ED F8               [12] 1058 	mov	r0,a
+      0003EE E6               [12] 1059 	mov	a,@r0
+      0003EF 12r00r00         [24] 1060 	lcall	__gptrput
+      0003F2 A3               [24] 1061 	inc	dptr
+      0003F3 08               [12] 1062 	inc	r0
+      0003F4 E6               [12] 1063 	mov	a,@r0
+      0003F5 12r00r00         [24] 1064 	lcall	__gptrput
+      0003F8 A3               [24] 1065 	inc	dptr
+      0003F9 08               [12] 1066 	inc	r0
+      0003FA E6               [12] 1067 	mov	a,@r0
+      0003FB 12r00r00         [24] 1068 	lcall	__gptrput
+                           0003FE  1069 	C$list.c$160$1_0$53 ==.
+                                   1070 ;	src/FreeRTOS/list.c:160: pxIterator->pxNext = pxNewListItem;
+      0003FE E5*00            [12] 1071 	mov	a,_bp
+      000400 24 07            [12] 1072 	add	a,#0x07
+      000402 F8               [12] 1073 	mov	r0,a
+      000403 86 82            [24] 1074 	mov	dpl,@r0
+      000405 08               [12] 1075 	inc	r0
+      000406 86 83            [24] 1076 	mov	dph,@r0
+      000408 08               [12] 1077 	inc	r0
+      000409 86 F0            [24] 1078 	mov	b,@r0
+      00040B EA               [12] 1079 	mov	a,r2
+      00040C 12r00r00         [24] 1080 	lcall	__gptrput
+      00040F A3               [24] 1081 	inc	dptr
+      000410 EB               [12] 1082 	mov	a,r3
+      000411 12r00r00         [24] 1083 	lcall	__gptrput
+      000414 A3               [24] 1084 	inc	dptr
+      000415 EC               [12] 1085 	mov	a,r4
+      000416 12r00r00         [24] 1086 	lcall	__gptrput
+                           000419  1087 	C$list.c$164$1_0$53 ==.
+                                   1088 ;	src/FreeRTOS/list.c:164: pxNewListItem->pxContainer = pxList;
+      000419 74 0B            [12] 1089 	mov	a,#0x0b
+      00041B 2A               [12] 1090 	add	a,r2
+      00041C FA               [12] 1091 	mov	r2,a
+      00041D E4               [12] 1092 	clr	a
+      00041E 3B               [12] 1093 	addc	a,r3
+      00041F FB               [12] 1094 	mov	r3,a
+      000420 8A 82            [24] 1095 	mov	dpl,r2
+      000422 8B 83            [24] 1096 	mov	dph,r3
+      000424 8C F0            [24] 1097 	mov	b,r4
+      000426 A8*00            [24] 1098 	mov	r0,_bp
+      000428 08               [12] 1099 	inc	r0
+      000429 E6               [12] 1100 	mov	a,@r0
+      00042A 12r00r00         [24] 1101 	lcall	__gptrput
+      00042D A3               [24] 1102 	inc	dptr
+      00042E 08               [12] 1103 	inc	r0
+      00042F E6               [12] 1104 	mov	a,@r0
+      000430 12r00r00         [24] 1105 	lcall	__gptrput
+      000433 A3               [24] 1106 	inc	dptr
+      000434 08               [12] 1107 	inc	r0
+      000435 E6               [12] 1108 	mov	a,@r0
+      000436 12r00r00         [24] 1109 	lcall	__gptrput
+                           000439  1110 	C$list.c$166$1_0$53 ==.
+                                   1111 ;	src/FreeRTOS/list.c:166: ( pxList->uxNumberOfItems )++;
+      000439 A8*00            [24] 1112 	mov	r0,_bp
+      00043B 08               [12] 1113 	inc	r0
+      00043C 86 82            [24] 1114 	mov	dpl,@r0
+      00043E 08               [12] 1115 	inc	r0
+      00043F 86 83            [24] 1116 	mov	dph,@r0
+      000441 08               [12] 1117 	inc	r0
+      000442 86 F0            [24] 1118 	mov	b,@r0
+      000444 12r00r00         [24] 1119 	lcall	__gptrget
+      000447 FF               [12] 1120 	mov	r7,a
+      000448 0F               [12] 1121 	inc	r7
+      000449 A8*00            [24] 1122 	mov	r0,_bp
+      00044B 08               [12] 1123 	inc	r0
+      00044C 86 82            [24] 1124 	mov	dpl,@r0
+      00044E 08               [12] 1125 	inc	r0
+      00044F 86 83            [24] 1126 	mov	dph,@r0
+      000451 08               [12] 1127 	inc	r0
+      000452 86 F0            [24] 1128 	mov	b,@r0
+      000454 EF               [12] 1129 	mov	a,r7
+      000455 12r00r00         [24] 1130 	lcall	__gptrput
+                           000458  1131 	C$list.c$167$1_0$53 ==.
+                                   1132 ;	src/FreeRTOS/list.c:167: }
+      000458 85*00 81         [24] 1133 	mov	sp,_bp
+      00045B D0*00            [24] 1134 	pop	_bp
+                           00045D  1135 	C$list.c$167$1_0$53 ==.
+                           00045D  1136 	XG$vListInsert$0$0 ==.
+      00045D 22               [24] 1137 	ret
+                                   1138 ;------------------------------------------------------------
+                                   1139 ;Allocation info for local variables in function 'uxListRemove'
+                                   1140 ;------------------------------------------------------------
+                                   1141 ;pxItemToRemove            Allocated to stack - _bp +1
+                                   1142 ;pxList                    Allocated to stack - _bp +13
+                                   1143 ;sloc0                     Allocated to stack - _bp +4
+                                   1144 ;sloc1                     Allocated to stack - _bp +7
+                                   1145 ;sloc2                     Allocated to stack - _bp +10
+                                   1146 ;------------------------------------------------------------
+                           00045E  1147 	G$uxListRemove$0$0 ==.
+                           00045E  1148 	C$list.c$170$1_0$59 ==.
+                                   1149 ;	src/FreeRTOS/list.c:170: UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove )
+                                   1150 ;	-----------------------------------------
+                                   1151 ;	 function uxListRemove
+                                   1152 ;	-----------------------------------------
+      00045E                       1153 _uxListRemove:
+      00045E C0*00            [24] 1154 	push	_bp
+      000460 85 81*00         [24] 1155 	mov	_bp,sp
+      000463 C0 82            [24] 1156 	push	dpl
+      000465 C0 83            [24] 1157 	push	dph
+      000467 C0 F0            [24] 1158 	push	b
+      000469 E5 81            [12] 1159 	mov	a,sp
+      00046B 24 0C            [12] 1160 	add	a,#0x0c
+      00046D F5 81            [12] 1161 	mov	sp,a
+                           00046F  1162 	C$list.c$174$1_0$59 ==.
+                                   1163 ;	src/FreeRTOS/list.c:174: List_t * const pxList = pxItemToRemove->pxContainer;
+      00046F A8*00            [24] 1164 	mov	r0,_bp
+      000471 08               [12] 1165 	inc	r0
+      000472 74 0B            [12] 1166 	mov	a,#0x0b
+      000474 26               [12] 1167 	add	a,@r0
+      000475 FA               [12] 1168 	mov	r2,a
+      000476 E4               [12] 1169 	clr	a
+      000477 08               [12] 1170 	inc	r0
+      000478 36               [12] 1171 	addc	a,@r0
+      000479 FB               [12] 1172 	mov	r3,a
+      00047A 08               [12] 1173 	inc	r0
+      00047B 86 04            [24] 1174 	mov	ar4,@r0
+      00047D 8A 82            [24] 1175 	mov	dpl,r2
+      00047F 8B 83            [24] 1176 	mov	dph,r3
+      000481 8C F0            [24] 1177 	mov	b,r4
+      000483 E5*00            [12] 1178 	mov	a,_bp
+      000485 24 0D            [12] 1179 	add	a,#0x0d
+      000487 F8               [12] 1180 	mov	r0,a
+      000488 12r00r00         [24] 1181 	lcall	__gptrget
+      00048B F6               [12] 1182 	mov	@r0,a
+      00048C A3               [24] 1183 	inc	dptr
+      00048D 12r00r00         [24] 1184 	lcall	__gptrget
+      000490 08               [12] 1185 	inc	r0
+      000491 F6               [12] 1186 	mov	@r0,a
+      000492 A3               [24] 1187 	inc	dptr
+      000493 12r00r00         [24] 1188 	lcall	__gptrget
+      000496 08               [12] 1189 	inc	r0
+      000497 F6               [12] 1190 	mov	@r0,a
+                           000498  1191 	C$list.c$176$1_0$59 ==.
+                                   1192 ;	src/FreeRTOS/list.c:176: pxItemToRemove->pxNext->pxPrevious = pxItemToRemove->pxPrevious;
+      000498 A8*00            [24] 1193 	mov	r0,_bp
+      00049A 08               [12] 1194 	inc	r0
+      00049B E5*00            [12] 1195 	mov	a,_bp
+      00049D 24 04            [12] 1196 	add	a,#0x04
+      00049F F9               [12] 1197 	mov	r1,a
+      0004A0 74 02            [12] 1198 	mov	a,#0x02
+      0004A2 26               [12] 1199 	add	a,@r0
+      0004A3 F7               [12] 1200 	mov	@r1,a
+      0004A4 E4               [12] 1201 	clr	a
+      0004A5 08               [12] 1202 	inc	r0
+      0004A6 36               [12] 1203 	addc	a,@r0
+      0004A7 09               [12] 1204 	inc	r1
+      0004A8 F7               [12] 1205 	mov	@r1,a
+      0004A9 08               [12] 1206 	inc	r0
+      0004AA 09               [12] 1207 	inc	r1
+      0004AB E6               [12] 1208 	mov	a,@r0
+      0004AC F7               [12] 1209 	mov	@r1,a
+      0004AD E5*00            [12] 1210 	mov	a,_bp
+      0004AF 24 04            [12] 1211 	add	a,#0x04
+      0004B1 F8               [12] 1212 	mov	r0,a
+      0004B2 86 82            [24] 1213 	mov	dpl,@r0
+      0004B4 08               [12] 1214 	inc	r0
+      0004B5 86 83            [24] 1215 	mov	dph,@r0
+      0004B7 08               [12] 1216 	inc	r0
+      0004B8 86 F0            [24] 1217 	mov	b,@r0
+      0004BA 12r00r00         [24] 1218 	lcall	__gptrget
+      0004BD FD               [12] 1219 	mov	r5,a
+      0004BE A3               [24] 1220 	inc	dptr
+      0004BF 12r00r00         [24] 1221 	lcall	__gptrget
+      0004C2 FE               [12] 1222 	mov	r6,a
+      0004C3 A3               [24] 1223 	inc	dptr
+      0004C4 12r00r00         [24] 1224 	lcall	__gptrget
+      0004C7 FF               [12] 1225 	mov	r7,a
+      0004C8 E5*00            [12] 1226 	mov	a,_bp
+      0004CA 24 0A            [12] 1227 	add	a,#0x0a
+      0004CC F8               [12] 1228 	mov	r0,a
+      0004CD 74 05            [12] 1229 	mov	a,#0x05
+      0004CF 2D               [12] 1230 	add	a,r5
+      0004D0 F6               [12] 1231 	mov	@r0,a
+      0004D1 E4               [12] 1232 	clr	a
+      0004D2 3E               [12] 1233 	addc	a,r6
+      0004D3 08               [12] 1234 	inc	r0
+      0004D4 F6               [12] 1235 	mov	@r0,a
+      0004D5 08               [12] 1236 	inc	r0
+      0004D6 A6 07            [24] 1237 	mov	@r0,ar7
+      0004D8 A8*00            [24] 1238 	mov	r0,_bp
+      0004DA 08               [12] 1239 	inc	r0
+      0004DB E5*00            [12] 1240 	mov	a,_bp
+      0004DD 24 07            [12] 1241 	add	a,#0x07
+      0004DF F9               [12] 1242 	mov	r1,a
+      0004E0 74 05            [12] 1243 	mov	a,#0x05
+      0004E2 26               [12] 1244 	add	a,@r0
+      0004E3 F7               [12] 1245 	mov	@r1,a
+      0004E4 E4               [12] 1246 	clr	a
+      0004E5 08               [12] 1247 	inc	r0
+      0004E6 36               [12] 1248 	addc	a,@r0
+      0004E7 09               [12] 1249 	inc	r1
+      0004E8 F7               [12] 1250 	mov	@r1,a
+      0004E9 08               [12] 1251 	inc	r0
+      0004EA 09               [12] 1252 	inc	r1
+      0004EB E6               [12] 1253 	mov	a,@r0
+      0004EC F7               [12] 1254 	mov	@r1,a
+      0004ED E5*00            [12] 1255 	mov	a,_bp
+      0004EF 24 07            [12] 1256 	add	a,#0x07
+      0004F1 F8               [12] 1257 	mov	r0,a
+      0004F2 86 82            [24] 1258 	mov	dpl,@r0
+      0004F4 08               [12] 1259 	inc	r0
+      0004F5 86 83            [24] 1260 	mov	dph,@r0
+      0004F7 08               [12] 1261 	inc	r0
+      0004F8 86 F0            [24] 1262 	mov	b,@r0
+      0004FA 12r00r00         [24] 1263 	lcall	__gptrget
+      0004FD FD               [12] 1264 	mov	r5,a
+      0004FE A3               [24] 1265 	inc	dptr
+      0004FF 12r00r00         [24] 1266 	lcall	__gptrget
+      000502 FE               [12] 1267 	mov	r6,a
+      000503 A3               [24] 1268 	inc	dptr
+      000504 12r00r00         [24] 1269 	lcall	__gptrget
+      000507 FF               [12] 1270 	mov	r7,a
+      000508 E5*00            [12] 1271 	mov	a,_bp
+      00050A 24 0A            [12] 1272 	add	a,#0x0a
+      00050C F8               [12] 1273 	mov	r0,a
+      00050D 86 82            [24] 1274 	mov	dpl,@r0
+      00050F 08               [12] 1275 	inc	r0
+      000510 86 83            [24] 1276 	mov	dph,@r0
+      000512 08               [12] 1277 	inc	r0
+      000513 86 F0            [24] 1278 	mov	b,@r0
+      000515 ED               [12] 1279 	mov	a,r5
+      000516 12r00r00         [24] 1280 	lcall	__gptrput
+      000519 A3               [24] 1281 	inc	dptr
+      00051A EE               [12] 1282 	mov	a,r6
+      00051B 12r00r00         [24] 1283 	lcall	__gptrput
+      00051E A3               [24] 1284 	inc	dptr
+      00051F EF               [12] 1285 	mov	a,r7
+      000520 12r00r00         [24] 1286 	lcall	__gptrput
+                           000523  1287 	C$list.c$177$1_0$59 ==.
+                                   1288 ;	src/FreeRTOS/list.c:177: pxItemToRemove->pxPrevious->pxNext = pxItemToRemove->pxNext;
+      000523 E5*00            [12] 1289 	mov	a,_bp
+      000525 24 07            [12] 1290 	add	a,#0x07
+      000527 F8               [12] 1291 	mov	r0,a
+      000528 86 82            [24] 1292 	mov	dpl,@r0
+      00052A 08               [12] 1293 	inc	r0
+      00052B 86 83            [24] 1294 	mov	dph,@r0
+      00052D 08               [12] 1295 	inc	r0
+      00052E 86 F0            [24] 1296 	mov	b,@r0
+      000530 12r00r00         [24] 1297 	lcall	__gptrget
+      000533 FD               [12] 1298 	mov	r5,a
+      000534 A3               [24] 1299 	inc	dptr
+      000535 12r00r00         [24] 1300 	lcall	__gptrget
+      000538 FE               [12] 1301 	mov	r6,a
+      000539 A3               [24] 1302 	inc	dptr
+      00053A 12r00r00         [24] 1303 	lcall	__gptrget
+      00053D FF               [12] 1304 	mov	r7,a
+      00053E E5*00            [12] 1305 	mov	a,_bp
+      000540 24 0A            [12] 1306 	add	a,#0x0a
+      000542 F8               [12] 1307 	mov	r0,a
+      000543 74 02            [12] 1308 	mov	a,#0x02
+      000545 2D               [12] 1309 	add	a,r5
+      000546 F6               [12] 1310 	mov	@r0,a
+      000547 E4               [12] 1311 	clr	a
+      000548 3E               [12] 1312 	addc	a,r6
+      000549 08               [12] 1313 	inc	r0
+      00054A F6               [12] 1314 	mov	@r0,a
+      00054B 08               [12] 1315 	inc	r0
+      00054C A6 07            [24] 1316 	mov	@r0,ar7
+      00054E E5*00            [12] 1317 	mov	a,_bp
+      000550 24 04            [12] 1318 	add	a,#0x04
+      000552 F8               [12] 1319 	mov	r0,a
+      000553 86 82            [24] 1320 	mov	dpl,@r0
+      000555 08               [12] 1321 	inc	r0
+      000556 86 83            [24] 1322 	mov	dph,@r0
+      000558 08               [12] 1323 	inc	r0
+      000559 86 F0            [24] 1324 	mov	b,@r0
+      00055B 12r00r00         [24] 1325 	lcall	__gptrget
+      00055E FD               [12] 1326 	mov	r5,a
+      00055F A3               [24] 1327 	inc	dptr
+      000560 12r00r00         [24] 1328 	lcall	__gptrget
+      000563 FE               [12] 1329 	mov	r6,a
+      000564 A3               [24] 1330 	inc	dptr
+      000565 12r00r00         [24] 1331 	lcall	__gptrget
+      000568 FF               [12] 1332 	mov	r7,a
+      000569 E5*00            [12] 1333 	mov	a,_bp
+      00056B 24 0A            [12] 1334 	add	a,#0x0a
+      00056D F8               [12] 1335 	mov	r0,a
+      00056E 86 82            [24] 1336 	mov	dpl,@r0
+      000570 08               [12] 1337 	inc	r0
+      000571 86 83            [24] 1338 	mov	dph,@r0
+      000573 08               [12] 1339 	inc	r0
+      000574 86 F0            [24] 1340 	mov	b,@r0
+      000576 ED               [12] 1341 	mov	a,r5
+      000577 12r00r00         [24] 1342 	lcall	__gptrput
+      00057A A3               [24] 1343 	inc	dptr
+      00057B EE               [12] 1344 	mov	a,r6
+      00057C 12r00r00         [24] 1345 	lcall	__gptrput
+      00057F A3               [24] 1346 	inc	dptr
+      000580 EF               [12] 1347 	mov	a,r7
+      000581 12r00r00         [24] 1348 	lcall	__gptrput
+                           000584  1349 	C$list.c$183$1_0$59 ==.
+                                   1350 ;	src/FreeRTOS/list.c:183: if( pxList->pxIndex == pxItemToRemove )
+      000584 E5*00            [12] 1351 	mov	a,_bp
+      000586 24 0D            [12] 1352 	add	a,#0x0d
+      000588 F8               [12] 1353 	mov	r0,a
+      000589 E5*00            [12] 1354 	mov	a,_bp
+      00058B 24 0A            [12] 1355 	add	a,#0x0a
+      00058D F9               [12] 1356 	mov	r1,a
+      00058E 74 01            [12] 1357 	mov	a,#0x01
+      000590 26               [12] 1358 	add	a,@r0
+      000591 F7               [12] 1359 	mov	@r1,a
+      000592 E4               [12] 1360 	clr	a
+      000593 08               [12] 1361 	inc	r0
+      000594 36               [12] 1362 	addc	a,@r0
+      000595 09               [12] 1363 	inc	r1
+      000596 F7               [12] 1364 	mov	@r1,a
+      000597 08               [12] 1365 	inc	r0
+      000598 09               [12] 1366 	inc	r1
+      000599 E6               [12] 1367 	mov	a,@r0
+      00059A F7               [12] 1368 	mov	@r1,a
+      00059B E5*00            [12] 1369 	mov	a,_bp
+      00059D 24 0A            [12] 1370 	add	a,#0x0a
+      00059F F8               [12] 1371 	mov	r0,a
+      0005A0 86 82            [24] 1372 	mov	dpl,@r0
+      0005A2 08               [12] 1373 	inc	r0
+      0005A3 86 83            [24] 1374 	mov	dph,@r0
+      0005A5 08               [12] 1375 	inc	r0
+      0005A6 86 F0            [24] 1376 	mov	b,@r0
+      0005A8 12r00r00         [24] 1377 	lcall	__gptrget
+      0005AB FD               [12] 1378 	mov	r5,a
+      0005AC A3               [24] 1379 	inc	dptr
+      0005AD 12r00r00         [24] 1380 	lcall	__gptrget
+      0005B0 FE               [12] 1381 	mov	r6,a
+      0005B1 A3               [24] 1382 	inc	dptr
+      0005B2 12r00r00         [24] 1383 	lcall	__gptrget
+      0005B5 FF               [12] 1384 	mov	r7,a
+      0005B6 A8*00            [24] 1385 	mov	r0,_bp
+      0005B8 08               [12] 1386 	inc	r0
+      0005B9 C0 05            [24] 1387 	push	ar5
+      0005BB C0 06            [24] 1388 	push	ar6
+      0005BD C0 07            [24] 1389 	push	ar7
+      0005BF 86 82            [24] 1390 	mov	dpl,@r0
+      0005C1 08               [12] 1391 	inc	r0
+      0005C2 86 83            [24] 1392 	mov	dph,@r0
+      0005C4 08               [12] 1393 	inc	r0
+      0005C5 86 F0            [24] 1394 	mov	b,@r0
+      0005C7 12r00r00         [24] 1395 	lcall	___gptr_cmp
+      0005CA 15 81            [12] 1396 	dec	sp
+      0005CC 15 81            [12] 1397 	dec	sp
+      0005CE 15 81            [12] 1398 	dec	sp
+      0005D0 60 02            [24] 1399 	jz	00110$
+      0005D2 80 36            [24] 1400 	sjmp	00102$
+      0005D4                       1401 00110$:
+                           0005D4  1402 	C$list.c$185$2_0$60 ==.
+                                   1403 ;	src/FreeRTOS/list.c:185: pxList->pxIndex = pxItemToRemove->pxPrevious;
+      0005D4 E5*00            [12] 1404 	mov	a,_bp
+      0005D6 24 07            [12] 1405 	add	a,#0x07
+      0005D8 F8               [12] 1406 	mov	r0,a
+      0005D9 86 82            [24] 1407 	mov	dpl,@r0
+      0005DB 08               [12] 1408 	inc	r0
+      0005DC 86 83            [24] 1409 	mov	dph,@r0
+      0005DE 08               [12] 1410 	inc	r0
+      0005DF 86 F0            [24] 1411 	mov	b,@r0
+      0005E1 12r00r00         [24] 1412 	lcall	__gptrget
+      0005E4 FD               [12] 1413 	mov	r5,a
+      0005E5 A3               [24] 1414 	inc	dptr
+      0005E6 12r00r00         [24] 1415 	lcall	__gptrget
+      0005E9 FE               [12] 1416 	mov	r6,a
+      0005EA A3               [24] 1417 	inc	dptr
+      0005EB 12r00r00         [24] 1418 	lcall	__gptrget
+      0005EE FF               [12] 1419 	mov	r7,a
+      0005EF E5*00            [12] 1420 	mov	a,_bp
+      0005F1 24 0A            [12] 1421 	add	a,#0x0a
+      0005F3 F8               [12] 1422 	mov	r0,a
+      0005F4 86 82            [24] 1423 	mov	dpl,@r0
+      0005F6 08               [12] 1424 	inc	r0
+      0005F7 86 83            [24] 1425 	mov	dph,@r0
+      0005F9 08               [12] 1426 	inc	r0
+      0005FA 86 F0            [24] 1427 	mov	b,@r0
+      0005FC ED               [12] 1428 	mov	a,r5
+      0005FD 12r00r00         [24] 1429 	lcall	__gptrput
+      000600 A3               [24] 1430 	inc	dptr
+      000601 EE               [12] 1431 	mov	a,r6
+      000602 12r00r00         [24] 1432 	lcall	__gptrput
+      000605 A3               [24] 1433 	inc	dptr
+      000606 EF               [12] 1434 	mov	a,r7
+      000607 12r00r00         [24] 1435 	lcall	__gptrput
+      00060A                       1436 00102$:
+                           00060A  1437 	C$list.c$192$1_0$59 ==.
+                                   1438 ;	src/FreeRTOS/list.c:192: pxItemToRemove->pxContainer = NULL;
+      00060A 8A 82            [24] 1439 	mov	dpl,r2
+      00060C 8B 83            [24] 1440 	mov	dph,r3
+      00060E 8C F0            [24] 1441 	mov	b,r4
+      000610 E4               [12] 1442 	clr	a
+      000611 12r00r00         [24] 1443 	lcall	__gptrput
+      000614 A3               [24] 1444 	inc	dptr
+      000615 12r00r00         [24] 1445 	lcall	__gptrput
+      000618 A3               [24] 1446 	inc	dptr
+      000619 12r00r00         [24] 1447 	lcall	__gptrput
+                           00061C  1448 	C$list.c$193$1_0$59 ==.
+                                   1449 ;	src/FreeRTOS/list.c:193: ( pxList->uxNumberOfItems )--;
+      00061C E5*00            [12] 1450 	mov	a,_bp
+      00061E 24 0D            [12] 1451 	add	a,#0x0d
+      000620 F8               [12] 1452 	mov	r0,a
+      000621 86 82            [24] 1453 	mov	dpl,@r0
+      000623 08               [12] 1454 	inc	r0
+      000624 86 83            [24] 1455 	mov	dph,@r0
+      000626 08               [12] 1456 	inc	r0
+      000627 86 F0            [24] 1457 	mov	b,@r0
+      000629 12r00r00         [24] 1458 	lcall	__gptrget
+      00062C FF               [12] 1459 	mov	r7,a
+      00062D 1F               [12] 1460 	dec	r7
+      00062E E5*00            [12] 1461 	mov	a,_bp
+      000630 24 0D            [12] 1462 	add	a,#0x0d
+      000632 F8               [12] 1463 	mov	r0,a
+      000633 86 82            [24] 1464 	mov	dpl,@r0
+      000635 08               [12] 1465 	inc	r0
+      000636 86 83            [24] 1466 	mov	dph,@r0
+      000638 08               [12] 1467 	inc	r0
+      000639 86 F0            [24] 1468 	mov	b,@r0
+      00063B EF               [12] 1469 	mov	a,r7
+      00063C 12r00r00         [24] 1470 	lcall	__gptrput
+                           00063F  1471 	C$list.c$195$1_0$59 ==.
+                                   1472 ;	src/FreeRTOS/list.c:195: return pxList->uxNumberOfItems;
+      00063F E5*00            [12] 1473 	mov	a,_bp
+      000641 24 0D            [12] 1474 	add	a,#0x0d
+      000643 F8               [12] 1475 	mov	r0,a
+      000644 86 82            [24] 1476 	mov	dpl,@r0
+      000646 08               [12] 1477 	inc	r0
+      000647 86 83            [24] 1478 	mov	dph,@r0
+      000649 08               [12] 1479 	inc	r0
+      00064A 86 F0            [24] 1480 	mov	b,@r0
+      00064C 12r00r00         [24] 1481 	lcall	__gptrget
+      00064F F5 82            [12] 1482 	mov	dpl,a
+                           000651  1483 	C$list.c$196$1_0$59 ==.
+                                   1484 ;	src/FreeRTOS/list.c:196: }
+      000651 85*00 81         [24] 1485 	mov	sp,_bp
+      000654 D0*00            [24] 1486 	pop	_bp
+                           000656  1487 	C$list.c$196$1_0$59 ==.
+                           000656  1488 	XG$uxListRemove$0$0 ==.
+      000656 22               [24] 1489 	ret
+                                   1490 	.area CSEG    (CODE)
+                                   1491 	.area CONST   (CODE)
+                                   1492 	.area CABS    (ABS,CODE)
